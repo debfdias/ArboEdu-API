@@ -1,0 +1,9 @@
+# Dependencies for project
+node_modules/
+
+# Environment variables
+.env
+
+# IDE caches
+.idea/
+.vscode/
