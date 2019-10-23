@@ -13,6 +13,14 @@ module.exports = (sequelize, DataTypes) => {
         len: [8, 12],
       },
     },
+    createdAt: {
+         field: 'created_at',
+         type: DataTypes.DATE,
+     },
+     updatedAt: {
+         field: 'updated_at',
+         type: DataTypes.DATE,
+     },
   });
 
   return User;

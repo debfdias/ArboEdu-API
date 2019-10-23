@@ -1,0 +1,119 @@
+* {
+    font-family: "Consolas", sans-serif;
+}
+
+.nav__item {
+    display: inline-block;
+}
+
+.nav__item a {
+    text-decoration: none;
+    color: #333333;
+    padding: 5px;
+}
+
+.nav__item a:hover {
+    cursor: pointer;
+    color: tomato;
+}
+
+.nav__item .active {
+    color: tomato;
+    border-bottom: 2px dashed #333333;
+}
+
+h1 {
+    font-weight: lighter;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-control {
+    margin: 5px 0;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control label {
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+.form-control input {
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+.form-control textarea {
+    width: 100%;
+}
+
+form button {
+    width: 135px;
+    height: 2rem;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    background-color: tomato;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: rgb(221, 85, 61);
+}
+.grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.product-item {
+    margin: 10px;
+    width: 300px;
+    height: 360px;
+    border: 1px solid #eee;
+    box-shadow: 0px 2px 5px #ccc;
+}
+.product__description {
+    border-top: 1px solid #eee;
+    font-style: italic;
+}
+.card__content p {
+    padding: 10px;
+}
+
+.adm-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    background-color: white;
+    color: #408b40;
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.adm-btn:hover,
+.adm-btn:active {
+ color: white;
+ background-color: #408b40;    
+}
+.adm-btn-form {
+    width: 100%;
+}

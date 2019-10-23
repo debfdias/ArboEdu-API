@@ -5,10 +5,15 @@ class UserController {
     try {
       const users = await User.findAll();
 
-      return res.json(users);
+      //return res.json(users);
+      return res.render('users', { data: users })
     } catch (err) {
       return res.status(400).json({ error: err.message });
     }
+  }
+
+  async get(req, res) {
+    return res.render('add_user')
   }
 
   async show(req, res) {
