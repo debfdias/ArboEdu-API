@@ -13,6 +13,12 @@ module.exports = (sequelize, DataTypes) => {
         len: [8, 12],
       },
     },
+    cpf: {
+      type: DataTypes.STRING
+    },
+    birthDay:{
+      type: DataTypes.DATE
+    },
     createdAt: {
          field: 'created_at',
          type: DataTypes.DATE,
