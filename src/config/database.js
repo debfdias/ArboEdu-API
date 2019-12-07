@@ -1,9 +1,10 @@
 module.exports = {
-  username: 'root',
+  username: '',
   password: '',
   database: 'ArboEdu',
+  storage: './ArboEdu.db',
   host: 'localhost',
-  dialect: 'mysql',
+  dialect: 'sqlite',
   define: {
     timestamps: true
   }

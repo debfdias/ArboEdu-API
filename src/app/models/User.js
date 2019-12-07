@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     cpf: {
       type: DataTypes.STRING
     },
-    birthDay:{
+    birthday:{
       type: DataTypes.DATE
     },
     createdAt: {
