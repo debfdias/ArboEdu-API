@@ -1,3 +1,4 @@
+var bcrypt = require('bcryptjs');
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     name: DataTypes.STRING,
@@ -32,8 +33,19 @@ module.exports = (sequelize, DataTypes) => {
      updatedAt: {
          field: 'updated_at',
          type: DataTypes.DATE,
-     },
+     }  
+  }, {
+    hooks: {
+      beforeCreate: async function(user) {
+        const salt = await bcrypt.genSalt(10); //whatever number you want
+        user.password = await bcrypt.hash(user.password, salt);
+      }
+    }
   });
+
+  User.prototype.validPassword = async function(password) {
+    return await bcrypt.compare(password, this.password);
+  }
 
   return User;
 };
