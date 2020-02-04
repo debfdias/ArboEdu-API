@@ -82,9 +82,10 @@ form button:hover {
 .product-item {
     margin: 10px;
     width: 300px;
-    height: 360px;
+    height: 400px;
     border: 1px solid #eee;
     box-shadow: 0px 2px 5px #ccc;
+    background: #F0F9F7;
 }
 .product__description {
     border-top: 1px solid #eee;

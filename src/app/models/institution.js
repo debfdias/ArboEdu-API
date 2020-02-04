@@ -11,6 +11,18 @@ module.exports = (sequelize, DataTypes) => {
     address: {
       type: DataTypes.STRING
     },
+    socialReason: {
+      type: DataTypes.STRING
+    },
+    token: {
+      type: DataTypes.STRING
+    },
+    cnpj: {
+      type: DataTypes.STRING
+    },
+    sanitaryDistrict: {
+      type: DataTypes.INTEGER
+    },
   }, {});
   Institution.associate = function(models) {
     // associations can be defined here

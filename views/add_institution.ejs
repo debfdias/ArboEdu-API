@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
     <nav class="nav">
         <ul class="nav__item-list">
             <li class="nav__item">
@@ -16,6 +18,7 @@
     </nav>
 
     <main>
+
         <form action="/institution" method="POST">
             <div class="form-control">
                 <label for="name">Nome escola</label>
@@ -25,14 +28,65 @@
                 <label for="phone">Telefone</label>
                 <input type="number" name="phone" id="phone">
             </div>
+            <!--
+            <div class="form-control">
+                <label for="cep">CEP</label>
+                <input id="cep" type="text" required/>
+            </div>
+
+            <div class="form-control">
+                <label for="logradouro">Logradouro</label>
+                <input id="logradouro" type="text" required/>
+            </div>
+
+            <div class="form-control">
+                <label for="numero">Número</label>
+                <input id="numero" type="text" />
+            </div>
+            <div class="form-control">
+                <label for="bairro">Bairro</label>
+                <input id="bairro" type="text" required/>
+            </div>-->
+
             <div class="form-control">
                 <label for="name">Endereço</label>
                 <input type="text" name="address" id="address" >
+            </div>
+            <div class="form-control">
+                <label for="name">Razão social</label>
+                <input type="text" name="socialReason" id="socialReason" >
+            </div>
+            <div class="form-control">
+                <label for="name">CNPJ</label>
+                <input type="string" name="cnpj" id="cnpj" >
+            </div>
+            <div class="form-control">
+                <label for="name">Token</label>
+                <input type="text" name="token" id="token" >
+            </div>
+            <div class="form-control">
+                <label for="name">Distrito sanitário</label>
+                <input type="number" name="sanitaryDistrict" id="sanitaryDistrict" >
             </div>
             
             <button type="submit">Cadastrar</button> 
         </form>
     </main>
+
+    <script type="text/javascript">
+            $("#cep").focusout(function(){
+                $.ajax({
+                    url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+                    dataType: 'json',
+                    success: function(resposta){
+                        $("#logradouro").val(resposta.logradouro);
+                        $("#bairro").val(resposta.bairro);
+                        $("#cidade").val(resposta.localidade);
+                        $("#numero").focus();
+                    }
+                });
+            });
+    </script>
 
 </body>
 </html>
