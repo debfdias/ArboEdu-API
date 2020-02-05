@@ -28,6 +28,14 @@ module.exports = {
       allowNull: false,
       type: Sequelize.BOOLEAN,
     },
+    UserId: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {         // User hasMany WorkingDays n:n
+        model: 'Users',
+        key: 'id'
+      }
+    },
     created_at: {
       allowNull: false,
       type: Sequelize.DATE,

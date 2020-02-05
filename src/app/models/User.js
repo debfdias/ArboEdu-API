@@ -39,6 +39,26 @@ module.exports = (sequelize, DataTypes) => {
       beforeCreate: async function(user) {
         const salt = await bcrypt.genSalt(10); //whatever number you want
         user.password = await bcrypt.hash(user.password, salt);
+      },
+      afterCreate: async function(user){
+        var Student = sequelize.models.Student;
+        if (user.role=="aluno"){
+          Student.create({
+            address_city: "Recife",
+            address_neighborhood: "Várzea",
+            address_zip: "50740040",
+            address_number: "645",
+            authorized: 1,
+            UserId: user.id
+          })
+          .then((newStudent) => {
+            // The get() function allows you to recover only the DataValues of the object
+            console.log(newStudent.get())
+          })
+          .catch((err) => {
+            console.log("Error while Student creation : ", err)
+          })
+        }
       }
     }
   });
@@ -46,6 +66,9 @@ module.exports = (sequelize, DataTypes) => {
   User.prototype.validPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
   }
+  User.associate = function(models) {
+    User.hasMany(models.Student, {as: 'Students'})
+  };
 
   return User;
 };

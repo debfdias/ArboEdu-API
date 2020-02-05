@@ -1,10 +1,9 @@
 const { User } = require('../models');
-
+const { Student } = require('../models');
 class UserController {
   async index(req, res) {
     try {
       const users = await User.findAll();
-
       //return res.json(users);
       return res.render('users', { data: users })
     } catch (err) {

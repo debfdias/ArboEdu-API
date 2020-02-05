@@ -17,5 +17,8 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
     }
   });
+  Student.associate = function(models) {
+    Student.belongsTo(models.User, {foreignKey: 'UserId', as: 'User'})
+  };
   return Student;
 };
