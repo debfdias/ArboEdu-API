@@ -42,6 +42,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       afterCreate: async function(user){
         var Student = sequelize.models.Student;
+        var Researcher = sequelize.models.Researcher;
         if (user.role=="aluno"){
           Student.create({
             address_city: "Recife",
@@ -52,11 +53,22 @@ module.exports = (sequelize, DataTypes) => {
             UserId: user.id
           })
           .then((newStudent) => {
-            // The get() function allows you to recover only the DataValues of the object
-            console.log(newStudent.get())
+            /* console.log(newStudent.get()); */
           })
           .catch((err) => {
             console.log("Error while Student creation : ", err)
+          })
+        }else if(user.role=="pesquisador"){
+          Researcher.create({
+            institution: "LIKA",
+            UserId: user.id
+          })
+          .then((newResearcher) => {
+            // The get() function allows you to recover only the DataValues of the object
+            console.log(newResearcher.get())
+          })
+          .catch((err) => {
+            console.log("Error while Researcher creation : ", err)
           })
         }
       }
@@ -68,6 +80,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.associate = function(models) {
     User.hasMany(models.Student, {as: 'Students'})
+  };
+  User.associate = function(models) {
+    User.hasMany(models.Researcher, {as: 'Researchers'})
   };
 
   return User;
