@@ -8,7 +8,22 @@ module.exports = (sequelize, DataTypes) => {
         len: [8, 12],
       },
     },
+    zip: {
+      type: DataTypes.STRING
+    },
     address: {
+      type: DataTypes.STRING
+    },
+    number: {
+      type: DataTypes.STRING
+    },
+    neighborhood: {
+      type: DataTypes.STRING
+    },
+    city: {
+      type: DataTypes.STRING
+    },
+    state: {
       type: DataTypes.STRING
     },
     socialReason: {

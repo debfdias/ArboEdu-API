@@ -28,30 +28,34 @@
                 <label for="phone">Telefone</label>
                 <input type="number" name="phone" id="phone">
             </div>
-            <!--
+            
+
             <div class="form-control">
                 <label for="cep">CEP</label>
-                <input id="cep" type="text" required/>
+                <input id="zip" name="zip" type="text" required/>
             </div>
-
-            <div class="form-control">
-                <label for="logradouro">Logradouro</label>
-                <input id="logradouro" type="text" required/>
-            </div>
-
-            <div class="form-control">
-                <label for="numero">Número</label>
-                <input id="numero" type="text" />
-            </div>
-            <div class="form-control">
-                <label for="bairro">Bairro</label>
-                <input id="bairro" type="text" required/>
-            </div>-->
-
             <div class="form-control">
                 <label for="name">Endereço</label>
                 <input type="text" name="address" id="address" >
             </div>
+            <div class="form-control">
+                <label for="numero">Número</label>
+                <input id="number" name="number" type="text" />
+            </div>
+            <div class="form-control">
+                <label for="bairro">Bairro</label>
+                <input id="neighborhood" name="neighborhood" type="text" required/>
+            </div>
+            <div class="form-control">
+                <label for="cidade">Cidade</label>
+                <input id="city" name="city" type="text" required/>
+            </div>
+            <div class="form-control">
+                <label for="uf">UF</label>
+                <input id="state" name="state" type="text" required/>
+            </div>
+
+            
             <div class="form-control">
                 <label for="name">Razão social</label>
                 <input type="text" name="socialReason" id="socialReason" >
@@ -74,15 +78,16 @@
     </main>
 
     <script type="text/javascript">
-            $("#cep").focusout(function(){
+            $("#zip").focusout(function(){
                 $.ajax({
                     url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
                     dataType: 'json',
                     success: function(resposta){
-                        $("#logradouro").val(resposta.logradouro);
-                        $("#bairro").val(resposta.bairro);
-                        $("#cidade").val(resposta.localidade);
-                        $("#numero").focus();
+                        $("#address").val(resposta.logradouro);
+                        $("#neighborhood").val(resposta.bairro);
+                        $("#city").val(resposta.localidade);
+                        $("#state").val(resposta.uf);
+                        $("#number").focus();
                     }
                 });
             });
