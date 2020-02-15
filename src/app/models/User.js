@@ -47,6 +47,7 @@ module.exports = (sequelize, DataTypes) => {
         var Professor = sequelize.models.Professor;
         var Administrator = sequelize.models.Administrator;
         var Jovem_ACE = sequelize.models.Jovem_ACE;
+        var Health_Worker = sequelize.models.Health_Worker;
         if (user.role=="aluno"){
           Student.create({
             address_city: "Recife",
@@ -118,6 +119,18 @@ module.exports = (sequelize, DataTypes) => {
           })
           .catch((err) => {
             console.log("Error while Jovem_ACE creation : ", err)
+          })
+        }else if(user.role=="profissional_saude"){
+          Health_Worker.create({
+            institution: "UPA da linha do tiro",
+            UserId: user.id
+          })
+          .then((newHealth_Worker) => {
+            // The get() function allows you to recover only the DataValues of the object
+            console.log(newHealth_Worker.get())
+          })
+          .catch((err) => {
+            console.log("Error while Health_Worker creation : ", err)
           })
         }
       }
