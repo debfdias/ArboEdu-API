@@ -43,6 +43,7 @@ module.exports = (sequelize, DataTypes) => {
       afterCreate: async function(user){
         var Student = sequelize.models.Student;
         var Researcher = sequelize.models.Researcher;
+        var Principal = sequelize.models.Principal;
         if (user.role=="aluno"){
           Student.create({
             address_city: "Recife",
@@ -70,6 +71,17 @@ module.exports = (sequelize, DataTypes) => {
           .catch((err) => {
             console.log("Error while Researcher creation : ", err)
           })
+        }else if(user.role=="diretor"){
+          Principal.create({
+            UserId: user.id
+          })
+          .then((newPrincipal) => {
+            // The get() function allows you to recover only the DataValues of the object
+            console.log(newPrincipal.get())
+          })
+          .catch((err) => {
+            console.log("Error while Principal creation : ", err)
+          })
         }
       }
     }
@@ -84,6 +96,5 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function(models) {
     User.hasMany(models.Researcher, {as: 'Researchers'})
   };
-
   return User;
 };
