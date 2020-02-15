@@ -45,6 +45,7 @@ module.exports = (sequelize, DataTypes) => {
         var Researcher = sequelize.models.Researcher;
         var Principal = sequelize.models.Principal;
         var Professor = sequelize.models.Professor;
+        var Administrator = sequelize.models.Administrator;
         if (user.role=="aluno"){
           Student.create({
             address_city: "Recife",
@@ -93,6 +94,17 @@ module.exports = (sequelize, DataTypes) => {
           })
           .catch((err) => {
             console.log("Error while Professor creation : ", err)
+          })
+        }else if(user.role=="administrador"){
+          Administrator.create({
+            UserId: user.id
+          })
+          .then((newAdministrator) => {
+            // The get() function allows you to recover only the DataValues of the object
+            console.log(newAdministrator.get())
+          })
+          .catch((err) => {
+            console.log("Error while Administrator creation : ", err)
           })
         }
       }
