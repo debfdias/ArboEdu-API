@@ -1,6 +1,9 @@
 const { Router } = require('express');
 const UserController = require('./app/controllers/UserController');
 const InstitutionController = require('./app/controllers/InstitutionController');
+const ClassesInstitutionController = require('./app/controllers/ClassesInstitutionController');
+
+
 
 const routes = Router();
 
@@ -17,6 +20,13 @@ routes.post('/institution', InstitutionController.store);
 routes.get('/institution/:id', InstitutionController.show);
 routes.put('/institution/:id', InstitutionController.update);
 routes.delete('/institution/:id', InstitutionController.destroy);
+
+routes.get('/:idInst/classesInstitution', ClassesInstitutionController.index);
+routes.get('/:idInst/classInstitution', ClassesInstitutionController.get);
+routes.post('/:idInst/classInstitution', ClassesInstitutionController.store);
+routes.get('/classInstitution/:id', ClassesInstitutionController.show);
+routes.put('/classInstitution/:id', ClassesInstitutionController.update);
+routes.delete('/classInstitution/:id', ClassesInstitutionController.destroy);
 
 
 module.exports = routes;

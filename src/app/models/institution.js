@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   Institution.associate = function(models) {
-    // associations can be defined here
+    Institution.hasMany(models.Classes_Institution, {as: 'classes_institution'})
   };
   return Institution;
 };
