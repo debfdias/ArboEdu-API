@@ -41,7 +41,7 @@ class ClassesInstitutionController {
   }
 
   async store(req, res) {
-    const instId = req.params.idInst
+    const instId = 1
 
     try {
       console.log(instId);
