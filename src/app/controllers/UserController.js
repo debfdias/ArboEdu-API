@@ -50,9 +50,9 @@ class UserController {
   async destroy(req, res) {
     try {
       const user = await User.findByPk(req.params.id);
-
+      console.log("FOUND USER: " + req.params.id);
       await user.destroy();
-
+      console.log("TRYING TO DESTROY");
       return res.json();
     } catch (err) {
       return res.status(400).json({ error: err.message });

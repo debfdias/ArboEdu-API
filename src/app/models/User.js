@@ -153,11 +153,29 @@ module.exports = (sequelize, DataTypes) => {
   User.prototype.validPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
   }
-  User.associate = function(models) {
-    User.hasMany(models.Student, {as: 'Students'})
+  /* User.associate = function(models) {
+    User.hasMany(models.Student, {onDelete: 'CASCADE', hooks: true, as: 'Students'})
   };
   User.associate = function(models) {
-    User.hasMany(models.Researcher, {as: 'Researchers'})
+    User.hasMany(models.Researcher, {onDelete: 'CASCADE', hooks: true, as: 'Researchers'})
   };
+  User.associate = function(models) {
+    User.hasMany(models.Principal, {onDelete: 'CASCADE', hooks: true, as: "Principals"})
+  };
+  User.associate = function(models) {
+    User.hasMany(models.Jovem_ACE, {onDelete: 'CASCADE', hooks: true, as: "Jovem_ACEs"})
+  };
+  User.associate = function(models) {
+    User.hasMany(models.Professor, {onDelete: 'CASCADE', hooks: true, as: "Professors"})
+  };
+  User.associate = function(models) {
+    User.hasMany(models.Administrator, {onDelete: 'CASCADE', hooks: true, as: "Administrators"})
+  };
+  User.associate = function(models) {
+    User.hasMany(models.Health_Worker, {onDelete: 'CASCADE', hooks: true, as: "Health_Workers"})
+  };
+  User.associate = function(models) {
+    User.hasMany(models.Education_Worker, {onDelete: 'CASCADE', hooks: true, as: "Education_Workers"})
+  }; */
   return User;
 };
