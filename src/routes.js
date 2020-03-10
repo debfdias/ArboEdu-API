@@ -3,7 +3,7 @@ const UserController = require('./app/controllers/UserController');
 const InstitutionController = require('./app/controllers/InstitutionController');
 const ClassesInstitutionController = require('./app/controllers/ClassesInstitutionController');
 const LectureController = require('./app/controllers/LectureController');
-
+const AceInstitutionController = require('./app/controllers/AceInstitutionController');
 
 
 const routes = Router();
@@ -33,6 +33,11 @@ routes.get('/lectures', LectureController.list);
 routes.post('/lecture', LectureController.store);
 routes.get('/lecture/:id', LectureController.show);
 routes.delete('/lecture/:id', LectureController.destroy);
+
+routes.get('/aceInstitutions', AceInstitutionController.list);
+routes.post('/aceInstitution', AceInstitutionController.store);
+routes.get('/aceInstitution/:id', AceInstitutionController.show);
+routes.delete('/aceInstitution/:id', AceInstitutionController.destroy);
 
 
 module.exports = routes;

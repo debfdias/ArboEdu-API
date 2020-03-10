@@ -6,6 +6,7 @@ module.exports = {
   host: 'localhost',
   dialect: 'sqlite',
   define: {
-    timestamps: true
+    timestamps: true,
+    quoteIdentifiers: true
   }
 }
