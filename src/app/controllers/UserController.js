@@ -1,5 +1,4 @@
 const { User } = require('../models');
-const { Student } = require('../models');
 class UserController {
   async index(req, res) {
     try {

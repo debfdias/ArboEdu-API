@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
     role:{
       type: DataTypes.STRING
     },
+    extra:{
+      type: DataTypes.JSON
+    },
     createdAt: {
          field: 'created_at',
          type: DataTypes.DATE,
@@ -50,8 +53,9 @@ module.exports = (sequelize, DataTypes) => {
         var Health_Worker = sequelize.models.Health_Worker;
         var Education_Worker = sequelize.models.Education_Worker;
         if (user.role=="aluno"){
+          console.log(user.extra.address_city);
           Student.create({
-            address_city: "Recife",
+            address_city: user.extra.address_city,
             address_neighborhood: "Várzea",
             address_zip: "50740040",
             address_number: "645",

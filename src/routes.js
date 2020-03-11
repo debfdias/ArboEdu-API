@@ -4,6 +4,7 @@ const InstitutionController = require('./app/controllers/InstitutionController')
 const ClassesInstitutionController = require('./app/controllers/ClassesInstitutionController');
 const LectureController = require('./app/controllers/LectureController');
 const AceInstitutionController = require('./app/controllers/AceInstitutionController');
+const StudentController = require('./app/controllers/StudentController');
 
 
 const routes = Router();
@@ -39,5 +40,7 @@ routes.post('/aceInstitution', AceInstitutionController.store);
 routes.get('/aceInstitution/:id', AceInstitutionController.show);
 routes.delete('/aceInstitution/:id', AceInstitutionController.destroy);
 
+routes.get('/alunos', StudentController.list);
+routes.post('/alunos', StudentController.store);
 
 module.exports = routes;
