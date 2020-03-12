@@ -70,7 +70,7 @@ module.exports = (sequelize, DataTypes) => {
           })
         }else if(user.role=="pesquisador"){
           Researcher.create({
-            institution: "LIKA",
+            institution: user.extra.institution,
             UserId: user.id
           })
           .then((newResearcher) => {
