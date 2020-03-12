@@ -42,5 +42,7 @@ routes.delete('/aceInstitution/:id', AceInstitutionController.destroy);
 
 routes.get('/alunos', StudentController.list);
 routes.post('/alunos', StudentController.store);
+routes.put('/alunos/:id', StudentController.update);
+routes.delete('/alunos/:id', StudentController.destroy);
 
 module.exports = routes;

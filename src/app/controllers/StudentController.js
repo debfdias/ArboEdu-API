@@ -13,8 +13,8 @@ class StudentController {
   async store(req, res) {
     try {
       console.log(req.body);
-      const Student = await Student.create(req.body);
-      return res.json(Student);
+      const student = await Student.create(req.body);
+      return res.json(student);
     } catch (err) {
       return res.status(400).json({ error: err.message });
     }
@@ -22,11 +22,11 @@ class StudentController {
 
   async update(req, res) {
     try {
-      const Student = await Student.findByPk(req.params.id);
+      const student = await Student.findByPk(req.params.id);
 
-      await Student.update(req.body);
+      await student.update(req.body);
 
-      return res.json({ Student });
+      return res.json({ student });
     } catch (err) {
       return res.status(400).json({ error: err.message });
     }
@@ -34,9 +34,9 @@ class StudentController {
 
   async destroy(req, res) {
     try {
-      const Student = await Student.findByPk(req.params.id);
+      const student = await Student.findByPk(req.params.id);
       console.log("FOUND Student: " + req.params.id);
-      await Student.destroy();
+      await student.destroy();
       console.log("TRYING TO DESTROY");
       return res.json();
     } catch (err) {
