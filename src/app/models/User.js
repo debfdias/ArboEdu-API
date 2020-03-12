@@ -56,10 +56,10 @@ module.exports = (sequelize, DataTypes) => {
           console.log(user.extra.address_city);
           Student.create({
             address_city: user.extra.address_city,
-            address_neighborhood: "Várzea",
-            address_zip: "50740040",
-            address_number: "645",
-            authorized: 1,
+            address_neighborhood: user.extra.address_neighborhood,
+            address_zip: user.extra.address_zip,
+            address_number: user.extra.address_number,
+            authorized: user.extra.authorized,
             UserId: user.id
           })
           .then((newStudent) => {
