@@ -1,0 +1,937 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Arboedu - Bem Vindo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Muli">
+    <link rel="stylesheet" type="text/css" href="vendor/styles/style.css">
+
+    <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" type="text/css" href="device-mockups/device-mockups.min.css">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/new-age.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+
+    <div class="topnav" id="topnavHome">
+        <a href="#home">Home</a>
+        <a href="#sobre-nos">Objetivos
+            <a href="#projeto">Equipe</a>
+            <a href="#pesquisas">Pesquisas</a>
+            <a href="#atividades">Atividades</a>
+            <a href="#contato">Contato</a>
+            <a href="#login" id="btn-entrar">Entrar</a>
+            <a href="javascript:void(0);" class="icon" onclick="topnavEnable()">
+                <i class="fa fa-bars"></i>
+            </a>
+    </div>
+
+    <div class="container">
+        <div >
+            <div id="wellcome-box">
+                <div class="title-home">
+                    Bem-Vindo!
+                </div>
+                <div class="text-home">
+                    <p>Este é um estudo piloto que faz parte de uma pesquisa sobre o uso de dispositivos moveis para
+                        execução de ações educativas visando à mudança de cinpotamento da população em relação à
+                        prevenção de arboviroses, como a Dengue, Zika e
+                        Chikungunya
+                    </p>
+                </div>
+            </div>
+
+            <div id='user-login'>
+                <div class="title-home">
+                    Efetue seu login:
+                </div>
+
+                <form>
+                    <div class="form-group">
+                        <input type="email" class="form-control form-login" id="login" placeholder="Login"
+                            maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control form-login" id="senha" placeholder="Senha"
+                            maxlength="16">
+                    </div>
+                </form>
+                <button id="btn-login" type="button" class="btn col-12 btn-entrar font-weight-bold"
+                    style="border-radius: 30px">ENTRAR</button>
+                <button type="button" class="col-12 btn-senha">Esqueci minha senha</button>
+
+                <p class="text-center">Não possui conta: <a href="" id="cadastrar-se"
+                        class="font-weight-bold">Cadastre-se</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modais Cadastro -->
+
+    <div class="container-fluid">
+        <!-- Modal Cadastro -->
+        <div class="modal fade" id="modal-cadastro" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" id="modal-content">
+                <!-- Modal content-->
+                <div class="modal-content"
+                    style="padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                    <div class="modal-header" style="border: 0px">
+                        <h2 class="font-weight-light">Cadastro</h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" style="border: 0px">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="Estado">Perfil</label>
+                                <select class="form-control form-control-sm" id="modal-cadastro-perfil">
+                                    <option></option>
+                                    <option>Diretor/Professor</option>
+                                    <option>Jovem ACE</option>
+                                    <option>Administrador</option>
+                                    <option>Profissional de Saúde</option>
+                                    <option>Profissional da Educação</option>
+                                    <option>Pesquisadores e Pós-graduandos</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer" style="padding-top:90px; background-color: whitesmoke;border: 0px">
+                        <button type="button" id="modal-cadastro-avancar" class="btn-modal">
+                            Avançar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal Cadastro do Estudante-->
+        <div class="modal fade" id="modal-cadastro-estudante" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content"
+                    style="padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                    <div class="modal-header" style="border: 0px">
+                        <h2 class="font-weight-light">Cadastro<span class="cadastro-span-perfil"> Jovem-ACE</span></h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body scrollbar scrollbar-default" style="border: 0px">
+                        <div style="overflow-y: 400px">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-10 input-group-sm mb-3">
+                                        <label for="nome-completo-estudante">Nome Completo</label>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="nome-completo-estudante" aria-label="Small"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                    <div class="form-group col-7 input-group-sm mb-3">
+                                        <label for="endereco-estudante">Endereço</label>
+                                        <input type="text" class="form-control form-control-sm" id="endereco-estudante">
+                                    </div>
+                                    <div class="form-group col-3 input-group-sm mb-3">
+                                        <label for="cep-estudante">CEP</label>
+                                        <input type="text" class="form-control form-control-sm" id="cep-estudante"
+                                            placeholder="00.000-000" onkeypress="$(this).mask('00.000-000')"
+                                            style="text-align: center" aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-5 input-group-sm mb-3">
+                                        <label for="cidade-estudante">Cidade</label>
+                                        <input type="text" class="form-control form-control-sm" id="cidade-estudante"
+                                            aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-5 input-group-sm mb-3">
+                                        <label for="bairro-estudante">Bairro</label>
+                                        <input type="text" class="form-control form-control-sm" id="bairro-estudante"
+                                            aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-3 input-group-sm mb-3">
+                                        <label for="nascimento-estudante">Data de Nascimento</label>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="nascimento-estudante" placeholder="DD/MM/AAAA"
+                                            onkeypress="$(this).mask('00/00/0000')" style="text-align: center"
+                                            aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-3 input-group-sm mb-3">
+                                        <label for="cpf-estudante">CPF</label>
+                                        <input type="text" class="form-control form-control-sm" id="cpf-estudante"
+                                            placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');"
+                                            style="text-align: center" aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-4 input-group-sm mb-3">
+                                        <label for="telefone-estudante">Telefone</label>
+                                        <input type="text" class="form-control form-control-sm" id="telefone-estudante"
+                                            placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')"
+                                            style="text-align: center" aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-10 input-group-sm mb-3">
+                                        <label for="escola-estudante">Instituição de Ensino</label>
+                                        <input type="text" class="form-control form-control-sm" id="escola-estudante"
+                                            aria-label="Small">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: whitesmoke; border: 0px">
+                        <button type="button" id="modal-cadastro-estudante-avancar" class="btn-modal">
+                            Avançar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Cadastro da Diretor/Professor-->
+        <div class="modal fade" id="modal-cadastro-professor" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content"
+                    style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                    <div class="modal-header" style="border: 0px">
+                        <h2 class="font-weight-light">Cadastro <span
+                                class="cadastro-span-perfil">Diretor/Professor</span></h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body scrollbar scrollbar-default" style="border: 0px">
+                        <div style="overflow-y: 400px">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-10 input-group-sm mb-3">
+                                        <label for="nome-completo-professor">Nome Completo</label>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="nome-completo-professor" aria-label="Small"
+                                            aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+
+                                    <div class="col-md-10 input-group-sm mb-3">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <label for="Estado">Escola</label>
+                                                <select class="form-control form-control-sm"
+                                                    id="modal-cadastro-perfil2">
+                                                    <option selected disabled hidden>Selecione a sua escola</option>
+                                                    <!-- Aqui virão as escolas cadastradas na API -->
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="form-group col-7 input-group-sm mb-3">
+                                        <label for="endereco-professor">Endereço</label>
+                                        <input type="text" class="form-control form-control-sm" id="endereco-professor">
+                                    </div>
+                                    <div class="form-group col-3 input-group-sm mb-3">
+                                        <label for="cep-professor">CEP</label>
+                                        <input type="text" class="form-control form-control-sm" id="cep-professor"
+                                            placeholder="00.000-000" onkeypress="$(this).mask('00.000-000')"
+                                            style="text-align: center" aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-5 input-group-sm mb-3">
+                                        <label for="cidade-professor">Cidade</label>
+                                        <input type="text" class="form-control form-control-sm" id="cidade-professor"
+                                            aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-5 input-group-sm mb-3">
+                                        <label for="bairro-professor">Bairro</label>
+                                        <input type="text" class="form-control form-control-sm" id="bairro-professor"
+                                            aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-3 input-group-sm mb-3">
+                                        <label for="nasciminto-professor">Data de Nascimento</label>
+                                        <input type="text" class="form-control form-control-sm"
+                                            id="nascimento-professor" placeholder="DD/MM/AAAA"
+                                            onkeypress="$(this).mask('00/00/0000')" style="text-align: center"
+                                            aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-3 input-group-sm mb-3">
+                                        <label for="cpf-professor">CPF</label>
+                                        <input type="text" class="form-control form-control-sm" id="cpf-professor"
+                                            placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');"
+                                            style="text-align: center" aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-4 input-group-sm mb-3">
+                                        <label for="telefone-professor">Telefone</label>
+                                        <input type="text" class="form-control form-control-sm" id="telefone-professor"
+                                            placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')"
+                                            style="text-align: center" aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-5 input-group-sm mb-3">
+                                        <label for="email-professor">E-mail</label>
+                                        <input type="email" class="form-control form-control-sm" id="email-professor"
+                                            placeholder="email@exemplo.com" style="text-align: center"
+                                            aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-5 input-group-sm mb-3">
+                                        <label for="senha-professor">Senha</label>
+                                        <input type="password" class="form-control form-control-sm" id="senha-professor"
+                                            style="text-align: center" aria-label="Small">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                        <button type="button" id="modal-cadastro-professor-avancar" class="btn-modal">
+                            Avançar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Cadastro Administrador-->
+        <div class="modal fade" id="modal-cadastro-administrador" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content"
+                    style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                    <div class="modal-header" style="border: 0px">
+                        <h2 class="font-weight-light">Cadastro <span class="cadastro-span-perfil">Administrador</span>
+                        </h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body" style="border: 0px">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-10 input-group-sm mb-3">
+                                    <label for="nome-completo-adm">Nome Completo</label>
+                                    <input type="text" class="form-control form-control-sm" id="nome-completo-adm"
+                                        aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="form-group col-md-3 input-group-sm mb-3">
+                                    <label for="nascimento-adm">Data de Nascimento</label>
+                                    <input type="text" class="form-control form-control-sm" id="nascimento-adm"
+                                        placeholder="DD/MM/AAAA" onkeypress="$(this).mask('00/00/0000')"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-3 input-group-sm mb-3">
+                                    <label for="cpf-adm">CPF</label>
+                                    <input type="text" class="form-control form-control-sm" id="cpf-adm"
+                                        placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-4 input-group-sm mb-3">
+                                    <label for="telefone-adm">Telefone</label>
+                                    <input type="text" class="form-control form-control-sm" id="telefone-adm"
+                                        placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-5 input-group-sm mb-3">
+                                    <label for="email-adm">E-mail</label>
+                                    <input type="email" class="form-control form-control-sm" id="email-adm"
+                                        placeholder="email@exemplo.com" style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-5 input-group-sm mb-3">
+                                    <label for="senha-adm">Senha</label>
+                                    <input type="password" class="form-control form-control-sm" id="senha-adm"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                        <button type="button" id="modal-cadastro-administrador-avancar" class="btn-modal">
+                            Finalizar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Cadastro Profisional de Saúde-->
+        <div class="modal fade" id="modal-cadastro-saude" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content"
+                    style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                    <div class="modal-header" style="border: 0px">
+                        <h2 class="font-weight-light">Cadastro <span class="cadastro-span-perfil">Profissional de
+                                Saúde</span></h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body" style="border: 0px">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-10 input-group-sm mb-3">
+                                    <label for="nome-completo-saude">Nome Completo</label>
+                                    <input type="text" class="form-control form-control-sm" id="nome-completo-saude"
+                                        aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="form-group col-md-3 input-group-sm mb-3">
+                                    <label for="nascimento-saude">Data de Nascimento</label>
+                                    <input type="text" class="form-control form-control-sm" id="nascimento-saude"
+                                        placeholder="DD/MM/AAAA" onkeypress="$(this).mask('00/00/0000')"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-3 input-group-sm mb-3">
+                                    <label for="cpf-saude">CPF</label>
+                                    <input type="text" class="form-control form-control-sm" id="cpf-saude"
+                                        placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-4 input-group-sm mb-3">
+                                    <label for="telefone-saude">Telefone</label>
+                                    <input type="text" class="form-control form-control-sm" id="telefone-saude"
+                                        placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-10 input-group-sm mb-3">
+                                    <label for="escola-estudante">Instituição de Ensino</label>
+                                    <input type="text" class="form-control form-control-sm" id="instituicao-saude"
+                                        aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-5 input-group-sm mb-3">
+                                    <label for="email-saude">E-mail</label>
+                                    <input type="email" class="form-control form-control-sm" id="email-saude"
+                                        placeholder="email@exemplo.com" style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-5 input-group-sm mb-3">
+                                    <label for="senha-saude">Senha</label>
+                                    <input type="password" class="form-control form-control-sm" id="senha-saude"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                        <button type="button" id="modal-cadastro-saude-avancar" class="btn-modal">
+                            Finalizar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Cadastro Profissional da Educação-->
+        <div class="modal fade" id="modal-cadastro-educacao" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content"
+                    style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                    <div class="modal-header" style="border: 0px">
+                        <h2 class="font-weight-light">Cadastro <span class="cadastro-span-perfil">Profissional da
+                                Educação</span></h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body" style="border: 0px">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-10 input-group-sm mb-3">
+                                    <label for="nome-completo-educacao">Nome Completo</label>
+                                    <input type="text" class="form-control form-control-sm" id="nome-completo-educacao"
+                                        aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="form-group col-md-3 input-group-sm mb-3">
+                                    <label for="nascimento-educacao">Data de Nascimento</label>
+                                    <input type="text" class="form-control form-control-sm" id="nascimento-educacao"
+                                        placeholder="DD/MM/AAAA" onkeypress="$(this).mask('00/00/0000')"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-3 input-group-sm mb-3">
+                                    <label for="cpf-educacao">CPF</label>
+                                    <input type="text" class="form-control form-control-sm" id="cpf-educacao"
+                                        placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-4 input-group-sm mb-3">
+                                    <label for="telefone-educacao">Telefone</label>
+                                    <input type="text" class="form-control form-control-sm" id="telefone-educacao"
+                                        placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-10 input-group-sm mb-3">
+                                    <label for="escola-estudante">Instituição de Ensino</label>
+                                    <input type="text" class="form-control form-control-sm" id="instituicao-educacao"
+                                        aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-5 input-group-sm mb-3">
+                                    <label for="email-educacao">E-mail</label>
+                                    <input type="email" class="form-control form-control-sm" id="email-educacao"
+                                        placeholder="email@exemplo.com" style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-5 input-group-sm mb-3">
+                                    <label for="senha-educacao">Senha</label>
+                                    <input type="password" class="form-control form-control-sm" id="senha-educacao"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                        <button type="button" id="modal-cadastro-educacao-avancar" class="btn-modal">
+                            Finalizar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Cadastro Pesquisadores e Pós-graduandos -->
+        <div class="modal fade" id="modal-cadastro-pesquisador" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content"
+                    style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                    <div class="modal-header" style="border: 0px">
+                        <h2 class="font-weight-light">Cadastro <span class="cadastro-span-perfil">Pesquisadores e
+                                Pós-graduandos</span></h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body" style="border: 0px">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-10 input-group-sm mb-3">
+                                    <label for="nome-completo-pesquisador">Nome Completo</label>
+                                    <input type="text" class="form-control form-control-sm"
+                                        id="nome-completo-pesquisador" aria-label="Small"
+                                        aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                <div class="form-group col-md-3 input-group-sm mb-3">
+                                    <label for="nascimento-pesquisador">Data de Nascimento</label>
+                                    <input type="text" class="form-control form-control-sm" id="nascimento-pesquisador"
+                                        placeholder="DD/MM/AAAA" onkeypress="$(this).mask('00/00/0000')"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-3 input-group-sm mb-3">
+                                    <label for="cpf-pesquisador">CPF</label>
+                                    <input type="text" class="form-control form-control-sm" id="cpf-pesquisador"
+                                        placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-4 input-group-sm mb-3">
+                                    <label for="telefone-pesquisador">Telefone</label>
+                                    <input type="text" class="form-control form-control-sm" id="telefone-pesquisador"
+                                        placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-10 input-group-sm mb-3">
+                                    <label for="escola-estudante">Instituição de Pesquisa</label>
+                                    <input type="text" class="form-control form-control-sm" id="instituicao-pesquisador"
+                                        aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-5 input-group-sm mb-3">
+                                    <label for="email-pesquisador">E-mail</label>
+                                    <input type="email" class="form-control form-control-sm" id="email-pesquisador"
+                                        placeholder="email@exemplo.com" style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-5 input-group-sm mb-3">
+                                    <label for="senha-pesquisador">Senha</label>
+                                    <input type="password" class="form-control form-control-sm" id="senha-pesquisador"
+                                        style="text-align: center" aria-label="Small">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                        <button type="button" id="modal-cadastro-pesquisador-avancar" class="btn-modal">
+                            Finalizar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Cadastro Final-->
+        <div class="modal fade" id="modal-cadastro-final" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content"
+                    style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                    <div class="modal-header" style="border: 0px">
+                        <h2 class="font-weight-light">Cadastro <span class="cadastro-span-perfil"
+                                id="cadastro-span-perfil">Alguem</span></h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body" style="border: 0px">
+                        <img src="../../img/icons/Ativo%2010.svg" alt="Logo" class="col-3 rounded mx-auto d-block"
+                            style="margin: 30px" />
+                        <h4 style="text-align: center; color: grey">Cadastro realizado com sucesso.</h4>
+                    </div>
+                    <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                        <button type="button" id="modal-cadastro-final-avancar" class="btn-modal" data-dismiss="modal">
+                            Prosseguir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script>
+        // Ativa e desativa o topnav em dispositivos com a tela < 850px
+        function topnavEnable() {
+            var x = document.getElementById("topnavHome");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+    <script>
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.onload = function () {
+
+            if (xhr.status == 200) {
+                var contact = JSON.parse(xhr.response);
+                let nomes_fantasia_escolas = [];
+
+                contact.forEach((element, index, array) => {
+                    nomes_fantasia_escolas.push(contact[index]["nome_fantasia"])
+                })
+
+                $.each(nomes_fantasia_escolas, function (key, value) {
+                    $('#modal-cadastro-perfil2')
+                        .append($("<option></option>")
+                            .attr("value", key)
+                            .text(value));
+                });
+
+            } else {
+                console.log('Erro ' + xhr.status);
+            }
+        };
+
+        xhr.open('GET', 'http://localhost:3000/escola');
+        xhr.send();
+
+        /*
+         *
+         * Métodos para pagar dados dos inputs
+         *
+         */
+
+        // Modal Cadastro Pesquisadores e Pós-graduandos
+
+        function input2js_pesquisador() {
+            let pesquisador = JSON.stringify({
+                name: $('#nome-completo-pesquisador').val(),
+                nascimento: $('#nascimento-pesquisador').val(),
+                cpf: $('#cpf-pesquisador').val().replace(/[^\d]+/g, ''),
+                instituicao_ensino: $('#instituicao-pesquisador').val(),
+                telefone: $('#telefone-pesquisador').val(),
+                email: $('#email-pesquisador').val(),
+                password: $('#senha-pesquisador').val(),
+                type: 'pesquisador'
+            });
+
+            submitNewUser(pesquisador);
+        }
+
+        // Modal Cadastro Profissional da Educação
+
+        function input2js_educacao() {
+            let educacao = JSON.stringify({
+                name: $('#nome-completo-educacao').val(),
+                nascimento: $('#nascimento-educacao').val(),
+                cpf: $('#cpf-educacao').val().replace(/[^\d]+/g, ''),
+                instituicao_ensino: $('#instituicao-educacao').val(),
+                telefone: $('#telefone-educacao').val(),
+                email: $('#email-educacao').val(),
+                password: $('#senha-educacao').val(),
+                type: 'pesquisador'
+            });
+
+            submitNewUser(educacao);
+        }
+
+        // Modal Cadastro da Diretor/Professor
+
+        function input2js_saude() {
+            let saude = JSON.stringify({
+                name: $('#nome-completo-saude').val(),
+                nascimento: $('#nascimento-saude').val(),
+                cpf: $('#cpf-saude').val().replace(/[^\d]+/g, ''),
+                instituicao_ensino: $('#instituicao-saude').val(),
+                telefone: $('#telefone-saude').val(),
+                email: $('#email-saude').val(),
+                password: $('#senha-saude').val(),
+                type: 'saude'
+            });
+
+            submitNewUser(saude);
+        }
+
+        // Modal Cadastro Administrador
+
+        function input2js_adm() {
+            let educacao = JSON.stringify({
+                name: $('#nome-completo-adm').val(),
+                nascimento: $('#nascimento-adm').val(),
+                cpf: $('#cpf-adm').val().replace(/[^\d]+/g, ''),
+                telefone: $('#telefone-adm').val(),
+                email: $('#email-adm').val(),
+                password: $('#senha-adm').val(),
+                type: 'educacao'
+            });
+            console.log(adm);
+            submitNewUser(adm);
+        }
+
+        // Modal Cadastro da Diretor/Professor
+
+        function input2js_professor() {
+            let professor = JSON.stringify({
+                name: $('#nome-completo-professor').val(),
+                //selectedCountry :         $('#modal-cadastro-perfil').children("option:selected").val(),
+                nascimento: $('#nascimento-professor').val(),
+                cpf: $('#cpf-professor').val().replace(/[^\d]+/g, ''),
+                telefone: $('#telefone-professor').val(),
+                email: $('#email-professor').val(),
+                password: $('#senha-professor').val(),
+                type: 'professor'
+            });
+            let endereco_professor = {
+                endereco_professor: $('#endereco-professor').val(),
+                cep_professor: $('#cep-professor').val(),
+                cidade_professor: $('#cidade-professor').val(),
+                bairro_professor: $('#bairro-professor').val(),
+            }
+            console.log(professor, endereco_professor);
+            submitNewUser(professor);
+        }
+
+        // Modal Cadastro do Estudante
+        function input2js_estudante() {
+            let estudante = JSON.stringify({
+                name: $('#nome-completo-estudante').val(),
+                //selectedCountry :            $('#modal-cadastro-perfil').children("option:selected").val(),
+                nascimento: $('#nascimento-estudante').val(),
+                cpf: $('#cpf-estudante').val().replace(/[^\d]+/g, ''),
+                email: 'saulbpt3212@gmail.com',
+                telefone: $('#telefone-estudante').val(),
+                //escola_estudante :           $('#escola-estudante').val(),
+                type: 'estudante'
+            });
+            let endereco_estudante = {
+                endereco_estudante: $('#endereco-estudante').val(),
+                cep_estudante: $('#cep-estudante').val(),
+                cidade_estudante: $('#cidade-estudante').val(),
+                bairro_estudante: $('#bairro-estudante').val(),
+            }
+            console.log(estudante, endereco_estudante);
+            submitNewUser(estudante);
+        }
+
+        function submitNewUser(dadosJSON) {
+            $.ajax({
+                contentType: 'application/json',
+                data: dadosJSON,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function () {
+                    console.log("Device control failed");
+                },
+                processData: false,
+                type: 'POST',
+                url: 'http://localhost:3000/usuario'
+            });
+        }
+
+        // Funções de login
+
+        $('#btn-login').click(function () {
+            const login = $('#user-login #login').val();
+            const senha = $('#user-login #senha').val();
+
+            if (login == "" || senha == "") {
+                swal("Erro!", "Porfavor preencha os dados para fazer login", "error");
+            } else {
+                $.ajax({
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        email: login,
+                        password: senha
+                    }),
+                    dataType: 'json',
+                    success: function (data) {
+                        let tipoUsuario = data.type;
+                        switch (tipoUsuario) {
+                            case 'professor':
+                                /* Redireciona para a página de professor */
+                                break;
+                            case 'ace':
+                                /* Redireciona para a página do ace */
+                                break;
+                            case 'pesquisador':
+                                /* Redireciona para a página de pesquisador */
+                                break;
+                            case 'admin':
+                                /* Redireciona para a página de admin */
+                                break;
+                            case 'saude':
+                                /* Redireciona para a página do profissional de saude */
+                                break;
+                            case 'educacao':
+                                /* Redireciona para a página do profissional de educacao */
+                                break;
+                            default:
+                            /* página 404 */
+                        }
+
+                    },
+                    error: function (xhr, status, error) {
+                        const mensagemAPI = xhr.responseJSON.mensagem;
+                        switch (status) {
+                            case 404:
+                                swal("Erro", mensagemAPI, "error");
+                                break;
+                            default:
+                                swal("Erro interno", mensagemAPI, "error");
+                        }
+                    },
+                    processData: false,
+                    type: 'POST',
+                    url: 'http://localhost:3000/usuario/authenticate'
+                });
+            }
+        });
+
+        $(document).ready(function () {
+            var status = 0; //0->Welcome, 1->Login
+            $('#user-login').hide();
+            $('#btn-entrar').click(function () {
+                if (status == 0) {
+                    $("#wellcome-box").hide();
+                    $('#user-login').fadeIn(350);
+                    status = 1;
+                } else {
+                    $('#user-login').hide();
+                    $("#wellcome-box").fadeIn(350);
+                    status = 0;
+                }
+            });
+
+            var cadastro_perfil;
+            $('#cadastrar-se').click(function (e) {
+                e.preventDefault();
+                $("#modal-cadastro").modal('show');
+                return false;
+            });
+            $("#modal-cadastro-avancar").click(function () {
+
+                cadastro_perfil = document.getElementById("modal-cadastro-perfil").value;
+                console.log("Perfil: " + cadastro_perfil);
+
+                if (cadastro_perfil != '') {
+                    $("#modal-cadastro").modal('hide');
+                    switch (cadastro_perfil) {
+                        case 'Diretor/Professor':
+                            $("#modal-cadastro-professor").modal('show');
+                            break;
+                        case 'Jovem ACE':
+                            $("#modal-cadastro-estudante").modal('show');
+                            break;
+                        case 'Administrador':
+                            $("#modal-cadastro-administrador").modal('show');
+                            break;
+                        case 'Profissional de Saúde':
+                            $("#modal-cadastro-saude").modal('show');
+                            break;
+                        case 'Profissional da Educação':
+                            $("#modal-cadastro-educacao").modal('show');
+                            break;
+                        case 'Pesquisadores e Pós-graduandos':
+                            $("#modal-cadastro-pesquisador").modal('show');
+                            break;
+                        default:
+                            console.log("Existem campos em branco");
+                    }
+                } else {
+                    console.log("Existem campos em branco");
+                }
+            });
+
+            $("#modal-cadastro-administrador-avancar").click(function () {
+                console.log(" Perfil: " + cadastro_perfil);
+                document.getElementById("cadastro-span-perfil").innerHTML = cadastro_perfil;
+                $("#modal-cadastro-administrador").modal('hide');
+                $("#modal-cadastro-final").modal('show');
+            });
+
+            $("#modal-cadastro-pesquisador-avancar").click(function () {
+                input2js_pesquisador();
+                console.log(" Perfil: " + cadastro_perfil);
+                document.getElementById("cadastro-span-perfil").innerHTML = cadastro_perfil;
+                $("#modal-cadastro-pesquisador").modal('hide');
+                $("#modal-cadastro-final").modal('show');
+            });
+
+            $("#modal-cadastro-educacao-avancar").click(function () {
+                input2js_educacao();
+                console.log(" Perfil: " + cadastro_perfil);
+                document.getElementById("cadastro-span-perfil").innerHTML = cadastro_perfil;
+                $("#modal-cadastro-educacao").modal('hide');
+                $("#modal-cadastro-final").modal('show');
+            });
+
+            $("#modal-cadastro-saude-avancar").click(function () {
+                input2js_saude();
+                console.log(" Perfil: " + cadastro_perfil);
+                document.getElementById("cadastro-span-perfil").innerHTML = cadastro_perfil;
+                $("#modal-cadastro-saude").modal('hide');
+                $("#modal-cadastro-final").modal('show');
+            });
+
+            $("#modal-cadastro-estudante-avancar").click(function () {
+                input2js_estudante();
+                console.log(" Perfil: " + cadastro_perfil);
+                document.getElementById("cadastro-span-perfil").innerHTML = cadastro_perfil;
+                $("#modal-cadastro-estudante").modal('hide');
+                $("#modal-cadastro-final").modal('show');
+            });
+            $("#modal-cadastro-professor-avancar").click(function () {
+                input2js_professor();
+                console.log("Perfil: " + cadastro_perfil);
+                document.getElementById("cadastro-span-perfil").innerHTML = cadastro_perfil;
+                $("#modal-cadastro-professor").modal('hide');
+                $("#modal-cadastro-final").modal('show');
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<%- include layouts/header.ejs %>
+<div class="page-data">
+   <div class="data-btn">
+      <button onClick="addUser();">+ Add</button>
+      <a class="a-inside edit" href="../escola/cadastro">add escola</a>
+      <a class="a-inside edit" href="../ranking/escolas">ranking escola</a>
+      <a class="a-inside edit" href="../ranking/estudantes">ranking estudantes</a>
+      <a class="a-inside edit" href="../desafio/cadastro">add desafio</a>
+      <a class="a-inside edit" href="../atividade/cadastro">add atividade</a>
+      <a class="a-inside edit" href="../admin/pendentes">panel</a>
+      <a class="a-inside edit" href="../escola/panel">panel diretor</a>
+      <a class="a-inside delete" href="../sistema/logout">logout</a>
+   </div>
+   <div class="data-table">
+      <div class="col-md-6 col-sm-12">
+         <strong class="text-uppercase">username: </strong>
+      </div>
+      <div class="col-md-6 col-sm-12">
+         <p class="font-weight-light"><%= user.name %></p>
+      </div>
+      <table border="1" cellpadding="7" cellspacing="7">
+         <tr>
+            <th width="50px">No</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th width="120px">Action</th>
+         </tr>
+         <% if(data0.length){ 
+            for(var i = 0;i < data0.length;i++) { %>
+         <tr>
+            <td><%=(i+1)%></td>
+            <td><%=data0[i].name%></td>
+            <td><%=data0[i].address%></td>
+            <td><%=data0[i].phone%></td>
+            <td><%=data0[i].email%></td>
+            <td>
+               <a class="a-inside edit" href="../sistema/edit/<%=data0[i].id%>">Edit</a>
+               <a class="a-inside delete" href="../sistema/delete/<%=data0[i].id%>">Delete</a>
+            </td>
+         </tr>
+         <% }
+            }else{ %>
+         <tr>
+            <td colspan="3">No user</td>
+         </tr>
+         <% } %>
+      </table>
+   </div>
+</div>
+<%- include layouts/footer.ejs %>

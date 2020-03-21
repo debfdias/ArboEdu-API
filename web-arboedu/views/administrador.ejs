@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Administrador</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/simple-line-icons/css/simple-line-icons.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Muli" />
+    <link rel="stylesheet" type="text/css" href="vendor/styles/administrador.css" />
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" type="text/css" href="device-mockups/device-mockups.min.css" />
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="css/new-age.min.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body class="container-fluid">
+    <div class="row">
+        <nav class="topnav col-12 shadow-sm">
+            <div class="row">
+                <div class="col-12 py-3 px-2 d-flex align-items-center">
+                    <a class="col-4 p-0 border-right">
+                        <img src="../img/icons/Ativo36.svg" height="50rem" />
+                    </a>
+                    <ul class="col-8 p-0 d-flex align-items-center justify-content-around">
+                        <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                        <li class="nav-item">
+                            <a href="#historico" class="nav-link">Histórico</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#resultados" class="nav-link">Resultados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#referencias" class="nav-link">Preferências</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#btn-entrar" class="nav-link" id="btn-entrar">Sair</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="row h-100 flex-grow-1">
+        <div class="col-4 p-0 bg-white sidebar shadow-sm">
+            <div class="list-group" id="list-tab" role="tablist">            
+                <a class="list-group-item list-group-item-action list-group-item list-group-item-action list-group-item-dark" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">
+                    <figure style="background-color: #5c5f5e"><img style="background-color: #5c5f5e" src="../img/icons/Ativo 26.svg"></figure>
+                    <span style="color: rgb(128, 128, 128); font-style: italic">Administrador</span>
+                </a>
+                <a class="list-group-item list-group-item-action" id="list-add-comp-list" data-toggle="list" href="#list-add-comp" role="tab" aria-controls="add-comp">
+                    <figure><img src="../img/icons/Ativo 12.svg"></figure>
+                    <span>Adcionar Componentes</span>
+                </a>
+                <a class="list-group-item list-group-item-action" id="list-edit-comp-list" data-toggle="list" href="#list-edit-comp" role="tab" aria-controls="edit-comp">
+                    <figure><img src="../img/icons/Ativo 13.svg"></figure>
+                    <span>Editar Componentes</span>
+                </a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">
+                    <figure><img src="../img/icons/bubble.svg"></figure>
+                    <span>Notificações</span>
+                </a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">
+                    <figure><img src="../img/icons/stats.svg"></figure>
+                    <span>Consultar Ranking</span>
+                </a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">
+                    <figure><img src="../img/icons/Ativo 13.svg"></figure>
+                    <span>Consultar Indicadores</span>
+                </a>                
+            </div>
+        </div>
+        <div class="col-8 p-1 logo-background" style="background-color: #edeceb;">
+            <div class="tab-content" id="nav-tabContent">                
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <div class="title-home p-3">
+                        Bem-Vindo ao <b>Arboedu</b>.web!
+                    </div>
+                    <div class="text-home p-3 col-5">
+                        <h2>Caro Administrador,</h2>
+                        <p>
+                            Este é um estudo piloto que faz parte de uma pesquisa sobre o uso de dispositivos moveis para execução de ações educativas visando à mudança de cinpotamento da população em relação à prevenção de arboviroses, como a Dengue, Zika e Chikungunya
+                        </p>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-add-comp" role="tabpanel" aria-labelledby="list-add-comp-list">
+                    <div class="title-home p-3">
+                        <h2 class="text-comp">Indique o que deseja adcionar:</h2>
+                    </div>
+                    <div class="text-home p-3 col-12">
+                        <div class="row">
+                            <div class="col-4" id="adcionar-escola">
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 5.svg">                                    
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Escola</h3>
+                            </div>
+                            <div class="col-4" id='adcionar-professor'>
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 4.svg">
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Professor</h3>
+                            </div>
+                            <div class="col-4" id="adcionar-jovem-ace">
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 40.svg">
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Jovem ACE</h3>
+                            </div>
+                            
+                            <div class="col-4" id="adcionar-saude"> 
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 37.svg">
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Profissional de Saúde</h3>
+                            </div>
+                            <div class="col-4" id="adcionar-educacao">
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 38.svg">
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Profissional de Educação</h3>
+                            </div>
+                            <div class="col-4" id="adcionar-pesquisador">
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 39.svg">
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Pesquisador</h3>
+                            </div>
+                            <div class="col-4" id="adcionar-desafios">
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 6.svg">
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Desafios</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-edit-comp" role="tabpanel" aria-labelledby="list-edit-comp-list">
+                    <div class="title-home p-3">
+                        <h2 class="text-comp">Indique o que deseja editar:</h2>
+                    </div>
+                    <div class="text-home p-3 col-12">
+                        <div class="row">
+                            <div class="col-4" id='editar-escola'>
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 8.svg">                                    
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Escola</h3>
+                            </div>
+                            <div class="col-4" id="editar-professor">
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 7.svg">
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Professor</h3>
+                            </div>
+                            <div class="col-4" id="editar-jovem">
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 40.svg">
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Jovem ACE</h3>
+                            </div>                            
+                            <div class="col-4" id="editar-saude">
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 37.svg">
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Profissional de Saúde</h3>
+                            </div>
+                            <div class="col-4" id="editar-educacao">
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 38.svg">
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Profissional de Educação</h3>
+                            </div>
+                            <div class="col-4" id="editar-pesquisador">
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 39.svg">
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Pesquisador</h3>
+                            </div>
+                            <div class="col-4" id="editar-desafios">
+                                <figure  class="figure-imgshadow-sm bg-white borda">
+                                    <img class="img-comp" src="../img/icons/ativo 9.svg">
+                                </figure>                                
+                                <h3 class="text-center text-comp-h3">Desafios</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                    Notificações
+                </div>
+                <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                    Consultar Ranking
+                </div>
+                <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                    Consultar Indicadores
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cadastrar Escola -->
+    <div class="modal fade" id="modal-cadastro-escola" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-bold">Adicionar <span class="cadastro-span-perfil">Escola</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <div class="modal-body" style="border: 0px">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-10 input-group-sm mb-3">
+                                <label for="nome-escola">Nome da Escola</label>
+                                <input type="text" class="form-control form-control-sm" id="nome-escola" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                            <div class="form-group col-md-7 input-group-sm mb-3">
+                                <label for="endereco-escola">Endereço</label>
+                                <input type="text" class="form-control form-control-sm" id="endereco-escola" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-3 input-group-sm mb-3">
+                                <label for="cep-escola">CEP</label>
+                                <input type="text" class="form-control form-control-sm" id="cep-escola" placeholder="00-000-000" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-5 input-group-sm mb-3">
+                                <label for="cidade-escola">Cidade</label>
+                                <input type="text" class="form-control form-control-sm" id="cidade-escola" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-5 input-group-sm mb-3">
+                                <label for="bairro-escola">Bairro</label>
+                                <input type="text" class="form-control form-control-sm" id="bairro-escola" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-4 input-group-sm mb-3">
+                                <label for="telefone-escola">Telefone</label>
+                                <input type="email" class="form-control form-control-sm" id="telefone-escola" placeholder="(00) 00000-0000" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-6 input-group-sm mb-3">
+                                <label for="distrito-escola">Distrito Sanitário</label>
+                                <input type="password" class="form-control form-control-sm" id="distrito-escola" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-10 input-group-sm mb-3">
+                                <label for="gre-escola">Gerência Regional de Educação (GRE)</label>
+                                <input type="password" class="form-control form-control-sm" id="gre-escola" style="text-align: center" aria-label="Small">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-cadastro-escola-voltar" class="btn-modal-sair">
+                        Voltar
+                    </button>
+                    <button type="button" id="modal-cadastro-escola-prosseguir" class="btn-modal">
+                        Prosseguir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Modal Cadastrar Escola - Diretor -->
+    <div class="modal fade" id="modal-cadastro-escola-diretor" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Adicionar <span class="cadastro-span-perfil">Escola</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="border: 0px">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Incluir Diretor</h4>
+                    </div>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-10 input-group-sm mb-3">
+                                <label for="nome-escola-diretor">Nome do Diretor</label>
+                                <input type="text" class="form-control form-control-sm" id="nome-escola-diretor" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                            <div class="form-group col-md-10 input-group-sm mb-3">
+                                <label for="email-escola-diretor">Email</label>
+                                <input type="email" class="form-control form-control-sm" id="email-escola-diretor" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-5 input-group-sm mb-3">
+                                <label for="cpf-escola-diretor">CPF</label>
+                                <input type="text" class="form-control form-control-sm" id="cpf-escola-diretor" placeholder="000.000.000-00" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-5 input-group-sm mb-3">
+                                <label for="telefone-escola-diretor">Telefone</label>
+                                <input type="email" class="form-control form-control-sm" id="telefone-escola-diretor" placeholder="(00) 00000-0000" style="text-align: center" aria-label="Small">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-cadastro-diretor-voltar" class="btn-modal-sair">
+                        Voltar
+                    </button>
+                    <button type="button" id="modal-cadastro-diretor-avancar" class="btn-modal">
+                        Avançar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cadastrar Escola - Turmas -->
+    <div class="modal fade" id="modal-cadastro-escola-turmas" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Adicionar <span class="cadastro-span-perfil">Escola</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-turmas">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Incluir Turmas</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row">
+                            <div class="col-5">
+                                <form>                       
+                                    <div class="form-group">
+                                        <div class="form-group col-7">
+                                            <label for="inputEstado">Ano</label>
+                                            <select id="inputEstado" class="form-control">
+                                                <option selected></option>
+                                                <option>1 ano</option>
+                                                <option>2 ano</option>
+                                                <option>3 ano</option>
+                                            </select>
+                                        </div>                   
+                                        
+                                        <div class="form-group input-group-sm mb-3 col-12">
+                                            <label for="radios-turmas">Turno</label>
+                                            <div id='radios-turmas'>
+                                                <div class="form-check form-check-inline" >
+                                                    <input class="form-check-input" type="radio" id="inlineCheckbox1" value="opcao1">
+                                                    <label class="form-check-label" for="inlineCheckbox1">Manhã</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" id="inlineCheckbox2" value="opcao2">
+                                                    <label class="form-check-label" for="inlineCheckbox2">Tarde</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" id="inlineCheckbox3" value="opcao3" disabled>
+                                                    <label class="form-check-label" for="inlineCheckbox3">Noite</label>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="form-group col-12 input-group-sm mb-3">
+                                            <label for="nome-escola-bal">Identificação da turma</label>
+                                            <input type="text" class="form-control form-control-sm" id="nome-escola-bal" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                        </div>
+                                    </div>                            
+                                </form>
+                            </div>
+                            <div class="col-5">
+                                <label for="tabela-turmas">Turmas listadas</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    <table class="table table-borderless table-hover table-sm" id = "tabela-turmas">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Ano</th>
+                                                <th scope="col">Turma</th>
+                                                <th scope="col">Turno</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1 ano</th>
+                                                <td>"C"</td>
+                                                <td>Tarde</td>                                            
+                                            </tr>
+                                            <tr>
+                                                <td>2 ano</th>
+                                                <td>"A"</td>
+                                                <td>Manhã</td>                                            
+                                            </tr>
+                                            <tr>
+                                                <td>3 ano</th>
+                                                <td>"B"</td>
+                                                <td>Tarde</td>                                                
+                                            </tr>
+                                        </tbody>
+                                    </table>                                    
+                                </div>                    
+                                <button type="button" id="as" class="btn-modal" style="background-image: url(../img/icons/Ativo_17.svg);background-position: center;background-size: 20px;background-repeat: no-repeat; width: 30px; height: 30px;"></button>
+                                <button type="button" id="as" class="btn-modal-sair" style="background-image: url(../img/icons/Ativo_17.svg);background-position: center;background-size: 20px;background-repeat: no-repeat; width: 30px; height: 30px;"> </button>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-cadastro-escola-turmas-voltar" class="btn-modal-sair">
+                        Voltar
+                    </button>
+                    <button type="button" id="modal-cadastro-escola-turmas-avancar" class="btn-modal">
+                        Prosseguir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal final cadastro Escola -->
+    <div class="modal fade" id="modal-cadastro-final" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Cadastro <span class="cadastro-span-perfil" id="cadastro-span-perfil">Alguem</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body" style="border: 0px">
+                    <img src="../../img/icons/Ativo%2010.svg" alt="Logo" class="col-3 rounded mx-auto d-block" style="margin: 30px" />
+                    <h4 style="text-align: center; color: grey">Escola Adcionada.</h4>
+                    <h5 style="text-align: center; color: grey">Token da Escola: AM2J4TFE</h5>
+                    <h5 style="text-align: center; color: grey">Um QRcode também foi gerado: <a id="qrcode" style="color: #706CC1;">Visualizar</a></h5>
+
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-cadastro-final-avancar" class="btn-modal" data-dismiss="modal">
+                        Prosseguir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal final cadastro QRcode Escola -->
+    <div class="modal fade" id="modal-cadastro-final-QR" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header text-center" style="border: 0px">
+                              
+                </div>
+                <div class="modal-body text-center" style="border: 0px">
+                    <h2>QR code</h2> 
+                    <canvas id="qr"></canvas>
+                    <h2>AM2J4TFE</h2> 
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Adicionar Professor -->
+    <div class="modal fade" id="modal-adcionar-professor" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Adicionar <span class="cadastro-span-perfil">Professor</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-add-prof">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Adicionar Professor</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row">
+                           
+                            <div class="col-12">
+                                <label for="tabela-turmas">Esperando por definição</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    
+
+                                <table class="table table-borderless table-hover table-sm" id = "tabela-professor">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Escola</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-add-prof-avancar" class="btn-modal">
+                        Prosseguir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal final geral -->
+    <div class="modal fade" id="modal-cadastro-final-geral" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Adicionar <span class="cadastro-span-perfil" id="cadastro-span-perfil-geral">Alguem</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+
+                <div class="modal-body" style="border: 0px">
+                    <img src="../../img/icons/Ativo%2010.svg" alt="Logo" class="col-3 rounded mx-auto d-block" style="margin: 30px" />
+                    <h4 style="text-align: center; color: grey">As alterações foram salvas.</h4>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-cadastro-final-geral" class="btn-modal" data-dismiss="modal">
+                        Prosseguir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+    <!-- Modal Adicionar Jovem ACE -->
+    <div class="modal fade" id="modal-adcionar-jovem-ace" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Adicionar <span class="cadastro-span-perfil">Jovem ACE</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-add-jovem">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Adicionar Jovem ACE</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row">
+                           
+                            <div class="col-12">
+                                <label for="tabela-turmas">Esperando por definição</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    
+
+                                <table class="table table-borderless table-hover table-sm" id = "tabela-jovem">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Instituição</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">                    
+                    <button type="button" id="modal-add-jovem-avancar" class="btn-modal">
+                        Prosseguir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Adicionar Profissional de Saúde -->
+    <div class="modal fade" id="modal-adcionar-saude" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Adicionar <span class="cadastro-span-perfil">Profissional de Saúde</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-add-saude">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Adicionar Profissional de Saúde</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row">
+                           
+                            <div class="col-12">
+                                <label for="tabela-turmas">Esperando por definição</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    
+
+                                <table class="table table-borderless table-hover table-sm" id = "tabela-saude">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Instituição</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Hospital E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-add-saude-avancar" class="btn-modal">
+                        Prosseguir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Adicionar Profissional de Educação -->
+    <div class="modal fade" id="modal-adcionar-educacao" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Adicionar <span class="cadastro-span-perfil">Profissional de Educação</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-add-educacao">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Adicionar Profissional de Educação</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row">
+                           
+                            <div class="col-12">
+                                <label for="tabela-turmas">Esperando por definição</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    
+
+                                <table class="table table-borderless table-hover table-sm" id = "tabela-educacao">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Instituição</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Hospital E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-add-educacao-avancar" class="btn-modal">
+                        Prosseguir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Adicionar Pesquisador -->
+    <div class="modal fade" id="modal-adcionar-pesquisador" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Adicionar <span class="cadastro-span-perfil">Pesquisador</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-add-pesquisador">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Adicionar Pesquisador</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row">
+                           
+                            <div class="col-12">
+                                <label for="tabela-turmas">Esperando por definição</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    
+
+                                <table class="table table-borderless table-hover table-sm" id = "tabela-pesquisador">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Instituição</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Hospital E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-add-pesquisador-avancar" class="btn-modal">
+                        Prosseguir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Adicionar Desafios -->
+    <div class="modal fade" id="modal-adcionar-desafios" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Adicionar <span class="cadastro-span-perfil">Desafios</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-add-desafios">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Adicionar Desafios</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row">
+                           
+                            <div class="col-12">
+                                <label for="tabela-turmas">Esperando por definição</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    
+
+                                <table class="table table-borderless table-hover table-sm" id = "tabela-desafios">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Instituição</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Hospital E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" onclick="location.href='#'">Aprovar</button>
+                                            </td> 
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-sm" onclick="location.href='#'">Negar</button>
+                                            </td>                                               
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-add-desafios-voltar" class="btn-modal-sair">
+                        Voltar
+                    </button>
+                    <button type="button" id="modal-add-desafios-avancar" class="btn-modal">
+                        Prosseguir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal editar Escola -->
+    <div class="modal fade" id="modal-editar-escola" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Adicionar <span class="cadastro-span-perfil">Desafios</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-editar-escola">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Adcionar Desafios</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row">
+                           
+                            <div class="col-12">
+                                <label for="tabela-turmas">Esperando por definição</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    <table class="table table-borderless table-hover table-sm" id = "tabela-editar-escolas">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Nome</th>
+                                                <th scope="col">Instituição</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr> 
+                                                <td class="align-middle" >Mario Marcondes Macedo</th>
+                                                <td class="align-middle" >Hospital E de Estevão</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-escola">Editar</button>
+                                                </td>                                                                                       
+                                            </tr>
+                                            <tr> 
+                                                <td class="align-middle" >Mario Marcondes Macedo</th>
+                                                <td class="align-middle" >Escola E de Estevão</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-escola">Editar</button>
+                                                </td>                                           
+                                            </tr>
+                                            <tr> 
+                                                <td class="align-middle" >Mario Marcondes Macedo</th>
+                                                <td class="align-middle" >Escola E de Estevão</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-escola">Editar</button>
+                                                </td>                  
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal editar Professor -->
+    <div class="modal fade" id="modal-editar-professor" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Editar <span class="cadastro-span-perfil">Professor</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-editar-professor">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Editar Professores</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row">
+                           
+                            <div class="col-12">
+                                <label for="tabela-turmas">Professores cadastrados</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    
+                                <table class="table table-borderless table-hover table-sm" id = "tabela-editar-professor">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Instituição</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Hospital E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-professor">Editar</button>
+                                            </td>                                                                                       
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-professor">Editar</button>
+                                            </td>                                           
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-professor">Editar</button>
+                                            </td>                  
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cadastro da Diretor/Professor-->
+    <div class="modal fade" id="modal-cadastro-professor" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Cadastro <span class="cadastro-span-perfil">Diretor/Professor</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body scrollbar scrollbar-default" style="border: 0px">
+                    <div style="overflow-y: 400px">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-10 input-group-sm mb-3">
+                                    <label for="nome-completo-professor">Nome Completo</label>
+                                    <input type="text" class="form-control form-control-sm" id="nome-completo-professor" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+                                
+                                <div class="col-md-10 input-group-sm mb-3">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label for="Estado">Escola</label>
+                                            <select class="form-control form-control-sm" id="modal-cadastro-perfil2">
+                                                <option selected disabled hidden>Selecione a sua escola</option>
+                                                <!-- Aqui virão as escolas cadastradas na API -->
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="form-group col-7 input-group-sm mb-3">
+                                    <label for="endereco-professor">Endereço</label>
+                                    <input type="text" class="form-control form-control-sm" id="endereco-professor">
+                                </div>
+                                <div class="form-group col-3 input-group-sm mb-3">
+                                    <label for="cep-professor">CEP</label>
+                                    <input type="text" class="form-control form-control-sm" id="cep-professor" placeholder="00.000-000" onkeypress="$(this).mask('00.000-000')" style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-5 input-group-sm mb-3">
+                                    <label for="cidade-professor">Cidade</label>
+                                    <input type="text" class="form-control form-control-sm" id="cidade-professor" aria-label="Small">
+                                </div>
+                                <div class="form-group col-5 input-group-sm mb-3">
+                                    <label for="bairro-professor">Bairro</label>
+                                    <input type="text" class="form-control form-control-sm" id="bairro-professor" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-3 input-group-sm mb-3">
+                                    <label for="nasciminto-professor">Data de Nascimento</label>
+                                    <input type="text" class="form-control form-control-sm" id="nascimento-professor" placeholder="DD/MM/AAAA" onkeypress="$(this).mask('00/00/0000')" style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-3 input-group-sm mb-3">
+                                    <label for="cpf-professor">CPF</label>
+                                    <input type="text" class="form-control form-control-sm" id="cpf-professor" placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');" style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-4 input-group-sm mb-3">
+                                    <label for="telefone-professor">Telefone</label>
+                                    <input type="text" class="form-control form-control-sm" id="telefone-professor" placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')" style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-5 input-group-sm mb-3">
+                                    <label for="email-professor">E-mail</label>
+                                    <input type="email" class="form-control form-control-sm" id="email-professor" placeholder="email@exemplo.com" style="text-align: center" aria-label="Small">
+                                </div>
+                                <div class="form-group col-md-5 input-group-sm mb-3">
+                                    <label for="senha-professor">Senha</label>
+                                    <input type="password" class="form-control form-control-sm" id="senha-professor" style="text-align: center" aria-label="Small">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-cadastro-professor-avancar" class="btn-modal">
+                        Avançar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Modal editar Jovem ACE -->
+     <div class="modal fade" id="modal-editar-jovem" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Editar <span class="cadastro-span-perfil">Jovem ACE</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-editar-jovem">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Editar Jovem ACE</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row">                           
+                            <div class="col-12">
+                                <label for="tabela-turmas">Jovens ACEs cadastrados</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    
+                                <table class="table table-borderless table-hover table-sm" id = "tabela-editar-jovem">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Instituição</th>
+                                            <th></th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr> 
+                                            <td class="align-middle">Mario Marcondes Macedo</th>
+                                            <td class="align-middle">Hospital E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-estudante">Editar</button>
+                                            </td>                                                                            
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-estudante">Editar</button>
+                                            </td>                                                                                          
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-estudante">Editar</button>
+                                            </td>                                                                                     
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cadastro do Jovem ACE-->
+    <div class="modal fade" id="modal-cadastro-estudante" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content" style="padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                    <div class="modal-header" style="border: 0px">
+                        <h2 class="font-weight-light">Cadastro<span class="cadastro-span-perfil"> Jovem-ACE</span></h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body scrollbar scrollbar-default" style="border: 0px">
+                        <div style="overflow-y: 400px">
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-10 input-group-sm mb-3">
+                                        <label for="nome-completo-estudante">Nome Completo</label>
+                                        <input type="text" class="form-control form-control-sm" id="nome-completo-estudante" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                    <div class="form-group col-7 input-group-sm mb-3">
+                                        <label for="endereco-estudante">Endereço</label>
+                                        <input type="text" class="form-control form-control-sm" id="endereco-estudante">
+                                    </div>
+                                    <div class="form-group col-3 input-group-sm mb-3">
+                                        <label for="cep-estudante">CEP</label>
+                                        <input type="text" class="form-control form-control-sm" id="cep-estudante" placeholder="00.000-000" onkeypress="$(this).mask('00.000-000')" style="text-align: center" aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-5 input-group-sm mb-3">
+                                        <label for="cidade-estudante">Cidade</label>
+                                        <input type="text" class="form-control form-control-sm" id="cidade-estudante" aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-5 input-group-sm mb-3">
+                                        <label for="bairro-estudante">Bairro</label>
+                                        <input type="text" class="form-control form-control-sm" id="bairro-estudante" aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-3 input-group-sm mb-3">
+                                        <label for="nascimento-estudante">Data de Nascimento</label>
+                                        <input type="text" class="form-control form-control-sm" id="nascimento-estudante" placeholder="DD/MM/AAAA" onkeypress="$(this).mask('00/00/0000')" style="text-align: center" aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-3 input-group-sm mb-3">
+                                        <label for="cpf-estudante">CPF</label>
+                                        <input type="text" class="form-control form-control-sm" id="cpf-estudante" placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');" style="text-align: center" aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-4 input-group-sm mb-3">
+                                        <label for="telefone-estudante">Telefone</label>
+                                        <input type="text" class="form-control form-control-sm" id="telefone-estudante" placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')" style="text-align: center" aria-label="Small">
+                                    </div>
+                                    <div class="form-group col-md-10 input-group-sm mb-3">
+                                        <label for="escola-estudante">Instituição de Ensino</label>
+                                        <input type="text" class="form-control form-control-sm" id="escola-estudante" aria-label="Small">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="background-color: whitesmoke; border: 0px">
+                        <button type="button" id="modal-cadastro-estudante-avancar" class="btn-modal">
+                            Avançar
+                        </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+     <!-- Modal editar Profissonal de Saúde -->
+     <div class="modal fade" id="modal-editar-saude" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Editar <span class="cadastro-span-perfil">Profissional da Saúde</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-editar-saude">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Editar Profissional da Saúde</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row">
+                           
+                            <div class="col-12">
+                                <label for="tabela-turmas">Profissionais de saúde cadastrados</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    
+                                <table class="table table-borderless table-hover table-sm" id = "tabela-editar-saude">
+                                    <thead>
+                                            <tr>
+                                                <th scope="col">Nome</th>
+                                                <th scope="col">Instituição</th>
+                                                <th></th>
+                                                
+                                            </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr> 
+                                            <td class="align-middle">Mario Marcondes Macedo</th>
+                                            <td class="align-middle">Hospital E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-saude">Editar</button>
+                                            </td>                                                                            
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-saude">Editar</button>
+                                            </td>                                                                                          
+                                        </tr>
+                                        <tr> 
+                                            <td class="align-middle" >Mario Marcondes Macedo</th>
+                                            <td class="align-middle" >Escola E de Estevão</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-saude">Editar</button>
+                                            </td>                                                                                     
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Cadastro Profisional de Saúde-->
+    <div class="modal fade" id="modal-cadastro-saude" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Cadastro <span class="cadastro-span-perfil">Profissional de Saúde</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body" style="border: 0px">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-10 input-group-sm mb-3">
+                                <label for="nome-completo-saude">Nome Completo</label>
+                                <input type="text" class="form-control form-control-sm" id="nome-completo-saude" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                            <div class="form-group col-md-3 input-group-sm mb-3">
+                                <label for="nascimento-saude">Data de Nascimento</label>
+                                <input type="text" class="form-control form-control-sm" id="nascimento-saude" placeholder="DD/MM/AAAA" onkeypress="$(this).mask('00/00/0000')" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-3 input-group-sm mb-3">
+                                <label for="cpf-saude">CPF</label>
+                                <input type="text" class="form-control form-control-sm" id="cpf-saude" placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-4 input-group-sm mb-3">
+                                <label for="telefone-saude">Telefone</label>
+                                <input type="text" class="form-control form-control-sm" id="telefone-saude" placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-10 input-group-sm mb-3">
+                                <label for="escola-estudante">Instituição de Ensino</label>
+                                <input type="text" class="form-control form-control-sm" id="instituicao-saude" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-5 input-group-sm mb-3">
+                                <label for="email-saude">E-mail</label>
+                                <input type="email" class="form-control form-control-sm" id="email-saude" placeholder="email@exemplo.com" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-5 input-group-sm mb-3">
+                                <label for="senha-saude">Senha</label>
+                                <input type="password" class="form-control form-control-sm" id="senha-saude" style="text-align: center" aria-label="Small">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-cadastro-saude-avancar" class="btn-modal">
+                        Finalizar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal editar Profissonal de Educação -->
+    <div class="modal fade" id="modal-editar-educacao" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Editar <span class="cadastro-span-perfil">Profissional de Educação</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-editar-educacao">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Editar Profissional de Educação</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row">
+                           
+                            <div class="col-12">
+                                <label for="tabela-turmas">Profissionais Cadastrados</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    
+                                    <table class="table table-borderless table-hover table-sm" id = "tabela-editar-educacao">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Nome</th>
+                                                <th scope="col">Instituição</th>
+                                                <th></th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr> 
+                                                <td class="align-middle">Mario Marcondes Macedo</th>
+                                                <td class="align-middle">Hospital E de Estevão</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-educacao">Editar</button>
+                                                </td>                                                                            
+                                            </tr>
+                                            <tr> 
+                                                <td class="align-middle" >Mario Marcondes Macedo</th>
+                                                <td class="align-middle" >Escola E de Estevão</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-educacao">Editar</button>
+                                                </td>                                                                                          
+                                            </tr>
+                                            <tr> 
+                                                <td class="align-middle" >Mario Marcondes Macedo</th>
+                                                <td class="align-middle" >Escola E de Estevão</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-educacao">Editar</button>
+                                                </td>                                                                                     
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cadastro Profissional da Educação-->
+    <div class="modal fade" id="modal-cadastro-educacao" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Cadastro <span class="cadastro-span-perfil">Profissional da Educação</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body" style="border: 0px">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-10 input-group-sm mb-3">
+                                <label for="nome-completo-educacao">Nome Completo</label>
+                                <input type="text" class="form-control form-control-sm" id="nome-completo-educacao" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                            <div class="form-group col-md-3 input-group-sm mb-3">
+                                <label for="nascimento-educacao">Data de Nascimento</label>
+                                <input type="text" class="form-control form-control-sm" id="nascimento-educacao" placeholder="DD/MM/AAAA" onkeypress="$(this).mask('00/00/0000')" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-3 input-group-sm mb-3">
+                                <label for="cpf-educacao">CPF</label>
+                                <input type="text" class="form-control form-control-sm" id="cpf-educacao" placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-4 input-group-sm mb-3">
+                                <label for="telefone-educacao">Telefone</label>
+                                <input type="text" class="form-control form-control-sm" id="telefone-educacao" placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-10 input-group-sm mb-3">
+                                <label for="escola-estudante">Instituição de Ensino</label>
+                                <input type="text" class="form-control form-control-sm" id="instituicao-educacao" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-5 input-group-sm mb-3">
+                                <label for="email-educacao">E-mail</label>
+                                <input type="email" class="form-control form-control-sm" id="email-educacao" placeholder="email@exemplo.com" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-5 input-group-sm mb-3">
+                                <label for="senha-educacao">Senha</label>
+                                <input type="password" class="form-control form-control-sm" id="senha-educacao" style="text-align: center" aria-label="Small">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-cadastro-educacao-avancar" class="btn-modal">
+                            Finalizar
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal editar Pesquisador -->
+    <div class="modal fade" id="modal-editar-pesquisador" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Editar <span class="cadastro-span-perfil">Pesquisador</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>                
+                </div>
+                
+                <div class="modal-body" id="body-modal-editar-pesquisador">
+                    <div class="row">
+                        <h4 class="col-10 border-bottom">Editar Pesquisador</h4>
+                    </div>
+                    <div class="container-fluid">                            
+                        <div class="row"></div>                           
+                            <div class="col-12">
+                                <label for="tabela-turmas">Pesquisadores Cadastrados</label>
+                                <div style="border-radius: 10px; border: 1px solid blue; background-color: white">
+                                    
+                                    <table class="table table-borderless table-hover table-sm" id = "tabela-editar-pesquisador">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Nome</th>
+                                                <th scope="col">Instituição</th>
+                                                <th></th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr> 
+                                                <td class="align-middle">Mario Marcondes Macedo</th>
+                                                <td class="align-middle">Hospital E de Estevão</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-pesquisador">Editar</button>
+                                                </td>                                                                            
+                                            </tr>
+                                            <tr> 
+                                                <td class="align-middle" >Mario Marcondes Macedo</th>
+                                                <td class="align-middle" >Escola E de Estevão</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-pesquisador">Editar</button>
+                                                </td>                                                                                          
+                                            </tr>
+                                            <tr> 
+                                                <td class="align-middle" >Mario Marcondes Macedo</th>
+                                                <td class="align-middle" >Escola E de Estevão</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-dismiss="modal" data-target="#modal-cadastro-pesquisador">Editar</button>
+                                                </td>                                                                                     
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-editar-pesquisador-voltar" class="btn-modal-sair">
+                        Voltar
+                    </button>
+                    <button type="button" id="modal-editar-pesquisador-avancar" class="btn-modal">
+                        Prosseguir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cadastro Pesquisadores e Pós-graduandos -->
+    <div class="modal fade" id="modal-cadastro-pesquisador" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content" style=" padding-left: 30px; padding-right: 30px; background-color: whitesmoke ">
+                <div class="modal-header" style="border: 0px">
+                    <h2 class="font-weight-light">Editar <span class="cadastro-span-perfil">Pesquisadores e Pós-graduandos</span></h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body" style="border: 0px">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-10 input-group-sm mb-3">
+                                <label for="nome-completo-pesquisador">Nome Completo</label>
+                                <input type="text" class="form-control form-control-sm" id="nome-completo-pesquisador" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                            <div class="form-group col-md-3 input-group-sm mb-3">
+                                <label for="nascimento-pesquisador">Data de Nascimento</label>
+                                <input type="text" class="form-control form-control-sm" id="nascimento-pesquisador" placeholder="DD/MM/AAAA" onkeypress="$(this).mask('00/00/0000')" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-3 input-group-sm mb-3">
+                                <label for="cpf-pesquisador">CPF</label>
+                                <input type="text" class="form-control form-control-sm" id="cpf-pesquisador" placeholder="000.000.000-00" onkeypress="$(this).mask('000.000.000-00');" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-4 input-group-sm mb-3">
+                                <label for="telefone-pesquisador">Telefone</label>
+                                <input type="text" class="form-control form-control-sm" id="telefone-pesquisador" placeholder="(00) 00000-0000" onkeypress="$(this).mask('(00) 00000-0000')" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-10 input-group-sm mb-3">
+                                <label for="escola-estudante">Instituição de Pesquisa</label>
+                                <input type="text" class="form-control form-control-sm" id="instituicao-pesquisador" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-5 input-group-sm mb-3">
+                                <label for="email-pesquisador">E-mail</label>
+                                <input type="email" class="form-control form-control-sm" id="email-pesquisador" placeholder="email@exemplo.com" style="text-align: center" aria-label="Small">
+                            </div>
+                            <div class="form-group col-md-5 input-group-sm mb-3">
+                                <label for="senha-pesquisador">Senha</label>
+                                <input type="password" class="form-control form-control-sm" id="senha-pesquisador" style="text-align: center" aria-label="Small">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="background-color: whitesmoke;border: 0px">
+                    <button type="button" id="modal-cadastro-pesquisador-avancar" class="btn-modal">
+                            Finalizar
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="" async defer></script>
+    <script>
+        $(document).ready(function() {
+            $("#adcionar-escola").click(function(){
+                $("#modal-cadastro-escola").modal('show');
+            });
+            $("#modal-cadastro-escola-prosseguir").click(function(){
+                $("#modal-cadastro-escola").modal('hide');
+                $("#modal-cadastro-escola-diretor").modal('show');
+            });
+
+            $("#modal-cadastro-diretor-avancar").click(function(){
+                $("#modal-cadastro-escola-diretor").modal('hide');
+                $("#modal-cadastro-escola-turmas").modal('show');
+            });      
+
+            $("#modal-cadastro-escola-turmas-avancar").click(function(){
+                $("#modal-cadastro-escola-turmas").modal('hide');
+                $("#modal-cadastro-final").modal('show');
+            });
+            $("#qrcode").click(function(){
+                $("#modal-cadastro-final").modal('hide');
+                $("#modal-cadastro-final-QR").modal('show');                
+            });
+
+            $("#adcionar-professor").click(function(){
+                $("#modal-adcionar-professor").modal('show');
+            });
+
+            $("#modal-add-prof-avancar").click(function(){               
+                $("#cadastro-span-perfil-geral").html("Professor");
+                $("#modal-adcionar-professor").modal('hide');
+                $("#modal-cadastro-final-geral").modal('show');
+            });            
+
+            $("#adcionar-jovem-ace").click(function(){
+                $("#modal-adcionar-jovem-ace").modal('show');
+            });
+            
+            $("#modal-add-jovem-avancar").click(function(){               
+                $("#cadastro-span-perfil-geral").html("Jovem ACE");
+                $("#modal-adcionar-jovem-ace").modal('hide');
+                $("#modal-cadastro-final-geral").modal('show');
+            }); 
+
+            $("#adcionar-saude").click(function(){
+                $("#modal-adcionar-saude").modal('show');
+            });
+           
+            $("#modal-add-saude-avancar").click(function(){               
+                $("#cadastro-span-perfil-geral").html("Profissional de Saúde");
+                $("#modal-adcionar-saude").modal('hide');
+                $("#modal-cadastro-final-geral").modal('show');
+            }); 
+
+            $("#adcionar-educacao").click(function(){
+                $("#modal-adcionar-educacao").modal('show');
+            });
+
+            $("#modal-add-educacao-avancar").click(function(){               
+                $("#cadastro-span-perfil-geral").html("Profissional de Educação");
+                $("#modal-adcionar-educacao").modal('hide');
+                $("#modal-cadastro-final-geral").modal('show');
+            }); 
+
+            $("#adcionar-pesquisador").click(function(){
+                $("#modal-adcionar-pesquisador").modal('show');
+            });
+            $("#modal-add-pesquisador-avancar").click(function(){               
+                $("#cadastro-span-perfil-geral").html("Pesquisador");
+                $("#modal-adcionar-pesquisador").modal('hide');
+                $("#modal-cadastro-final-geral").modal('show');
+            }); 
+
+            $("#adcionar-desafios").click(function(){
+                $("#modal-adcionar-desafios").modal('show');
+            });
+
+            $("#editar-escola").click(function(){
+                $("#modal-editar-escola").modal('show');
+            });
+
+            $("#editar-professor").click(function(){
+                $("#modal-editar-professor").modal('show');
+            });
+            
+            $("#modal-cadastro-professor-avancar").click(function(){               
+                $("#cadastro-span-perfil-geral").html("Professor");
+                $("#modal-cadastro-professor").modal('hide');
+                $("#modal-cadastro-final-geral").modal('show');
+            }); 
+
+            $("#editar-jovem").click(function(){
+                $("#modal-editar-jovem").modal('show');
+            });
+
+            $("#modal-cadastro-estudante-avancar").click(function(){               
+                $("#cadastro-span-perfil-geral").html("Jovem ACE");
+                $("#modal-cadastro-estudante").modal('hide');
+                $("#modal-cadastro-final-geral").modal('show');
+            }); 
+
+            $("#editar-saude").click(function(){
+                $("#modal-editar-saude").modal('show');
+            });
+
+            $("#modal-cadastro-saude-avancar").click(function(){               
+                $("#cadastro-span-perfil-geral").html("Profissional da Saúde");
+                $("#modal-cadastro-saude").modal('hide');
+                $("#modal-cadastro-final-geral").modal('show');
+            }); 
+
+            $("#editar-educacao").click(function(){
+                $("#modal-editar-educacao").modal('show');
+            });
+            
+            $("#modal-cadastro-educacao-avancar").click(function(){               
+                $("#cadastro-span-perfil-geral").html("Profissional de Educação");
+                $("#modal-cadastro-educacao").modal('hide');
+                $("#modal-cadastro-final-geral").modal('show');
+            }); 
+
+            $("#editar-pesquisador").click(function(){
+                $("#modal-editar-pesquisador").modal('show');
+            });
+
+            $("#modal-cadastro-pesquisador-avancar").click(function(){               
+                $("#cadastro-span-perfil-geral").html("Pesquisador");
+                $("#modal-cadastro-pesquisador").modal('hide');
+                $("#modal-cadastro-final-geral").modal('show');
+            }); 
+
+            $("#editar-desafios").click(function(){
+                $("#modal-editar-desafios").modal('show');
+            });
+            
+        });
+    </script>
+    
+    <script src="../../qrious/dist/qrious.min.js"></script>
+    <script>
+        var qr = new QRious({
+            element: document.getElementById('qr'),
+            value:'AM2J4TFE',
+            size:  '200',
+            background:'white',
+            foreground: 'black'
+        })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>

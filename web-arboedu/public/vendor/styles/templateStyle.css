@@ -1,0 +1,226 @@
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 22px;
+    overflow: hidden;
+}
+
+body {
+    background-color: rgb(239, 239, 239);
+}
+
+a { text-decoration:none; 
+    color: white;
+    }
+
+
+.navbar {
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    align-items: stretch;
+    height: 110px;
+    background-color: rgb(53, 155, 102);
+    
+}
+
+.navbar-content > div {
+    color: white;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+
+.icon-navbar {
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: gray;
+}
+
+.cadastro-modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-top: 80px;
+}
+.introForm {
+    background-color: white;
+    width: 650px;
+    height: 600px;   
+    border-radius: 5px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    
+}
+
+.content-form {
+    margin-left: 60px;
+}
+
+.title-content-form {
+    color: rgb(53, 44, 123);
+    font-size: 52px;
+    padding: 25px 0px 50px 0px;
+}
+
+.titles-selects {
+    color: gray;
+}
+
+select{
+    border: 1px solid #4c37a8;
+    font-size: 22px;
+    margin-bottom: 60px;
+    width: 530px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.btn-avancar {
+    margin: 0px 0px 0px 380px;
+    width: 145px;
+    font-size: 22px;
+    background-color: #4c37a8;
+    border: none;
+    color: white;
+    padding: 14px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.boddy-user {
+}
+
+.boddy-adm {
+    height: 750px;
+}
+
+.title-boddy-adm{
+    font-size: 40px;
+    color: rgb(53, 155, 102);
+    margin-left: 70px;
+    padding-bottom: 80px;
+}
+
+.boddy-adm-options  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.boddy-adm-option {
+    height: 300px;
+    width: 300px; 
+    margin: 0px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.5s background-color;
+    background-color: white;
+}
+
+.boddy-adm-option:hover {
+    transition: 0.5s background-color;
+    background-color: rgb(53, 155, 102);
+    transition: 0.5s background-image;
+    background-image: url("../images/icons/user-hover.svg");
+}
+
+.prof-ou-dir {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.escola {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.desafios-e-atividades {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.title-button {
+    font-size: 28px;
+    margin-top: 15px;
+    color: rgb(53, 155, 102);
+}
+
+.content-professor {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.opition-bar {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    background-color: rgb(247,247,247);
+    width: 460px;
+    height: 900px;
+    
+}
+
+.cross-opition-bar {
+    width: 60px;
+    background-color: rgb(53, 165, 144);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  li a {
+    display: block;
+    color: #000;
+    padding: 16px 16px;
+    text-decoration: none;
+  }
+
+  .li-div {
+    display: block;
+    color: rgb(123, 158, 151);
+    padding: 16px 16px;
+    text-decoration: none;
+    background-color: rgb(55, 117, 105);
+  }
+
+  /* Change the link color on hover */
+  li a:hover {
+    background-color: #555;
+    color: white;
+  }
+
+.boddy-prof-options  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.box-alunos {
+    width: 92%;
+    height: 500px;
+    background-color: rgb(247, 247, 247);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
