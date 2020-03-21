@@ -1,0 +1,179 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 22px;
+}
+
+body {
+    background-color: #cccccc;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0);
+    vertical-align: middle;
+}
+
+li {
+    float: left;
+}
+
+.list-group-item-dark.list-group-item-action:hover {
+    background-color: #5c5f5e;
+    color: #5c5f5e;
+}
+
+.title-home {
+    color: rgb(53, 44, 123);
+    font-size: 3rem;
+    padding: 0px;
+}
+
+.text-home {
+    font-size: 1rem;
+    color: rgb(128, 128, 128);
+}
+
+.text-home h2 {
+    font-weight: bold;
+    font-style: italic;
+}
+
+#list-home-list,
+#list-profile-list,
+#list-settings-list,
+#list-messages-list {
+    font-weight: bold;
+}
+
+.topnav {
+    background-color: #efefef;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    z-index: 999999999;
+}
+
+
+/* Style the links inside the navigation bar */
+
+.topnav a {
+    float: left;
+    color: #787878;
+    text-align: center;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.list-group,
+.list-group-item {
+    border-radius: 0!important;
+    border: none;
+}
+
+.list-group-item-dark {
+    background-color: #5c5f5e;
+}
+
+.list-group-item img {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background-color: #096d5a;
+}
+
+.list-group-item.active img {
+    background-color: #025c4f;
+}
+
+.list-group-item.active figure {
+    background-color: #025c4f;
+}
+
+.list-group-item span {
+    padding: 20px;
+    color: #6a9f8e;
+}
+
+.list-group-item figure {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #096d5a;
+    padding: 10px;
+}
+
+.logo-background {
+    background-image: url('../../img/icons/Ativo 27.svg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 20%;
+    background-position-x: 85%;
+    background-position-y: 85%;
+}
+
+.nav-link:visited {
+    color: #5c5f5e;
+}
+
+.shadow-sm {
+    position: relative;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.5)!important
+}
+
+
+/* Right-aligned section inside the top navigation */
+
+.topnav-right {
+    float: initial;
+}
+
+.list-group-item {
+    padding: 0;
+}
+
+
+/* Botão de navegação */
+
+.list-group-item.active {
+    background-color: #025c4f;
+    border-color: #025c4f;
+}
+
+.list-group-item-dark.list-group-item-action.active {
+    background-color: #5c5f5e;
+    border-color: #5c5f5e;
+}
+
+.sidebar:before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    background: #096d5a;
+}
+
+.sidebar {
+    z-index: 9999;
+}
+
+.border-right {
+    border-width: 1px!important;
+    border-color: #9a9a9a!important;
+    border-radius: 0!important;
+}

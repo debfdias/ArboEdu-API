@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 22px;
+}
+
+body {
+    background-image: url("https://i.imgur.com/8ow1AaN.png");
+    background-color: #cccccc;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0);
+    
+    vertical-align: middle;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    margin-right: 125px;
+    padding: 14px 20px;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+li a:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #4c37a8;
+}
+
+.active {
+
+}
+
+.navbar {
+    padding-top: 0px;
+    padding-left: 0;
+}
+
+.btn-login {
+    width: 145px;
+    background-color: #4c37a8;
+    border: none;
+    color: white;
+    padding: 14px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.content-home {
+    margin-top: 250px;
+    margin-left: 200px;
+}
+
+.title-home {
+    color: rgb(53, 44, 123);
+    font-size: 100px;
+    padding: 0px;
+}
+
+
+.text-home {
+    width: 460px;
+    color: rgb(128, 128, 128);
+}
+
+.buttons-home {
+    padding-top: 40px;
+    width: 460px;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+.buttons-home > div {
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  }
+
+.button {
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50px;
+  }
+
+.button-entrar {
+    padding: 15px 55px;
+    background-color: #4c37a8;
+    color: aliceblue;
+    border: 2px solid #4c37a8;
+} 
+
+.button-entrar:hover  {
+    background-color: aliceblue;
+    color: #4c37a8;
+    border: 2px solid #4c37a8;
+}
+
+.button-cadastrar {
+    background-color: aliceblue;
+    color: #4c37a8;
+    border: 2px solid #4c37a8;
+} 
+
+.button-cadastrar:hover  {
+    background-color: #4c37a8;
+    color: aliceblue;
+    border: 2px solid #4c37a8;
+}
+
+.or-home {
+    padding-top: 20px;
+    color: rgb(128, 128, 128);
+}
