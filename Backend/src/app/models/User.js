@@ -69,6 +69,7 @@ module.exports = (sequelize, DataTypes) => {
             console.log("Error while Student creation : ", err)
           })
         }else if(user.role=="pesquisador"){
+          console.log("Recebendo JSON");
           Researcher.create({
             institution: user.extra.institution,
             UserId: user.id

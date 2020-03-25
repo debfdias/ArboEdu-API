@@ -67,6 +67,7 @@ app.use(connection(mysql, dbOptions, 'pool'));
 app.use(app.router);
 app.use(express.static('./public'));
 
+
 if ('development' == app.get('env')) {
     app.use(express.errorHandler());
 }

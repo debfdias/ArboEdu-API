@@ -2,14 +2,18 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const cors = require('cors');
 const app = express();
 
+app.options('*', cors()); // include before other routes 
+app.use(cors());
 const routes = require('./src/routes');
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(routes);
+
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');

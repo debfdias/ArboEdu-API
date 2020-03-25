@@ -645,15 +645,16 @@
         function input2js_pesquisador() {
             let pesquisador = JSON.stringify({
                 name: $('#nome-completo-pesquisador').val(),
-                nascimento: $('#nascimento-pesquisador').val(),
+                birthday: $('#nascimento-pesquisador').val(),
                 cpf: $('#cpf-pesquisador').val().replace(/[^\d]+/g, ''),
-                instituicao_ensino: $('#instituicao-pesquisador').val(),
-                telefone: $('#telefone-pesquisador').val(),
+                phone: $('#telefone-pesquisador').val().replace(/\D+/g, ''),
                 email: $('#email-pesquisador').val(),
                 password: $('#senha-pesquisador').val(),
-                type: 'pesquisador'
+                role: 'pesquisador',
+                extra: {
+                    institution: $('#instituicao-pesquisador').val()
+                }
             });
-
             submitNewUser(pesquisador);
         }
 
@@ -753,19 +754,20 @@
         }
 
         function submitNewUser(dadosJSON) {
+            console.log(dadosJSON);
             $.ajax({
                 contentType: 'application/json',
                 data: dadosJSON,
                 dataType: 'json',
                 success: function (data) {
-                    console.log(data);
+                    console.log("hudvbweuveuv ue");
                 },
                 error: function () {
                     console.log("Device control failed");
                 },
                 processData: false,
                 type: 'POST',
-                url: 'http://localhost:3000/usuario'
+                url: 'http://localhost:3000/user'
             });
         }
 
@@ -850,7 +852,6 @@
                 return false;
             });
             $("#modal-cadastro-avancar").click(function () {
-
                 cadastro_perfil = document.getElementById("modal-cadastro-perfil").value;
                 console.log("Perfil: " + cadastro_perfil);
 
