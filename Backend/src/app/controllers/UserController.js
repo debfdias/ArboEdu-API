@@ -58,6 +58,21 @@ class UserController {
       return res.status(400).json({ error: err.message });
     }
   }
+
+  async authenticate(req, res){
+    try {
+      const user = await User.findAll({
+        where:{
+          email: req.body.email
+        }
+      });
+      const userID = await User.findByPk(user[0].dataValues.id);
+      var result = await userID.validPassword(req.body.password);
+      return res.json(result);
+    } catch (err) {
+      return res.status(400).json({ error: err.message });
+    }
+  }
 }
 
 module.exports = new UserController();

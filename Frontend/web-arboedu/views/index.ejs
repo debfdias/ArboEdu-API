@@ -754,13 +754,12 @@
         }
 
         function submitNewUser(dadosJSON) {
-            console.log(dadosJSON);
             $.ajax({
                 contentType: 'application/json',
                 data: dadosJSON,
                 dataType: 'json',
                 success: function (data) {
-                    console.log("hudvbweuveuv ue");
+                    console.log("Success");
                 },
                 error: function () {
                     console.log("Device control failed");
@@ -780,6 +779,10 @@
             if (login == "" || senha == "") {
                 swal("Erro!", "Porfavor preencha os dados para fazer login", "error");
             } else {
+                var dados = JSON.stringify({
+                                email: login,
+                                password: senha
+                            });
                 $.ajax({
                     contentType: 'application/json',
                     data: JSON.stringify({
@@ -788,6 +791,7 @@
                     }),
                     dataType: 'json',
                     success: function (data) {
+                        console.log(data);
                         let tipoUsuario = data.type;
                         switch (tipoUsuario) {
                             case 'professor':
@@ -811,24 +815,25 @@
                             default:
                             /* página 404 */
                         }
-
                     },
                     error: function (xhr, status, error) {
-                        const mensagemAPI = xhr.responseJSON.mensagem;
+                        var status = xhr.status;
+                        var msgAPI = xhr.responseJSON.error;
                         switch (status) {
-                            case 404:
-                                swal("Erro", mensagemAPI, "error");
+                            case 400:
+                                swal(msgAPI);
                                 break;
                             default:
-                                swal("Erro interno", mensagemAPI, "error");
+                                swal(magAPI);
                         }
                     },
                     processData: false,
                     type: 'POST',
-                    url: 'http://localhost:3000/usuario/authenticate'
+                    url: 'http://localhost:3000/user/authenticate'
                 });
-            }
-        });
+                                
+                            }
+                        });
 
         $(document).ready(function () {
             var status = 0; //0->Welcome, 1->Login
