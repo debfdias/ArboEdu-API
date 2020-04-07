@@ -791,7 +791,11 @@
                     }),
                     dataType: 'json',
                     success: function (data) {
-                        console.log(data);
+                        if(data){
+                            swal("Sucesso");
+                        }else{
+                            swal("Não conseguimos fazer login :/");
+                        }
                         let tipoUsuario = data.type;
                         switch (tipoUsuario) {
                             case 'professor':
