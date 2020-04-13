@@ -1,0 +1,22 @@
+header#home-header{
+    height: 60px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ 
+ 
+ header#home-header a{
+    height: 42px;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: #fafafa;
+    font-size: 24px;
+    border: [];
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
