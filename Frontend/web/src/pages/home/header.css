@@ -1,6 +1,5 @@
 header#home-header{
-    height: 60px;
-    margin-top: 30px;
+    padding: 0.5rem;
     font-weight: bold;
     display: flex;
     justify-content: flex-end;
@@ -10,26 +9,26 @@ header#home-header{
  
  
  header#home-header a{
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
     color: #fafafa;
     font-size: 24px;
     text-decoration: none;
     display: flex;
  }
  header#home-header button{
-   margin:auto;
-   border-radius: 5px;
+   margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+   border-radius: 20px;
    background-color: #0548b3;
    color: #fafafa;
    margin-left: 50px;
    margin-right: 50px;
-   padding: 0.5em;
+   padding: 0.6em;
    font-size: 24px;   
    text-decoration: none;
    border: none;
    outline:none;
-   
 }
 @media only screen and (max-width: 600px) {
    header#home-header a{

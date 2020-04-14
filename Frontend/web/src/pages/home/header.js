@@ -11,7 +11,7 @@ const Header = () => {
             <Link to="#project">Projeto</Link>
             <Link to="#contato">Contato</Link>
 
-            <button id="sign in">Fazer Login</button>
+            <button id="sign in">Entrar</button>
         </header>
 
     );
