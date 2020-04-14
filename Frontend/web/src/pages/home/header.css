@@ -1,22 +1,38 @@
 header#home-header{
     height: 60px;
+    margin-top: 30px;
     font-weight: bold;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
  }
 
  
  
  header#home-header a{
-    height: 42px;
-    border-radius: 5px;
-    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
     color: #fafafa;
     font-size: 24px;
-    border: [];
     text-decoration: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
+ }
+ header#home-header button{
+   margin:auto;
+   border-radius: 5px;
+   background-color: #0548b3;
+   color: #fafafa;
+   margin-left: 50px;
+   margin-right: 50px;
+   padding: 0.5em;
+   font-size: 24px;   
+   text-decoration: none;
+   border: none;
+   outline:none;
+   
+}
+@media only screen and (max-width: 600px) {
+   header#home-header a{
+      visibility: hidden;
+   }
  }

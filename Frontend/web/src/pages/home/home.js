@@ -10,7 +10,6 @@ export default class Home extends Component{
             <Header/>
             <h1>Essa é a página principal</h1>
             </React.Fragment>
-            
         );
     }
 }
