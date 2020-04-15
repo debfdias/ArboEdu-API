@@ -26,12 +26,25 @@ class UserController {
 
   async store(req, res) {
     try {
-      console.log("CALLED THIS");
-      console.log(req.body);
-      const user = await User.create(req.body);
-      return res.json(user);
+      const testCPFUnique = await User.findAll({
+        where:{
+          cpf: req.body.cpf
+        }
+      });
+      const testEmailUnique = await User.findAll({
+        where:{
+          email: req.body.email
+        }
+      });
+      if(testCPFUnique.length===0 && testEmailUnique.length===0){
+        const user = await User.create(req.body);
+        return res.json(user);
+      }else{
+        return res.status(400).json("CPF ou email já registrados");
+      }
+      console.log(testEmailUnique.length)
     } catch (err) {
-      return res.status(400).json({ error: err.message });
+      return res.status(400).json(err.message);
     }
   }
 
@@ -67,10 +80,14 @@ class UserController {
         }
       });
       const userID = await User.findByPk(user[0].dataValues.id);
-      var result = await userID.validPassword(req.body.password);
-      return res.json(result);
+      const result = await userID.validPassword(req.body.password);
+      if(!result){
+        res.status(404);
+        return res.json("Password or email not found")
+      }
+      return res.json("Logged in");
     } catch (err) {
-      return res.status(400).json({ error: err.message });
+      return res.status(404).json("Password or email not found");
     }
   }
 }

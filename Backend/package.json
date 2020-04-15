@@ -23,7 +23,7 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "sequelize-cli": "^5.5.1",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.19.4",
+    "sequelize-cli": "^5.5.1"
   }
 }

@@ -11,11 +11,14 @@ module.exports = (sequelize, DataTypes) => {
     phone: {
       type: DataTypes.DOUBLE,
       validate: {
-        len: [8, 12],
+        len: [8, 11],
       },
     },
     cpf: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      validate:{
+        len: [10,11]
+      }
     },
     birthday:{
       type: DataTypes.DATE

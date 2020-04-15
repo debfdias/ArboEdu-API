@@ -64,3 +64,38 @@ institution
 institution
 
 No caso de "roles" que não tem campos adicionais, como professor, recomenda-se que o campo "extras" seja enviado vazio para evitar problemas com a API.
+
+### Códigos de Erro
+
+#### Login
+
+O JSON de login é da seguinte forma:
+```
+   {
+      "email":"[email]",
+      "password":"[senha]"
+   }
+```
+Um login bem sucedido retorna status 200 OK e mensagem "Logged in".
+
+Um login mal sucedido, seja por email não encontrado ou senha errada retorna status 404 Not Found e mensagem "Password or email not found".
+
+#### Cadastro
+
+O JSON de cadastro se encontra acima. Essa seção é só para erros.
+
+* Email inválido
+
+Um email inválido retorna status 400 Bad Request e mensagem "Validation error: Validation isEmail on email failed"
+
+* CPF ou email já cadastrados
+
+No caso do CPF ou email já estarem no DB, status 400 Bad Request é retornado e mensagem "CPF ou email já registrados" é retornada.
+
+* Telefone inválido
+
+A API aceita telefones com 10 ou 11 caracteres, ou seja, 2 dígitos de DDD + número com 8 ou 9 dígitos. No caso de telefone inválido, o status 400 Bad Request é retornado junto com a mensagem "Validation error: Validation len on phone failed"
+
+* CPF inválido
+
+Caso o tamanho do CPF seja diferente de 11 dígitos, a API retorna status 400 Bad Request e mensagem "Validation error: Validation len on cpf failed"
