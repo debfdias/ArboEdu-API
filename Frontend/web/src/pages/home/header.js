@@ -1,9 +1,9 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import './header.css';
+import "./header.css";
 
-const Header = () => {
+const Header = () => 
     return(
         <header id='home-header'>
             <Link to="#home">Home</Link>
