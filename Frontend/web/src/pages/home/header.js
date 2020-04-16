@@ -10,8 +10,7 @@ const Header = () => {
             <Link to="#about">Sobre nós</Link>
             <Link to="#project">Projeto</Link>
             <Link to="#contato">Contato</Link>
-
-            <button id="sign in">Entrar</button>
+            <Link to="/cadastro"><button id="sign in">Entrar</button></Link>
         </header>
 
     );
