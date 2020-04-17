@@ -1,5 +1,8 @@
 const { User } = require('../models');
 const crypto = require('crypto');
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 class UserController {
   async index(req, res) {
     try {
@@ -96,17 +99,59 @@ class UserController {
           email: req.body.email
         }
       });
+      if(user===[]){
+        return res.status(400).json("Email não encontrado")
+      }
       var userID = await User.findByPk(user[0].dataValues.id)
       var temp = {
         resetPasswordToken: crypto.randomBytes(20).toString('hex'),
         resetPasswordExpires: Date.now() + 3600000
       }
-      User.update(temp, { where: { id: userID.id } }).then((result) => {});
-      userID = await User.findByPk(user[0].dataValues.id)
-      return res.json(userID)
+      await User.update(temp, { where: { id: userID.id } }).then((result) => {
+        if(result[0]===1){
+          // send email
+        User.findByPk(user[0].dataValues.id).then(userToSendEmailTo=>{
+          let link = "http://" + req.headers.host + "/user/" + userToSendEmailTo.id+"/reset/"+userToSendEmailTo.resetPasswordToken;
+          const mailOptions = {
+              to: userID.email,
+              from: 'irs@cin.ufpe.br',
+              subject: "Password change request",
+              text: `Olá ${userID.name} \n 
+          Clique nesse link ${link} para resetar sua senha. \n\n 
+          Se não foi você que fez essa solicitação, ignore..\n`,
+          };
+          
+          sgMail.send(mailOptions, (error, result) => {
+              if (error) return res.status(500).json({message: error.message});
+  
+              return res.status(200).json({message: 'Email reset de senha enviado para ' + userID.email + '.'});
+          });
+
+        });
+        }else{
+          return res.status(500).json({message: 'Não foi possível atualizar o resetPasswordToken e resetPasswordExpires para esse usuário. Code: '+result[0]})
+        }
+      });
     }catch(err){
-      return res.status(404).json(err)
+      return res.status(500).json(err)
     }
+  }
+
+  async resetPassword(req, res){
+    const user = await User.findAll({
+      where:{
+        resetPasswordToken: req.params.token
+      }
+    });
+    if(user===[]){
+      return res.status(400).json("Email não encontrado")
+    }
+    if(Date.now()<user[0].resetPasswordExpires.getTime()){
+      //TODO Receber senha de um formulário do front end
+    }else{
+      return res.status(404).json("Token expirado")
+    }
+    return res.status(200).json("OK")
   }
 }
 
