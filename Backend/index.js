@@ -27,3 +27,18 @@ app.listen(3000, () => {
   console.log('API rodando na porta 3000!')
 })
 
+/* const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const msg = {
+  to: 'it.rb.so@gmail.com',
+  from: 'irs@cin.ufpe.br',
+  subject: 'Sending with Twilio SendGrid is Fun',
+  text: 'and easy to do anywhere, even with Node.js',
+  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+};
+try{
+  sgMail.send(msg);
+}catch(err){
+  console.log(err)
+} */
+

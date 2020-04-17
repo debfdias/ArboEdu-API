@@ -1,4 +1,5 @@
 var bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     name: DataTypes.STRING,
@@ -31,6 +32,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     extra:{
       type: DataTypes.JSON
+    },
+    resetPasswordToken: {
+      type: DataTypes.STRING
+    },
+    resetPasswordExpires: {
+        type: DataTypes.DATE
     },
     createdAt: {
          field: 'created_at',
@@ -161,6 +168,12 @@ module.exports = (sequelize, DataTypes) => {
   User.prototype.validPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
   }
+
+  User.prototype.generatePasswordReset = function() {
+    this.resetPasswordToken = crypto.randomBytes(20).toString('hex');
+    this.resetPasswordExpires = Date.now() + 3600000; //expires in an hour
+    console.log(this.resetPasswordExpires)
+  };
 
 
   /* User.associate = function(models) {

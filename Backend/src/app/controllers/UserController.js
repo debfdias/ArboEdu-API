@@ -1,4 +1,5 @@
 const { User } = require('../models');
+const crypto = require('crypto');
 class UserController {
   async index(req, res) {
     try {
@@ -42,7 +43,6 @@ class UserController {
       }else{
         return res.status(400).json("CPF ou email já registrados");
       }
-      console.log(testEmailUnique.length)
     } catch (err) {
       return res.status(400).json(err.message);
     }
@@ -63,9 +63,7 @@ class UserController {
   async destroy(req, res) {
     try {
       const user = await User.findByPk(req.params.id);
-      console.log("FOUND USER: " + req.params.id);
       await user.destroy();
-      console.log("TRYING TO DESTROY");
       return res.json();
     } catch (err) {
       return res.status(400).json({ error: err.message });
@@ -88,6 +86,26 @@ class UserController {
       return res.json("Logged in");
     } catch (err) {
       return res.status(404).json("Password or email not found");
+    }
+  }
+
+  async passwordRecover(req, res){
+    try{
+      const user = await User.findAll({
+        where:{
+          email: req.body.email
+        }
+      });
+      var userID = await User.findByPk(user[0].dataValues.id)
+      var temp = {
+        resetPasswordToken: crypto.randomBytes(20).toString('hex'),
+        resetPasswordExpires: Date.now() + 3600000
+      }
+      User.update(temp, { where: { id: userID.id } }).then((result) => {});
+      userID = await User.findByPk(user[0].dataValues.id)
+      return res.json(userID)
+    }catch(err){
+      return res.status(404).json(err)
     }
   }
 }
