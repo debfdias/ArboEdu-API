@@ -1,6 +1,7 @@
 const { User } = require('../models');
 const crypto = require('crypto');
 const sgMail = require('@sendgrid/mail');
+require('dotenv').config({path:__dirname+'/./../../../.env'})
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 class UserController {
@@ -147,7 +148,22 @@ class UserController {
       return res.status(400).json("Email não encontrado")
     }
     if(Date.now()<user[0].resetPasswordExpires.getTime()){
-      //TODO Receber senha de um formulário do front end
+      //ATENÇÂO newPassword é apenas para testes
+      //Em produção haverá redirecionamento para o form de redefinição de senha e captura da nova senha ao submeter
+      const newPassword="82305235723572"
+      var userID = await User.findByPk(user[0].dataValues.id)
+      var temp = {
+        resetPasswordToken: null,
+        resetPasswordExpires: null,
+        password: newPassword
+      }
+      await User.update(temp, { where: { id: userID.id } }).then((result)=>{
+        if(result[0]===1){
+          return res.status(200).json("Senha alterada com sucesso")
+        }else{
+          return res.status(500).json({message: "Internal Server Error, code: 1"})
+        }
+      })
     }else{
       return res.status(404).json("Token expirado")
     }

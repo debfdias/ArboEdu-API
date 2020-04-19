@@ -53,6 +53,14 @@ module.exports = (sequelize, DataTypes) => {
         const salt = await bcrypt.genSalt(10); //whatever number you want
         user.password = await bcrypt.hash(user.password, salt);
       },
+      beforeBulkUpdate: async function(user) {
+        if(user.fields.includes('password')){
+          console.log(user.fields.password)
+          console.log(typeof(user.fields.password))
+          const salt = await bcrypt.genSalt(10); //whatever number you want
+          user.attributes.password = await bcrypt.hash(user.attributes.password, salt);
+        }
+      },
       afterCreate: async function(user){
         var Student = sequelize.models.Student;
         var Researcher = sequelize.models.Researcher;
