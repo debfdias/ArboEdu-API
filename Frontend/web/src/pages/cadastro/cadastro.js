@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../services/api.js';
-
+import Basic from './formik.js';
 export default class Cadastro extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +16,8 @@ export default class Cadastro extends Component {
         this.enviarDados = this.enviarDados.bind(this);
     };
     render() {
-        return (
+        return (Basic());
+      /*  return (
             <div>
                 <div id="seletor">
                     <select id="Tipo" onChange={this.cadastro}>
@@ -30,7 +31,7 @@ export default class Cadastro extends Component {
                     {this.state.value}
                 </div>
             </div>
-        );
+        );*/
     }
     cadastro(opção) {
         switch (opção.target.value) {
