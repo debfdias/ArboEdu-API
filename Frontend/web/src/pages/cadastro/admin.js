@@ -27,7 +27,7 @@ function validaCPF(CPF) {
 
 }
 
-const Basic = () => (
+const Admin = () => (
   <div>
     <h1>Cadastro Admin</h1>
     <Formik
@@ -116,4 +116,4 @@ const Basic = () => (
   </div>
 );
 
-export default Basic;
+export default Admin;
