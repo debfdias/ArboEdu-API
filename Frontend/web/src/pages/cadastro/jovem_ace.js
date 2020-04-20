@@ -106,9 +106,9 @@ const Jovem_ace = () => (
                     <ErrorMessage name="birthday" component="div" />
                     <Field type="date" name="birthday" />
                     <ErrorMessage name="cpf" component="div" />
-                    <Field type="text" name="cpf" />
+                    <Field type="text" name="cpf" placeholder="CPF"/>
                     <ErrorMessage name="extra.distrito_sanitario" component="div" />
-                    <Field type="text" name="extra.distrito_sanitario" />
+                    <Field type="text" name="extra.distrito_sanitario" placeholder="Distrito Sanitário"/>
                     <button type="submit" disabled={isSubmitting}>
                         Cadastrar
           </button>

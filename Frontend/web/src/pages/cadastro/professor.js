@@ -106,7 +106,7 @@ const Professor = () => (
           <ErrorMessage name="birthday" component="div" />
           <Field type="date" name="birthday" />
           <ErrorMessage name="cpf" component="div" />
-          <Field type="text" name="cpf" />
+          <Field type="text" name="cpf" placeholder="CPF" />
           <button type="submit" disabled={isSubmitting}>
             Cadastrar
           </button>
