@@ -63,6 +63,11 @@ const Professor = () => (
         //Chega validade do telefone
         if (!values.phone) {
           errors.phone = "É necessário cadastrar um número de telefone";
+        }else if(
+          // eslint-disable-next-line
+          !/^\(?\d{2}\)?\d{5}\-?\d{4}$/i.test(values.phone)
+          ){
+          errors.phone = "Digite um número de telefone válido";
         }
 
         //checa a validade do CPF
@@ -83,7 +88,7 @@ const Professor = () => (
 
         console.log(values);
         values.cpf =   values.cpf.replace(/\D/g,'');
-
+        values.phone =   values.phone.replace(/\D/g,'');
         api.post("/user", values);
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
