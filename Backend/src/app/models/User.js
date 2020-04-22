@@ -87,7 +87,6 @@ module.exports = (sequelize, DataTypes) => {
             console.log("Error while Student creation : ", err)
           })
         }else if(user.role=="pesquisador"){
-          console.log("Recebendo JSON");
           Researcher.create({
             institution: user.extra.institution,
             UserId: user.id
@@ -134,7 +133,7 @@ module.exports = (sequelize, DataTypes) => {
           })
         }else if(user.role=="jovem_ace"){
           Jovem_ACE.create({
-            distrito_sanitario: "Distrito 9",
+            distrito_sanitario: user.extra.distrito_sanitario,
             UserId: user.id
           })
           .then((newJovem_ACE) => {
@@ -146,7 +145,7 @@ module.exports = (sequelize, DataTypes) => {
           })
         }else if(user.role=="profissional_saude"){
           Health_Worker.create({
-            institution: "UPA da linha do tiro",
+            institution: user.extra.institution,
             UserId: user.id
           })
           .then((newHealth_Worker) => {
@@ -158,7 +157,7 @@ module.exports = (sequelize, DataTypes) => {
           })
         }else if(user.role=="profissional_educacao"){
           Education_Worker.create({
-            institution: "EEEF Monteiro Lobato",
+            institution: user.extra.institution,
             UserId: user.id
           })
           .then((newEducation_Worker) => {
