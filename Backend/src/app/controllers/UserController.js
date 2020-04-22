@@ -119,7 +119,8 @@ class UserController {
               subject: "Password change request",
               text: `Olá ${userID.name} \n 
           Clique nesse link ${link} para resetar sua senha. \n\n 
-          Se não foi você que fez essa solicitação, ignore..\n`,
+          O link é válido por uma hora. \n
+          Se não foi você que fez essa solicitação, ignore.\n`,
           };
           
           sgMail.send(mailOptions, (error, result) => {

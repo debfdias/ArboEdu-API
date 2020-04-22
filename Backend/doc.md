@@ -99,3 +99,20 @@ A API aceita telefones com 10 ou 11 caracteres, ou seja, 2 dígitos de DDD + nú
 * CPF inválido
 
 Caso o tamanho do CPF seja diferente de 11 dígitos, a API retorna status 400 Bad Request e mensagem "Validation error: Validation len on cpf failed"
+
+### Recuperação de senha
+
+Para recuperar a senha a rota '/user/passwordRecovery' com método POST e corpo da requisição apenas com email é usado. Por exemplo:
+```
+   {
+      "email": "joaodasilva@example.com"
+   }
+```
+Caso o email não seja encontrado, a API retorna código 400 com mensagem de email não encontrado.
+Do contrário, um email é enviado para o usuário. Caso o envio do email falhe, a API retorna código 500 com mensagem de erro da biblioteca usada para enviar o email. Caso o envio seja bem sucedido, código 200 é retornado com o email para o qual a mensagem foi enviada. Caso haja um erro interno do DB, código 500 é retornado e API informa que não foi possível atualizar o token de senha e data de expiração.
+
+Uma vez que o usuário clique no link recebido (que funciona por 1 hora) a rota usada é '/user/:id/reset/:token' com método GET. 
+
+A API procura o email do usuário no DB e retorna 400 com mensagem "Email não encontrado", em seguida, a API verifica a vaidade do token, caso tenha expirado, código 404 com mensagem "Token expirado" é retornada. Se o token for válido e o email existir, a API tenta atualizar a senha. Em caso de sucesso, código 200 é retornado. Em caso de falha, código 500 é retornado.
+
+ATENÇÃO: Atualmente, a nova senha é 'hard coded' para fins de teste. Uma vez o front end tiver um form de redefinição de senha, o código será alterado para puxar a nova senha do form.
