@@ -170,6 +170,22 @@ class UserController {
     }
     return res.status(200).json("OK")
   }
+
+  async test(req, res){
+    console.log(req.body);
+    req.session.email=req.body.email
+    //console.log(req)
+    res.status(200).json("Concluído")
+    res.end('done')
+  }
+
+  async untest(req, res){
+    console.log(req.body)
+    req.session.destroy((err)=>{
+      return console.log(err)
+    })
+    res.status(200).json("Sessão excluída")
+  }
 }
 
 module.exports = new UserController();

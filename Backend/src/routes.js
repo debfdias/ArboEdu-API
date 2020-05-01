@@ -7,7 +7,6 @@ const AceInstitutionController = require('./app/controllers/AceInstitutionContro
 const StudentController = require('./app/controllers/StudentController');
 const ResearcherController = require('./app/controllers/ResearcherController');
 
-
 const routes = Router();
 
 routes.get('/users', UserController.index);
@@ -18,7 +17,11 @@ routes.put('/user/:id', UserController.update);
 routes.delete('/user/:id', UserController.destroy);
 routes.post('/user/authenticate', UserController.authenticate);
 routes.post('/user/passwordRecovery', UserController.passwordRecover);
-routes.get('/user/:id/reset/:token', UserController.resetPassword)
+routes.get('/user/:id/reset/:token', UserController.resetPassword);
+////////////////////////////////////////////
+routes.post('/login', UserController.test);
+routes.get('/logout', UserController.untest)
+////////////////////////////////////////////
 
 routes.get('/institutions', InstitutionController.index);
 routes.get('/institution', InstitutionController.get);
