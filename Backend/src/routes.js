@@ -6,6 +6,7 @@ const LectureController = require('./app/controllers/LectureController');
 const AceInstitutionController = require('./app/controllers/AceInstitutionController');
 const StudentController = require('./app/controllers/StudentController');
 const ResearcherController = require('./app/controllers/ResearcherController');
+const AdministratorController = require('./app/controllers/AdministratorController');
 
 const routes = Router();
 
@@ -19,8 +20,8 @@ routes.post('/user/authenticate', UserController.authenticate);
 routes.post('/user/passwordRecovery', UserController.passwordRecover);
 routes.get('/user/:id/reset/:token', UserController.resetPassword);
 ////////////////////////////////////////////
-routes.post('/login', UserController.test);
-routes.get('/logout', UserController.untest)
+//routes.post('/login', UserController.test);
+//routes.get('/logout', UserController.untest)
 ////////////////////////////////////////////
 
 routes.get('/institutions', InstitutionController.index);
@@ -56,5 +57,10 @@ routes.get('/pesquisadores', ResearcherController.list);
 routes.post('/pesquisadores', ResearcherController.store);
 routes.put('/pesquisadores/:id', ResearcherController.update);
 routes.delete('/pesquisadores/:id', ResearcherController.destroy);
+
+routes.get('/administradores', AdministratorController.list);
+routes.post('/administradores', AdministratorController.store);
+routes.put('/administradores/:id', AdministratorController.update);
+routes.delete('/administradores/:id', AdministratorController.destroy);
 
 module.exports = routes;

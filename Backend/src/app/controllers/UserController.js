@@ -75,21 +75,26 @@ class UserController {
   }
 
   async authenticate(req, res){
-    try {
-      const user = await User.findAll({
-        where:{
-          email: req.body.email
+    if(req.session.email){
+      return res.status(200).json("Já logado")
+    }else{
+      try {
+        const user = await User.findAll({
+          where:{
+            email: req.body.email
+          }
+        });
+        const userID = await User.findByPk(user[0].dataValues.id);
+        const result = await userID.validPassword(req.body.password);
+        if(!result){
+          return res.status(404).json("Password or email not found")
         }
-      });
-      const userID = await User.findByPk(user[0].dataValues.id);
-      const result = await userID.validPassword(req.body.password);
-      if(!result){
-        res.status(404);
-        return res.json("Password or email not found")
+        req.session.email=req.body.email
+        console.log(req.session)
+        return res.status(200).json("Logged in");
+      } catch (err) {
+        //return res.status(404).json(err);
       }
-      return res.json("Logged in");
-    } catch (err) {
-      return res.status(404).json("Password or email not found");
     }
   }
 
@@ -171,21 +176,25 @@ class UserController {
     return res.status(200).json("OK")
   }
 
-  async test(req, res){
-    console.log(req.body);
-    req.session.email=req.body.email
-    //console.log(req)
-    res.status(200).json("Concluído")
-    res.end('done')
+  /* async test(req, res){
+    console.log(req.session.email);
+    if(req.session.email){
+      console.log(req.session)
+      return res.status(500).json("No error")
+    }else{
+      req.session.email=req.body.email
+      console.log(req.session.email)
+      return res.status(200).json("Concluído")
+    }
   }
 
   async untest(req, res){
-    console.log(req.body)
+    console.log(req.session.email)
     req.session.destroy((err)=>{
       return console.log(err)
     })
     res.status(200).json("Sessão excluída")
-  }
+  } */
 }
 
 module.exports = new UserController();
