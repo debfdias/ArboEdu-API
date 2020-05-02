@@ -183,11 +183,8 @@ module.exports = (sequelize, DataTypes) => {
   };
 
 
-  /* User.associate = function(models) {
-    User.hasMany(models.Student, {onDelete: 'CASCADE', hooks: true, as: 'Students'})
-  };
   User.associate = function(models) {
-    User.hasMany(models.Researcher, {onDelete: 'CASCADE', hooks: true, as: 'Researchers'})
+    User.hasMany(models.Student, {onDelete: 'CASCADE', hooks: true, as: 'Students'})
   };
   User.associate = function(models) {
     User.hasMany(models.Principal, {onDelete: 'CASCADE', hooks: true, as: "Principals"})
@@ -206,6 +203,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   User.associate = function(models) {
     User.hasMany(models.Education_Worker, {onDelete: 'CASCADE', hooks: true, as: "Education_Workers"})
-  }; */
+  };
+  User.associate = function(models) {
+    User.hasMany(models.Researcher, {onDelete: 'CASCADE', hooks: true, as: 'Researchers'})
+  };
   return User;
 };

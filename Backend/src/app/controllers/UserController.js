@@ -66,9 +66,34 @@ class UserController {
 
   async destroy(req, res) {
     try {
-      const user = await User.findByPk(req.params.id);
-      await user.destroy();
-      return res.json();
+      if(!req.session.email){
+        res.status(401).json("Usuário não logado");
+      }else{
+        try{
+          //Procurando administrador
+          const user = await User.findAll({
+            where:{
+              email: req.session.email
+            }
+          });
+          const userAdministrator = await User.findByPk(user[0].dataValues.id);
+          //Procurando usuário para ser apagado
+          const userToBeDestroyedByEmail = await User.findAll({
+            where:{
+              email: req.params.email
+            }
+          });
+          const userToBeDestroyedByID = await User.findByPk(userToBeDestroyedByEmail[0].dataValues.id);
+          if(userAdministrator.dataValues.role==='administrador'){
+            const userToBeDestroyed = await User.findByPk(userToBeDestroyedByID.dataValues.id);
+            await userToBeDestroyed.destroy();
+            return res.status(200).json(userToBeDestroyed.dataValues+" apagado");
+
+          }
+        }catch(err){
+          res.status(500).json(err)
+        }
+      }
     } catch (err) {
       return res.status(400).json({ error: err.message });
     }

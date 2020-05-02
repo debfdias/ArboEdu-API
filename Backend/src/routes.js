@@ -15,7 +15,7 @@ routes.get('/user', UserController.get);
 routes.post('/user', UserController.store);
 routes.get('/user/:id', UserController.show);
 routes.put('/user/:id', UserController.update);
-routes.delete('/user/:id', UserController.destroy);
+routes.delete('/user/:email', UserController.destroy);
 routes.post('/user/authenticate', UserController.authenticate);
 routes.post('/user/passwordRecovery', UserController.passwordRecover);
 routes.get('/user/:id/reset/:token', UserController.resetPassword);
