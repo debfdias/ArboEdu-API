@@ -39,7 +39,7 @@ passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 var LocalStrategy = require('passport-local').Strategy;
-require('./src/config/passport.js')(passport, LocalStrategy);
+require('./src/app/controllers/passport.js')(passport, LocalStrategy);
 //=============================================
 app.options('*', cors()); // include before other routes 
 app.use(cors());
@@ -55,11 +55,11 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(express.static(path.join(__dirname, 'public')));
   app.get('/', (req, res) => {
-  res.send('API ArboEdu!');
+    res.send('API ArboEdu!');
 });
 
-app.listen(3000, () => {
-  console.log('API rodando na porta 3000!')
+app.listen(3001, () => {
+  console.log('API rodando na porta 3001!')
 })
 
 

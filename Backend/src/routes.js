@@ -23,11 +23,12 @@ routes.get('/user/:id/reset/:token', UserController.resetPassword);
 const passport = require('passport');
 
 routes.post('/signin', passport.authenticate('local-signin', {
-    successRedirect: '/',
-    failureRedirect: '/signin'
-}
-
-));
+    //TODO mudar esses redirects para o front end
+    successRedirect: 'http://localhost:3000/',
+    failureRedirect: 'http://localhost:3000/'
+}));
+const logout = require('./app/controllers/passport')
+routes.get('/logout', logout.logout)
 
 routes.get('/institutions', InstitutionController.index);
 routes.get('/institution', InstitutionController.get);

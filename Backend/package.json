@@ -21,6 +21,7 @@
     "ejs": "^2.6.1",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "http-proxy": "^1.18.0",
     "jade": "^1.11.0",
     "morgan": "^1.9.1",
     "mysql2": "^1.7.0",

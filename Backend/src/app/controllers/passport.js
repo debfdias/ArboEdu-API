@@ -1,4 +1,4 @@
-const { User } = require('../app/models');
+const { User } = require('../models');
 module.exports = function(passport, user, LocalStrategy) {
     var LocalStrategy = require('passport-local').Strategy;
     passport.use('local-signin', new LocalStrategy({
@@ -12,7 +12,6 @@ module.exports = function(passport, user, LocalStrategy) {
                 }
             }).then(users=>{
                 var user=users[0];
-                console.log(req.session)
                 if(user===undefined){
                     return done(null, false,{
                         message: "Usuário não encontrado"
@@ -29,4 +28,13 @@ module.exports = function(passport, user, LocalStrategy) {
         }
      
     ));
+}
+
+module.exports.logout = function(req, res) {
+    console.log('Apagando sessão')
+    console.log(req.session)
+    req.session.destroy(function(err) {
+        console.log('Sessão apagada')
+        res.status(200).json("Logged out")
+    });
 }
