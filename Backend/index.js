@@ -1,11 +1,10 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const app = express();
 ///////////////////////////////////////////////
-const session = require('express-session');
+/* const session = require('express-session');
 const redis = require('redis');
 const redisStore = require('connect-redis')(session);
 const client  = redis.createClient();
@@ -16,8 +15,32 @@ app.use(session({
   saveUninitialized: false,
   resave: false
 }));
-  
+   */
 //////////////////////////////////////////////
+//===========================================
+const bodyParser = require('body-parser');
+const expressSession = require('express-session')({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false
+});
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(expressSession);
+var passport = require('passport')
+app.use(passport.initialize());
+app.use(passport.session());
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+var LocalStrategy = require('passport-local').Strategy;
+require('./src/config/passport.js')(passport, LocalStrategy);
+//=============================================
 app.options('*', cors()); // include before other routes 
 app.use(cors());
 const routes = require('./src/routes');

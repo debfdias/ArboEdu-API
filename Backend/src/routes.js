@@ -8,6 +8,7 @@ const StudentController = require('./app/controllers/StudentController');
 const ResearcherController = require('./app/controllers/ResearcherController');
 const AdministratorController = require('./app/controllers/AdministratorController');
 
+
 const routes = Router();
 
 routes.get('/users', UserController.index);
@@ -19,10 +20,14 @@ routes.delete('/user/:email', UserController.destroy);
 routes.post('/user/authenticate', UserController.authenticate);
 routes.post('/user/passwordRecovery', UserController.passwordRecover);
 routes.get('/user/:id/reset/:token', UserController.resetPassword);
-////////////////////////////////////////////
-//routes.post('/login', UserController.test);
-//routes.get('/logout', UserController.untest)
-////////////////////////////////////////////
+const passport = require('passport');
+
+routes.post('/signin', passport.authenticate('local-signin', {
+    successRedirect: '/',
+    failureRedirect: '/signin'
+}
+
+));
 
 routes.get('/institutions', InstitutionController.index);
 routes.get('/institution', InstitutionController.get);
