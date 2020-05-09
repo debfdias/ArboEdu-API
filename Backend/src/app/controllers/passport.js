@@ -10,20 +10,27 @@ module.exports = function(passport, user, LocalStrategy) {
                 where:{
                     email: email
                 }
-            }).then(users=>{
+            }).then(users=>{                
                 var user=users[0];
                 if(user===undefined){
+                    console.log("Usuário não encontrado");
                     return done(null, false,{
                         message: "Usuário não encontrado"
                     })
                 }
-                if(!user.validPassword(password)){
-                    return done(null, false, {
-                        message: 'Incorrect password.'
-                    });
-                }else{
-                    return done(null, user)
-                }
+                user.validPassword(password).then(result=>{
+                    if(!result){
+                        console.log("Senha incorreta");
+                        return done(null, false, {
+                            message: 'Incorrect password.'
+                        });
+                    }else{
+                        console.log("Logado!");
+                        return done(null, user)
+                    }
+                    
+                })
+                
             })
         }
      
@@ -31,8 +38,8 @@ module.exports = function(passport, user, LocalStrategy) {
 }
 
 module.exports.logout = function(req, res) {
-    console.log('Apagando sessão')
-    console.log(req.session)
+    //console.log('Apagando sessão')
+    //console.log(req.session)
     req.session.destroy(function(err) {
         console.log('Sessão apagada')
         res.status(200).json("Logged out")

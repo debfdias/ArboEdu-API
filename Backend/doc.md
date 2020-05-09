@@ -1,6 +1,8 @@
 # Documentação mais incrível da humanidade
 
-### Essa documentação é focada na API, recomendo criar um arquivo semelhante na pasta de front-end
+## Essa documentação é focada na API, recomendo criar um arquivo semelhante na pasta de front-end
+
+### Criação de Usuário
 
 * Formatação do JSON - Esse um exemplo de JSON para criar um usuário
 ```
@@ -65,9 +67,11 @@ institution
 
 No caso de "roles" que não tem campos adicionais, como professor, recomenda-se que o campo "extras" seja enviado vazio para evitar problemas com a API.
 
-### Códigos de Erro
 
-#### Login
+
+## Códigos de Erro
+
+### Login
 
 O JSON de login é da seguinte forma:
 ```
@@ -76,11 +80,11 @@ O JSON de login é da seguinte forma:
       "password":"[senha]"
    }
 ```
-Um login bem sucedido retorna status 200 OK e mensagem "Logged in".
+Um login bem sucedido redireciona para /users (temporariamente)
 
-Um login mal sucedido, seja por email não encontrado ou senha errada retorna status 404 Not Found e mensagem "Password or email not found".
+Um login mal sucedido, seja por email não encontrado ou senha errada redireciona para /
 
-#### Cadastro
+### Cadastro
 
 O JSON de cadastro se encontra acima. Essa seção é só para erros.
 
@@ -100,7 +104,7 @@ A API aceita telefones com 10 ou 11 caracteres, ou seja, 2 dígitos de DDD + nú
 
 Caso o tamanho do CPF seja diferente de 11 dígitos, a API retorna status 400 Bad Request e mensagem "Validation error: Validation len on cpf failed"
 
-### Recuperação de senha
+## Recuperação de senha
 
 Para recuperar a senha a rota '/user/passwordRecovery' com método POST e corpo da requisição apenas com email é usado. Por exemplo:
 ```

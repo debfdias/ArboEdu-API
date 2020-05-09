@@ -3,6 +3,7 @@ const path = require('path');
 const morgan = require('morgan');
 const cors = require('cors');
 const app = express();
+
 ///////////////////////////////////////////////
 /* const session = require('express-session');
 const redis = require('redis');
@@ -17,7 +18,6 @@ app.use(session({
 }));
    */
 //////////////////////////////////////////////
-//===========================================
 const bodyParser = require('body-parser');
 const expressSession = require('express-session')({
   secret: 'secret',
@@ -40,8 +40,7 @@ passport.deserializeUser(function(user, done) {
 });
 var LocalStrategy = require('passport-local').Strategy;
 require('./src/app/controllers/passport.js')(passport, LocalStrategy);
-//=============================================
-app.options('*', cors()); // include before other routes 
+app.options('*', cors());
 app.use(cors());
 const routes = require('./src/routes');
 

@@ -66,28 +66,14 @@ class UserController {
 
   async destroy(req, res) {
     try {
-      if(!req.session.email){
+      if(!req.session.passport){
         res.status(401).json("Usuário não logado");
       }else{
         try{
-          //Procurando administrador
-          const user = await User.findAll({
-            where:{
-              email: req.session.email
-            }
-          });
-          const userAdministrator = await User.findByPk(user[0].dataValues.id);
-          //Procurando usuário para ser apagado
-          const userToBeDestroyedByEmail = await User.findAll({
-            where:{
-              email: req.params.email
-            }
-          });
-          const userToBeDestroyedByID = await User.findByPk(userToBeDestroyedByEmail[0].dataValues.id);
-          if(userAdministrator.dataValues.role==='administrador'){
-            const userToBeDestroyed = await User.findByPk(userToBeDestroyedByID.dataValues.id);
-            await userToBeDestroyed.destroy();
-            return res.status(200).json(userToBeDestroyed.dataValues+" apagado");
+          const userToBeDestroyedByID = await User.findByPk(req.params.id);
+          if(userToBeDestroyedByID.dataValues.role==='administrador'){
+            await userToBeDestroyedByID.destroy();
+            return res.status(200).json(userToBeDestroyedByID.dataValues+" apagado");
 
           }
         }catch(err){
@@ -200,26 +186,6 @@ class UserController {
     }
     return res.status(200).json("OK")
   }
-
-  /* async test(req, res){
-    console.log(req.session.email);
-    if(req.session.email){
-      console.log(req.session)
-      return res.status(500).json("No error")
-    }else{
-      req.session.email=req.body.email
-      console.log(req.session.email)
-      return res.status(200).json("Concluído")
-    }
-  }
-
-  async untest(req, res){
-    console.log(req.session.email)
-    req.session.destroy((err)=>{
-      return console.log(err)
-    })
-    res.status(200).json("Sessão excluída")
-  } */
 }
 
 module.exports = new UserController();

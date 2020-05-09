@@ -9,6 +9,7 @@ const ResearcherController = require('./app/controllers/ResearcherController');
 const AdministratorController = require('./app/controllers/AdministratorController');
 
 
+
 const routes = Router();
 
 routes.get('/users', UserController.index);
@@ -16,18 +17,18 @@ routes.get('/user', UserController.get);
 routes.post('/user', UserController.store);
 routes.get('/user/:id', UserController.show);
 routes.put('/user/:id', UserController.update);
-routes.delete('/user/:email', UserController.destroy);
+routes.delete('/user/:id', UserController.destroy);
 routes.post('/user/authenticate', UserController.authenticate);
 routes.post('/user/passwordRecovery', UserController.passwordRecover);
 routes.get('/user/:id/reset/:token', UserController.resetPassword);
 const passport = require('passport');
+const logout = require('./app/controllers/passport')
 
 routes.post('/signin', passport.authenticate('local-signin', {
     //TODO mudar esses redirects para o front end
-    successRedirect: 'http://localhost:3000/',
-    failureRedirect: 'http://localhost:3000/'
+    successRedirect: 'http://localhost:3001/users',
+    failureRedirect: 'http://localhost:3001/'
 }));
-const logout = require('./app/controllers/passport')
 routes.get('/logout', logout.logout)
 
 routes.get('/institutions', InstitutionController.index);
