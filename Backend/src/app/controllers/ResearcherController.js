@@ -59,14 +59,15 @@ class ResearcherController {
   async update(req, res) {
     try {
       var role = "";
+      var id="";
       if(req.session.passport===undefined){
         return res.status(401).json("Usuário não logado")
       }else{
         role = req.session.passport.user.role;
+        id= req.session.passport.user.id
       } 
       
-      if(role==="pesquisador" || role==="administrador"){
-        console.log(req.params);
+      if((role==="pesquisador" && req.params.id===id)|| role==="administrador"){
         const researcher = await Researcher.findByPk(req.params.id);
         await researcher.update(req.body);
         return res.status(200).json({ researcher });

@@ -31,7 +31,7 @@ routes.post('/signin', passport.authenticate('local-signin', {
 }));
 routes.get('/logout', logout.logout)
 
-routes.get('/institutions', InstitutionController.index);
+routes.get('/institution', InstitutionController.index);
 routes.get('/institution', InstitutionController.get);
 routes.post('/institution', InstitutionController.store);
 routes.get('/institution/:id', InstitutionController.show);
@@ -45,29 +45,29 @@ routes.get('/classInstitution/:id', ClassesInstitutionController.show);
 routes.put('/classInstitution/:id', ClassesInstitutionController.update);
 routes.delete('/classInstitution/:id', ClassesInstitutionController.destroy);
 
-routes.get('/lectures', LectureController.list);
+routes.get('/lecture', LectureController.list);
 routes.post('/lecture', LectureController.store);
 routes.get('/lecture/:id', LectureController.show);
 routes.delete('/lecture/:id', LectureController.destroy);
 
-routes.get('/aceInstitutions', AceInstitutionController.list);
+routes.get('/aceInstitution', AceInstitutionController.list);
 routes.post('/aceInstitution', AceInstitutionController.store);
 routes.get('/aceInstitution/:id', AceInstitutionController.show);
 routes.delete('/aceInstitution/:id', AceInstitutionController.destroy);
 
-routes.get('/alunos', StudentController.list);
-routes.post('/alunos', StudentController.store);
-routes.put('/alunos/:id', StudentController.update);
-routes.delete('/alunos/:id', StudentController.destroy);
+routes.get('/aluno', StudentController.list);
+routes.post('/aluno', StudentController.store);
+routes.put('/aluno/:id', StudentController.update);
+routes.delete('/aluno/:id', StudentController.destroy);
 
-routes.get('/pesquisadores', ResearcherController.list);
-routes.post('/pesquisadores', ResearcherController.store);
-routes.put('/pesquisadores/:id', ResearcherController.update);
-routes.delete('/pesquisadores/:id', ResearcherController.destroy);
+routes.get('/pesquisadore', ResearcherController.list);
+routes.post('/pesquisadore', ResearcherController.store);
+routes.put('/pesquisadore/:id', ResearcherController.update);
+routes.delete('/pesquisadore/:id', ResearcherController.destroy);
 
-routes.get('/administradores', AdministratorController.list);
-routes.post('/administradores', AdministratorController.store);
-routes.put('/administradores/:id', AdministratorController.update);
-routes.delete('/administradores/:id', AdministratorController.destroy);
+routes.get('/administradore', AdministratorController.list);
+routes.post('/administradore', AdministratorController.store);
+routes.put('/administradore/:id', AdministratorController.update);
+routes.delete('/administradore/:id', AdministratorController.destroy);
 
 module.exports = routes;

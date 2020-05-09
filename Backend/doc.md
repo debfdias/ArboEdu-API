@@ -67,6 +67,28 @@ institution
 
 No caso de "roles" que não tem campos adicionais, como professor, recomenda-se que o campo "extras" seja enviado vazio para evitar problemas com a API.
 
+### Alteração de Usuários
+
+As rotas com método PUT para a rota na forma /ENTIDADE/ID atualizam as informações daquela entidade. Por exemplo, se você quiser alterar o pesquisador com ID=4, mande um PUT para /pesquisador/4. 
+
+Os possíveis retornos são:
+
+* Código 401 "Usuário não logado" - Caso a requisição seja feita sem um usuário logado.
+* Código 200 "Ok" - Caso operação seja bem sucedida
+* Código 401 "Usuário não autorizado para essa transação" - De acordo com o documento de requisitos, apenas um administrador ou o dono daquela informação tem o poder de alterá-la. Se a requisição for feita por um usuário sem permissões, esse código é retornado.
+* Código 400 - Mensagem default para outros erros.
+
+### Exclusão de Usuários
+
+Rota /ENTIDADE/ID com método DELETE. Ex: DELETE /aluno/2
+
+Retornos possíveis:
+
+* Código 401 "Usuário não logado" - Já explicado acima
+* Código 200 "Ok"
+* Código 401 "Usuário não é administrador" - Apenas administradores podem deletar entidades
+* Código 400 - Erro genérico
+
 
 
 ## Códigos de Erro
