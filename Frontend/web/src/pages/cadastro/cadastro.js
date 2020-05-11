@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Admin from './admin.js';
-import Diretor from './diretor.js';
-import Professor from './professor.js';
-import Pesquisador from './pesquisador.js';
-import ProfissionalSaude from './profissional_saude.js'
+import Admin from './admin';
+import Diretor from './diretor';
+import Professor from './professor';
+import Pesquisador from './pesquisador';
+import ProfissionalSaude from './profissional_saude'
 import ProfissionalEducacao from './profissional_educacao'
 import JovemAce from './jovem_ace';
-
+import Aluno from './aluno';
+import Header from '../home/header'
 export default class Cadastro extends Component {
     constructor(props) {
         super(props);
@@ -18,6 +19,7 @@ export default class Cadastro extends Component {
     render() {
         return (
             <div>
+                <Header />
                 <div id="seletor">
                     <select id="Tipo" onChange={this.cadastro}>
                         <option value=""></option>
@@ -38,30 +40,33 @@ export default class Cadastro extends Component {
     cadastro(opção) {
         switch (opção.target.value) {
             case ("administrador"):
-                this.setState({ value: <Admin/> });
-                
+                this.setState({ value: <Admin /> });
+
                 break;
             case ("diretor"):
-                this.setState({ value: <Diretor/> });
+                this.setState({ value: <Diretor /> });
                 break;
             case ("professor"):
-                this.setState({ value: <Professor/>});
+                this.setState({ value: <Professor /> });
                 break;
             case ("pesquisador"):
-                this.setState({ value: <Pesquisador/> });
+                this.setState({ value: <Pesquisador /> });
                 break;
             case ("profissional_saude"):
-                this.setState({ value: <ProfissionalSaude/> });
+                this.setState({ value: <ProfissionalSaude /> });
                 break;
             case ("profissional_educacao"):
-                this.setState({ value: <ProfissionalEducacao/> });
+                this.setState({ value: <ProfissionalEducacao /> });
                 break;
             case ("jovem_ace"):
-                this.setState({ value: <JovemAce/> });
+                this.setState({ value: <JovemAce /> });
                 break;
-            
+            case ("aluno"):
+                this.setState({ value: <Aluno /> });
+                break;
+
             default:
-                
+
                 this.setState({ value: 'Escolha uma opção antes de continuar o cadastro' });
                 break;
         }
