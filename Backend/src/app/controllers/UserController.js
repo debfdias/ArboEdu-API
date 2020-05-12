@@ -54,13 +54,20 @@ class UserController {
 
   async update(req, res) {
     try {
-      const user = await User.findByPk(req.params.id);
-
-      await user.update(req.body);
-
-      return res.json({ user });
+      if(!req.session.passport){
+        res.status(401).json("Usuário não logado");
+      }else if(req.session.passport.user.role==="administrador"){
+        User.findByPk(req.params.id).then(userToBeUpdated=>{
+          userToBeUpdated.update(req.body).then(result=>{
+            console.log(result);
+            res.status(200).json("OK")
+          })
+        });
+      }else{
+        res.status(401).json("Usuário não é administrador")
+      }
     } catch (err) {
-      return res.status(400).json({ error: err.message });
+      return res.status(500).json({ error: err.message });
     }
   }
 
@@ -68,24 +75,19 @@ class UserController {
     try {
       if(!req.session.passport){
         res.status(401).json("Usuário não logado");
-      }else{
-        try{
-          const userToBeDestroyedByID = await User.findByPk(req.params.id);
-          if(userToBeDestroyedByID.dataValues.role==='administrador'){
-            await userToBeDestroyedByID.destroy();
-            return res.status(200).json(userToBeDestroyedByID.dataValues+" apagado");
-
-          }
-        }catch(err){
-          res.status(500).json(err)
-        }
+      }else if(req.session.passport.user.role==="administrador"){
+        User.findByPk(req.params.id).then(userToBeDestroyedByID=>{
+          userToBeDestroyedByID.destroy().then(result=>{
+            return res.status(200).json("OK");
+          });
+        });
       }
     } catch (err) {
-      return res.status(400).json({ error: err.message });
+      return res.status(500).json({ error: err.message });
     }
   }
 
-  async authenticate(req, res){
+  /* async authenticate(req, res){
     if(req.session.email){
       return res.status(200).json("Já logado")
     }else{
@@ -107,7 +109,7 @@ class UserController {
         //return res.status(404).json(err);
       }
     }
-  }
+  } */
 
   async passwordRecover(req, res){
     try{
