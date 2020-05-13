@@ -58,21 +58,17 @@ class ResearcherController {
   } */
   async update(req, res) {
     try {
-      var role = "";
-      var id="";
-      if(req.session.passport===undefined){
-        return res.status(401).json("Usuário não logado")
+      if(!req.session.passport){
+        res.status(401).json("Usuário não logado");
+      }else if(req.session.passport.user.role==="administrador" || (req.session.passport.user.role==="pesquisador" && req.session.passport.user.id===req.params.id)){
+        Researcher.findByPk(req.params.id).then(userToBeUpdated=>{
+          userToBeUpdated.update(req.body).then(result=>{
+            console.log(result);
+            res.status(200).json("OK")
+          })
+        });
       }else{
-        role = req.session.passport.user.role;
-        id= req.session.passport.user.id
-      } 
-      
-      if((role==="pesquisador" && req.params.id===id)|| role==="administrador"){
-        const researcher = await Researcher.findByPk(req.params.id);
-        await researcher.update(req.body);
-        return res.status(200).json("OK");
-      }else{
-        return res.status(401).json("Usuário não autorizado para essa transação.")
+        res.status(401).json("Usuário não autorizado para essa transação")
       }
     } catch (err) {
       return res.status(500).json({ error: err.message });
@@ -82,15 +78,15 @@ class ResearcherController {
   async destroy(req, res) {
     try {
       if(!req.session.passport){
-        res.status(401).json("Usuário não logado")
-      }else if(req.session.passport.user.role!=="administrador"){
-        res.status(401).json("Não é administrador")
+        res.status(401).json("Usuário não logado");
+      }else if(req.session.passport.user.role==="administrador"){
+        Researcher.findByPk(req.params.id).then(userToBeDestroyedByID=>{
+          userToBeDestroyedByID.destroy().then(result=>{
+            return res.status(200).json("OK");
+          });
+        });
       }else{
-        const researcher = await Researcher.findByPk(req.params.id);
-        console.log("FOUND Researcher: " + req.params.id);
-        await researcher.destroy();
-        console.log("TRYING TO DESTROY");
-        return res.status(200).json("OK");
+        res.status(401).json("Usuário não é administrador")
       }
     } catch (err) {
       return res.status(500).json({ error: err.message });

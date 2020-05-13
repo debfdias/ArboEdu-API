@@ -7,6 +7,9 @@ const AceInstitutionController = require('./app/controllers/AceInstitutionContro
 const StudentController = require('./app/controllers/StudentController');
 const ResearcherController = require('./app/controllers/ResearcherController');
 const AdministratorController = require('./app/controllers/AdministratorController');
+const Jovem_ACE = require('./app/controllers/Jovem_ACEController');
+const EducationWorker = require('./app/controllers/EducationWorkerController');
+const HealthWorker = require('./app/controllers/HealthWorkerController');
 
 
 
@@ -59,14 +62,29 @@ routes.post('/aluno', StudentController.store);
 routes.put('/aluno/:id', StudentController.update);
 routes.delete('/aluno/:id', StudentController.destroy);
 
-routes.get('/pesquisadore', ResearcherController.list);
-routes.post('/pesquisadore', ResearcherController.store);
-routes.put('/pesquisadore/:id', ResearcherController.update);
-routes.delete('/pesquisadore/:id', ResearcherController.destroy);
+routes.get('/pesquisador', ResearcherController.list);
+routes.post('/pesquisador', ResearcherController.store);
+routes.put('/pesquisador/:id', ResearcherController.update);
+routes.delete('/pesquisador/:id', ResearcherController.destroy);
 
-routes.get('/administradore', AdministratorController.list);
-routes.post('/administradore', AdministratorController.store);
-routes.put('/administradore/:id', AdministratorController.update);
-routes.delete('/administradore/:id', AdministratorController.destroy);
+routes.get('/administrador', AdministratorController.list);
+routes.post('/administrador', AdministratorController.store);
+routes.put('/administrador/:id', AdministratorController.update);
+routes.delete('/administrador/:id', AdministratorController.destroy);
+
+routes.get('/jovem_ace', Jovem_ACE.list);
+routes.post('/jovem_ace', Jovem_ACE.store);
+routes.put('/jovem_ace/:id', Jovem_ACE.update);
+routes.delete('/jovem_ace/:id', Jovem_ACE.destroy);
+
+routes.get('/profissional_educacao', EducationWorker.list);
+routes.post('/profissional_educacao', EducationWorker.store);
+routes.put('/profissional_educacao/:id', EducationWorker.update);
+routes.delete('/profissional_educacao/:id', EducationWorker.destroy);
+
+routes.get('/profissional_saude', HealthWorker.list);
+routes.post('/profissional_saude', HealthWorker.store);
+routes.put('/profissional_saude/:id', HealthWorker.update);
+routes.delete('/profissional_saude/:id', HealthWorker.destroy);
 
 module.exports = routes;

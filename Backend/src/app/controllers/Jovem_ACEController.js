@@ -82,15 +82,15 @@ class Jovem_ACEController {
   async destroy(req, res) {
     try {
       if(!req.session.passport){
-        res.status(401).json("Usuário não logado")
-      }else if(req.session.passport.user.role!=="administrador"){
-        res.status(401).json("Não é administrador")
+        res.status(401).json("Usuário não logado");
+      }else if(req.session.passport.user.role==="administrador"){
+        Jovem_ACE.findByPk(req.params.id).then(userToBeDestroyedByID=>{
+          userToBeDestroyedByID.destroy().then(result=>{
+            return res.status(200).json("OK");
+          });
+        });
       }else{
-        const ACE = await Jovem_ACE.findByPk(req.params.id);
-        console.log("FOUND Jovem_ACE: " + req.params.id);
-        await ACE.destroy();
-        console.log("TRYING TO DESTROY");
-        return res.status(200).json("OK");
+        res.status(401).json("Usuário não é administrador")
       }
     } catch (err) {
       return res.status(500).json({ error: err.message });
