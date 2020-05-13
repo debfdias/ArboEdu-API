@@ -70,12 +70,12 @@ class ResearcherController {
       if((role==="pesquisador" && req.params.id===id)|| role==="administrador"){
         const researcher = await Researcher.findByPk(req.params.id);
         await researcher.update(req.body);
-        return res.status(200).json({ researcher });
+        return res.status(200).json("OK");
       }else{
         return res.status(401).json("Usuário não autorizado para essa transação.")
       }
     } catch (err) {
-      return res.status(400).json({ error: err.message });
+      return res.status(500).json({ error: err.message });
     }
   }
 
@@ -93,7 +93,7 @@ class ResearcherController {
         return res.status(200).json("OK");
       }
     } catch (err) {
-      return res.status(400).json({ error: err.message });
+      return res.status(500).json({ error: err.message });
     }
   }
 }
