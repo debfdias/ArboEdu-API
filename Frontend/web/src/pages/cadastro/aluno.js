@@ -3,11 +3,15 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import api from '../../services/api.js';
 import cepAPI from '../../services/cepAPI.js';
 
+//import Alert from 'react-bootstrap/Alert'
+//import Button from 'react-bootstrap/Button';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 function getCEP(CEP) {
     CEP.replace(/\D/g, '')
     return cepAPI.get(`/${CEP}/json`)
 }
+
 //Esse código foi copiado, substituir ou refazer fonte: http://www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js
 function validaCPF(CPF) {
     var Soma;
@@ -123,14 +127,13 @@ const Aluno = () => (
 
             onSubmit={(values, { setSubmitting }) => {
 
-                //console.log(values);
                 values.cpf = values.cpf.replace(/\D/g, '');
                 values.phone = values.phone.replace(/\D/g, '');
                 values.extra.address_zip = values.extra.address_zip.replace(/\D/g, '');
                 api.post("/user", values).then((response) => {
-                    //console.log(response)
+                    alert("Conta criada com sucesso! ");
                 }).catch((error) => {
-                    //console.log(error);
+                    alert(error.response.data);
                 });
                 setTimeout(() => {
                     setSubmitting(false);
@@ -138,6 +141,7 @@ const Aluno = () => (
             }}
         >
             {({ isSubmitting }) => (
+
                 <Form>
                     <Field type="text" name="name" placeholder="Nome Completo" />
                     <ErrorMessage name="name" component="div" />

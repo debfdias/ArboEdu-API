@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button'
 
 import "./header.css";
 
@@ -11,7 +12,7 @@ const Header = () => {
             <Link to="/pesquisa" > Projeto </Link> 
             <Link to="/contato" > Contato </Link> 
             <Link to="/cadastro" > cadastro </Link>
-            < button id="entrar" > Entrar </button>
+            <Link to="/login" > <Button id="Login" variant="primary" size="lg" active > Entrar </Button> </Link>
         </header>
     );
 }

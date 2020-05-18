@@ -63,12 +63,12 @@ const Jovem_ace = () => (
                 //Chega validade do telefone
                 if (!values.phone) {
                     errors.phone = "É necessário cadastrar um número de telefone";
-                }else if(
+                } else if (
                     // eslint-disable-next-line
                     !/^\(?\d{2}\)?\d{5}\-?\d{4}$/i.test(values.phone)
-                    ){
+                ) {
                     errors.phone = "Digite um número de telefone válido";
-                  }
+                }
 
                 //checa a validade do CPF
                 if (!values.cpf) {
@@ -88,10 +88,13 @@ const Jovem_ace = () => (
 
                 console.log(values);
                 values.cpf = values.cpf.replace(/\D/g, '');
-                values.phone =   values.phone.replace(/\D/g,'');
-                api.post("/user", values);
+                values.phone = values.phone.replace(/\D/g, '');
+                api.post("/user", values).then((response) => {
+                    alert("Conta criada com sucesso! ");
+                }).catch((error) => {
+                    alert(error.response.data);
+                });
                 setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
                 }, 1000);
             }}
@@ -111,9 +114,9 @@ const Jovem_ace = () => (
                     <ErrorMessage name="birthday" component="div" />
                     <Field type="date" name="birthday" />
                     <ErrorMessage name="cpf" component="div" />
-                    <Field type="text" name="cpf" placeholder="CPF"/>
+                    <Field type="text" name="cpf" placeholder="CPF" />
                     <ErrorMessage name="extra.distrito_sanitario" component="div" />
-                    <Field type="text" name="extra.distrito_sanitario" placeholder="Distrito Sanitário"/>
+                    <Field type="text" name="extra.distrito_sanitario" placeholder="Distrito Sanitário" />
                     <button type="submit" disabled={isSubmitting}>
                         Cadastrar
           </button>
