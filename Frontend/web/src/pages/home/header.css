@@ -17,7 +17,7 @@ header#home-header{
     text-decoration: none;
     display: flex;
  }
- header#home-header button{
+/* header#home-header button{
    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
    border-radius: 20px;
    background-color: #0548b3;
@@ -29,7 +29,7 @@ header#home-header{
    text-decoration: none;
    border: none;
    outline:none;
-}
+}*/
 @media only screen and (max-width: 600px) {
    header#home-header a{
       visibility: hidden;
