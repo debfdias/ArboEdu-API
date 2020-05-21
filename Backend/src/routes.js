@@ -28,8 +28,8 @@ const logout = require('./app/controllers/passport')
 
 routes.post('/signin', passport.authenticate('local-signin', {
     //TODO mudar esses redirects para o front end
-    successRedirect: 'http://localhost:3001/users',
-    failureRedirect: 'http://localhost:3001/'
+    successRedirect: 'http://localhost:4000',
+    failureRedirect: 'http://localhost:4000/login'
 }));
 routes.get('/logout', logout.logout)
 
