@@ -9,5 +9,5 @@ API simples usando Node, Sequelize, Express
 - npx sequelize db:migrate
 - npm start
 
-> Acessar http://localhost:3000/
+> Acessar http://localhost:3001/
 > Ver rotas criadas em src/routes

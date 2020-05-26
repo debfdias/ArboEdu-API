@@ -1,4 +1,5 @@
 var bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     name: DataTypes.STRING,
@@ -32,6 +33,12 @@ module.exports = (sequelize, DataTypes) => {
     extra:{
       type: DataTypes.JSON
     },
+    resetPasswordToken: {
+      type: DataTypes.STRING
+    },
+    resetPasswordExpires: {
+        type: DataTypes.DATE
+    },
     createdAt: {
          field: 'created_at',
          type: DataTypes.DATE,
@@ -45,6 +52,14 @@ module.exports = (sequelize, DataTypes) => {
       beforeCreate: async function(user) {
         const salt = await bcrypt.genSalt(10); //whatever number you want
         user.password = await bcrypt.hash(user.password, salt);
+      },
+      beforeBulkUpdate: async function(user) {
+        if(user.fields.includes('password')){
+          console.log(user.fields.password)
+          console.log(typeof(user.fields.password))
+          const salt = await bcrypt.genSalt(10); //whatever number you want
+          user.attributes.password = await bcrypt.hash(user.attributes.password, salt);
+        }
       },
       afterCreate: async function(user){
         var Student = sequelize.models.Student;
@@ -72,7 +87,6 @@ module.exports = (sequelize, DataTypes) => {
             console.log("Error while Student creation : ", err)
           })
         }else if(user.role=="pesquisador"){
-          console.log("Recebendo JSON");
           Researcher.create({
             institution: user.extra.institution,
             UserId: user.id
@@ -119,7 +133,7 @@ module.exports = (sequelize, DataTypes) => {
           })
         }else if(user.role=="jovem_ace"){
           Jovem_ACE.create({
-            distrito_sanitario: "Distrito 9",
+            distrito_sanitario: user.extra.distrito_sanitario,
             UserId: user.id
           })
           .then((newJovem_ACE) => {
@@ -131,7 +145,7 @@ module.exports = (sequelize, DataTypes) => {
           })
         }else if(user.role=="profissional_saude"){
           Health_Worker.create({
-            institution: "UPA da linha do tiro",
+            institution: user.extra.institution,
             UserId: user.id
           })
           .then((newHealth_Worker) => {
@@ -143,7 +157,7 @@ module.exports = (sequelize, DataTypes) => {
           })
         }else if(user.role=="profissional_educacao"){
           Education_Worker.create({
-            institution: "EEEF Monteiro Lobato",
+            institution: user.extra.institution,
             UserId: user.id
           })
           .then((newEducation_Worker) => {
@@ -162,12 +176,15 @@ module.exports = (sequelize, DataTypes) => {
     return await bcrypt.compare(password, this.password);
   }
 
-
-  /* User.associate = function(models) {
-    User.hasMany(models.Student, {onDelete: 'CASCADE', hooks: true, as: 'Students'})
+  User.prototype.generatePasswordReset = function() {
+    this.resetPasswordToken = crypto.randomBytes(20).toString('hex');
+    this.resetPasswordExpires = Date.now() + 3600000; //expires in an hour
+    console.log(this.resetPasswordExpires)
   };
+
+
   User.associate = function(models) {
-    User.hasMany(models.Researcher, {onDelete: 'CASCADE', hooks: true, as: 'Researchers'})
+    User.hasMany(models.Student, {onDelete: 'CASCADE', hooks: true, as: 'Students'})
   };
   User.associate = function(models) {
     User.hasMany(models.Principal, {onDelete: 'CASCADE', hooks: true, as: "Principals"})
@@ -186,6 +203,9 @@ module.exports = (sequelize, DataTypes) => {
   };
   User.associate = function(models) {
     User.hasMany(models.Education_Worker, {onDelete: 'CASCADE', hooks: true, as: "Education_Workers"})
-  }; */
+  };
+  User.associate = function(models) {
+    User.hasMany(models.Researcher, {onDelete: 'CASCADE', hooks: true, as: 'Researchers'})
+  };
   return User;
 };

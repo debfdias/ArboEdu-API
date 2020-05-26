@@ -8,7 +8,7 @@ function validaCPF(CPF) {
   var Soma;
   var Resto;
   Soma = 0;
-  CPF = CPF.replace(/\D/g,'');
+  CPF = CPF.replace(/\D/g, '');
   if (CPF === "00000000000") return false;
 
   for (var i = 1; i <= 9; i++) Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (11 - i);
@@ -31,7 +31,7 @@ const Profissional_saude = () => (
   <div>
     <h1>Cadastro Profissional de Saúde</h1>
     <Formik
-      initialValues={{ name: '', email: '', password: '', passwordCheck: '', phone: '', birthday: '', cpf: '', role:'profissional_saude', extra : { institution: ''} }}
+      initialValues={{ name: '', email: '', password: '', passwordCheck: '', phone: '', birthday: '', cpf: '', role: 'profissional_saude', extra: { institution: '' } }}
       validate={values => {
         const errors = {};
 
@@ -63,10 +63,10 @@ const Profissional_saude = () => (
         //Chega validade do telefone
         if (!values.phone) {
           errors.phone = "É necessário cadastrar um número de telefone";
-        }else if(
+        } else if (
           // eslint-disable-next-line
           !/^\(?\d{2}\)?\d{5}\-?\d{4}$/i.test(values.phone)
-          ){
+        ) {
           errors.phone = "Digite um número de telefone válido";
         }
 
@@ -77,7 +77,7 @@ const Profissional_saude = () => (
           !/^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/i.test(values.cpf)
         ) {
           errors.cpf = "CPF inválido"
-        }else if(!validaCPF(values.cpf)){
+        } else if (!validaCPF(values.cpf)) {
           errors.cpf = "CPF inválido"
         }
         return errors;
@@ -87,11 +87,14 @@ const Profissional_saude = () => (
       onSubmit={(values, { setSubmitting }) => {
 
         console.log(values);
-        values.cpf =   values.cpf.replace(/\D/g,'');
-        values.phone =   values.phone.replace(/\D/g,'');
-        api.post("/user", values);
+        values.cpf = values.cpf.replace(/\D/g, '');
+        values.phone = values.phone.replace(/\D/g, '');
+        api.post("/user", values).then((response) => {
+          alert("Conta criada com sucesso! ");
+        }).catch((error) => {
+          alert(error.response.data);
+        });
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
         }, 1000);
       }}
@@ -113,7 +116,7 @@ const Profissional_saude = () => (
           <ErrorMessage name="cpf" component="div" />
           <Field type="text" name="cpf" placeholder="CPF" />
           <ErrorMessage name="extra.institution" component="div" />
-          <Field type="text" name="extra.institution"  placeholder="Instituição"/>
+          <Field type="text" name="extra.institution" placeholder="Instituição" />
           <button type="submit" disabled={isSubmitting}>
             Cadastrar
           </button>
