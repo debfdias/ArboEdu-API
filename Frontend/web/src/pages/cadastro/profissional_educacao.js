@@ -29,7 +29,7 @@ function validaCPF(CPF) {
 
 const Profissional_educacao = () => (
   <div>
-    <h1>Cadastro Profissional da educação</h1>
+    <h1>Cadastro Profissional de Educação</h1>
     <Formik
       initialValues={{ name: '', email: '', password: '', passwordCheck: '', phone: '', birthday: '', cpf: '', role:'profissional_educacao', extra : { institution: ''} }}
       validate={values => {

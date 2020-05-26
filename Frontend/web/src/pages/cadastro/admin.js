@@ -29,7 +29,7 @@ function validaCPF(CPF) {
 
 const Admin = () => (
   <div>
-    <h1>Cadastro Admin</h1>
+    <h1>Cadastro Administrador</h1>
     <Formik
       initialValues={{ name: '', email: '', password: '', passwordCheck: '', phone: '', birthday: '', cpf: '', role:'administrador' }}
       validate={values => {

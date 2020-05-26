@@ -6,6 +6,8 @@ import Pesquisador from './pesquisador.js';
 import ProfissionalSaude from './profissional_saude.js'
 import ProfissionalEducacao from './profissional_educacao'
 import JovemAce from './jovem_ace';
+import "../home/home.css";
+import Header from "../home/header.js";
 
 export default class Cadastro extends Component {
     constructor(props) {
@@ -17,6 +19,8 @@ export default class Cadastro extends Component {
     };
     render() {
         return (
+            <React.Fragment>
+                <Header />
             <div>
                 <div id="seletor">
                     <select id="Tipo" onChange={this.cadastro}>
@@ -33,6 +37,7 @@ export default class Cadastro extends Component {
                     {this.state.value}
                 </div>
             </div>
+            </React.Fragment>
         );
     }
     cadastro(opção) {

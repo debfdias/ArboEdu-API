@@ -7,8 +7,8 @@ export default class Home extends Component{
     render(){
         return(
             <React.Fragment>
-            <Header/>
-            <h1>Essa é a página principal</h1>
+                <Header/>
+                <h1>Página principal</h1>
             </React.Fragment>
         );
     }
