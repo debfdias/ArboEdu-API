@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     address_neighborhood: DataTypes.STRING,
     address_zip: DataTypes.STRING,
     address_number: DataTypes.STRING,
+    address_complement: DataTypes.STRING,
     authorized: DataTypes.BOOLEAN,
     createdAt: {
          field: 'created_at',

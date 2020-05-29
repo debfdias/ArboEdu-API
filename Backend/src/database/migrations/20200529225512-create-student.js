@@ -24,6 +24,10 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING,
     },
+    address_complement:{
+      allowNull: true,
+      type: Sequelize.STRING
+    },
     authorized: {
       allowNull: false,
       type: Sequelize.BOOLEAN,
