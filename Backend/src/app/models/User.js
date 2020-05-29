@@ -39,6 +39,15 @@ module.exports = (sequelize, DataTypes) => {
     resetPasswordExpires: {
         type: DataTypes.DATE
     },
+    isVerified: {
+      type: DataTypes.BOOLEAN
+    },
+    confirmEmailToken: {
+      type: DataTypes.STRING
+    },
+    confirmEmailExpires: {
+        type: DataTypes.DATE
+    },
     createdAt: {
          field: 'created_at',
          type: DataTypes.DATE,
