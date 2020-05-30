@@ -43,7 +43,8 @@ class UserController {
       });
       if(testCPFUnique.length===0 && testEmailUnique.length===0){
         const user = await User.create(req.body);
-        return res.json(user);
+        confirmEmail(user, req)
+        return res.status(200).json(user);
       }else{
         return res.status(400).json("CPF ou email já registrados");
       }
@@ -134,7 +135,7 @@ class UserController {
           const mailOptions = {
               to: userID.email,
               from: 'irs@cin.ufpe.br',
-              subject: "Password change request",
+              subject: "Recuperação de senha",
               text: `Olá ${userID.name} \n 
           Clique nesse link ${link} para resetar sua senha. \n\n 
           O link é válido por uma hora. \n
@@ -188,6 +189,60 @@ class UserController {
     }
     return res.status(200).json("OK")
   }
+
+  async confirmEmail(req, res){
+    const user = await User.findAll({
+      where:{
+        confirmEmailToken: req.params.token
+      }
+    });
+    if(user===[]){
+      return res.status(400).json("Email não encontrado")
+    }
+    var userID = await User.findByPk(user[0].dataValues.id)
+    var temp = {
+      confirmEmailToken: null,
+      isVerified: true
+    }
+    await User.update(temp, { where: { id: userID.id } }).then((result)=>{
+      if(result[0]===1){
+        return res.status(200).json("Usuário confirmado com sucesso")
+      }else{
+        return res.status(500).json({message: "Internal Server Error, code: 2"})
+      }
+    })
+  }
+}
+
+async function confirmEmail(user, req){
+  user=user.dataValues
+  var temp = {
+    confirmEmailToken: crypto.randomBytes(20).toString('hex'),
+  }
+  await User.update(temp, { where: { id: user.id } }).then((result) => {
+    if(result[0]===1){
+      // send email
+    User.findByPk(user.id).then(userToSendEmailTo=>{
+      let link = "http://" + req.headers.host + "/user/" + userToSendEmailTo.id+"/confirmEmail/"+userToSendEmailTo.confirmEmailToken;
+      const mailOptions = {
+          to: userToSendEmailTo.email,
+          from: 'irs@cin.ufpe.br',
+          subject: "Confirmação de email",
+          text: `Olá ${userToSendEmailTo.name} \n 
+      Clique nesse link ${link} para confirmar seu email \n\n 
+      O link é válido por um dia. \n`,
+      };
+      
+      sgMail.send(mailOptions, (error, result) => {
+          if (error) return error
+          return result;
+      });
+
+    });
+    }else{
+      return "User not found"
+    }
+  });
 }
 
 module.exports = new UserController();

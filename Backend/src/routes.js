@@ -23,6 +23,7 @@ routes.put('/user/:id', UserController.update);
 routes.delete('/user/:id', UserController.destroy);
 routes.post('/user/passwordRecovery', UserController.passwordRecover);
 routes.get('/user/:id/reset/:token', UserController.resetPassword);
+routes.get('/user/:id/confirmEmail/:token', UserController.confirmEmail);
 const passport = require('passport');
 const logout = require('./app/controllers/passport')
 

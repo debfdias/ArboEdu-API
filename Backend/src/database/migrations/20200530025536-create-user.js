@@ -47,15 +47,12 @@ module.exports = {
       type: Sequelize.DATE
     },
     isVerified: {
-      type: Sequelize.BOOLEAN
+      type: Sequelize.BOOLEAN,
+      defaultValue: false
     },
     confirmEmailToken:{
       allowNull: true,
       type: Sequelize.TEXT
-    },
-    confirmEmailExpires: {
-      allowNull: true,
-      type: Sequelize.DATE
     },
     created_at: {
       allowNull: false,

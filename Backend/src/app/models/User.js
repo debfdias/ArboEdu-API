@@ -37,16 +37,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     resetPasswordExpires: {
-        type: DataTypes.DATE
+      type: DataTypes.DATE
     },
     isVerified: {
       type: DataTypes.BOOLEAN
     },
     confirmEmailToken: {
       type: DataTypes.STRING
-    },
-    confirmEmailExpires: {
-        type: DataTypes.DATE
     },
     createdAt: {
          field: 'created_at',
@@ -189,6 +186,10 @@ module.exports = (sequelize, DataTypes) => {
     this.resetPasswordToken = crypto.randomBytes(20).toString('hex');
     this.resetPasswordExpires = Date.now() + 3600000; //expires in an hour
     console.log(this.resetPasswordExpires)
+  };
+
+  User.prototype.generateEmailConfirmation = function() {
+    this.confirmEmailToken = crypto.randomBytes(20).toString('hex');
   };
 
 
