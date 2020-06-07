@@ -1,10 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
     const Problem = sequelize.define('Problem', {
-      code: DataTypes.INTEGER,
       status: {
         type: DataTypes.STRING,
         validate: {
-            isIn: [['PENDENTE', 'RESOLUÇÃO', 'AGUARDANDO_USUÁRIO', 'RESOLVIDO']]
+            isIn: {
+              args: [['PENDENTE', 'RESOLUÇÃO', 'AGUARDANDO_USUÁRIO', 'RESOLVIDO']],
+              msg: "Status do chamado não é válido"
+            }
         }
       },
       user_name: DataTypes.STRING,

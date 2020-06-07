@@ -10,6 +10,7 @@ const AdministratorController = require('./app/controllers/AdministratorControll
 const Jovem_ACE = require('./app/controllers/Jovem_ACEController');
 const EducationWorker = require('./app/controllers/EducationWorkerController');
 const HealthWorker = require('./app/controllers/HealthWorkerController');
+const ProblemController = require('./app/controllers/ProblemController');
 
 
 
@@ -87,5 +88,10 @@ routes.get('/profissional_saude', HealthWorker.list);
 routes.post('/profissional_saude', HealthWorker.store);
 routes.put('/profissional_saude/:id', HealthWorker.update);
 routes.delete('/profissional_saude/:id', HealthWorker.destroy);
+
+routes.get('/report_problem', ProblemController.list);
+routes.post('/report_problem', ProblemController.store);
+routes.put('/report_problem/:id', ProblemController.update);
+routes.delete('/report_problem/:id', ProblemController.destroy);
 
 module.exports = routes;
