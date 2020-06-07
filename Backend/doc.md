@@ -142,3 +142,26 @@ Uma vez que o usuário clique no link recebido (que funciona por 1 hora) a rota 
 A API procura o email do usuário no DB e retorna 400 com mensagem "Email não encontrado", em seguida, a API verifica a vaidade do token, caso tenha expirado, código 404 com mensagem "Token expirado" é retornada. Se o token for válido e o email existir, a API tenta atualizar a senha. Em caso de sucesso, código 200 é retornado. Em caso de falha, código 500 é retornado.
 
 ATENÇÃO: Atualmente, a nova senha é 'hard coded' para fins de teste. Uma vez o front end tiver um form de redefinição de senha, o código será alterado para puxar a nova senha do form.
+
+## Reportar Problema
+
+A URL para reportar um problema é /report_problem.
+O JSON tem esse formato:
+```
+{
+	"user_name":"Italo Soares",
+	"title":"Imagem não carregando",
+	"description":"iruwegbrwuibgriwebgirew",
+	"UserId":"1"
+}
+```
+
+UserId é o ID do usuário que está reportando o problema. Os outros elementos são autoexplicativos. Código 200 OK é retornado com caso de sucesso, 400 Bad Request é retornado em caso de falha. Update é /report_problem/ID, é a mesma URL para excluir. Os códigos de retorno dessas requisições são iguais aos da URL para recriação.
+
+Existem 3 campos opcionais. 
+
+**status** é automaticamente setado como PENDENTE no momento da criação do report. Os outros **status** são 'RESOLUÇÃO', 'AGUARDANDO_USUÁRIO' e 'RESOLVIDO'. Esses status devem ser setados manualmente no JSON no momento de alteração do report.
+
+**user_return** é um campo de texto em que o administrador deixa requisições para o usuário.
+
+**file_location** é a URL de eventual screenshot que o usuário possa enviar.

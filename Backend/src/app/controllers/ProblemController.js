@@ -12,7 +12,7 @@ class ProblemController {
 
   async store(req, res) {
     try {
-      //req.body.status='PENDENTE'
+      req.body.status='PENDENTE'
       console.log(req.body);
       await Problem.create(req.body).then(result=>{
           return res.json(result);
@@ -28,7 +28,7 @@ class ProblemController {
 
       await problem.update(req.body);
 
-      return res.json({ problem });
+      return res.status(200).json({ problem });
     } catch (err) {
       return res.status(400).json({ error: err.message });
     }
