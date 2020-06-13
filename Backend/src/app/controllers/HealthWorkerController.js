@@ -22,7 +22,6 @@ class Health_WorkerController {
 
   async update(req, res) {
     try {
-        console.log(req.session.passport.user);
         Health_Worker.findByPk(req.params.id).then(result=>{
           const UserId = result.dataValues.UserId
           if(!req.session.passport){
