@@ -35,7 +35,7 @@ O campo "extra" é onde são colocados os atributos que dependem do tipo de usu�
 
 * aluno
 
-address_city, address_neighborhood, address_zip, address_number, authorized
+address_city, address_neighborhood, address_zip, address_number, address_complement, authorized
 
 * pesquisador
 

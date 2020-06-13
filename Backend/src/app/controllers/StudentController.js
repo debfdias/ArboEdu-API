@@ -26,7 +26,7 @@ class StudentController {
           const UserId = result.dataValues.UserId
           if(!req.session.passport){
               res.status(401).json("Usuário não logado");
-            }else if(req.session.passport.user.role==="administrador" || (req.session.passport.user.role==="aluno" && req.session.passport.user.id===UserId)){
+            }else if(req.session.passport.user.role==="administrador" || (req.session.passport.user.role==="pesquisador" && req.session.passport.user.id===UserId)){
               Student.findByPk(req.params.id).then(userToBeUpdated=>{
                 userToBeUpdated.update(req.body).then(result=>{
                   console.log(result);
@@ -41,7 +41,7 @@ class StudentController {
       return res.status(500).json({ error: err.message });
     }
   }
-  }
+
 
   async destroy(req, res) {
     try {
