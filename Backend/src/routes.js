@@ -11,6 +11,9 @@ const Jovem_ACE = require('./app/controllers/Jovem_ACEController');
 const EducationWorker = require('./app/controllers/EducationWorkerController');
 const HealthWorker = require('./app/controllers/HealthWorkerController');
 const ProblemController = require('./app/controllers/ProblemController');
+const FileUploadController = require('./app/controllers/FileUploadController');
+
+const multer = require('./config/multer');
 
 
 
@@ -93,5 +96,7 @@ routes.get('/report_problem', ProblemController.list);
 routes.post('/report_problem', ProblemController.store);
 routes.put('/report_problem/:id', ProblemController.update);
 routes.delete('/report_problem/:id', ProblemController.destroy);
+
+routes.post("/upload", multer.single("file"), FileUploadController.uploadFiles);
 
 module.exports = routes;

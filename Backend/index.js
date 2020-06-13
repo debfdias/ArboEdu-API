@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 const app = express();
 
+global.__basedir = __dirname;
+
 ///////////////////////////////////////////////
 /* const session = require('express-session');
 const redis = require('redis');
