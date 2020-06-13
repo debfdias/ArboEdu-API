@@ -97,6 +97,10 @@ routes.post('/report_problem', ProblemController.store);
 routes.put('/report_problem/:id', ProblemController.update);
 routes.delete('/report_problem/:id', ProblemController.destroy);
 
-routes.post("/upload", multer.single("file"), FileUploadController.uploadFiles);
+routes.get("/files/:id", FileUploadController.list);
+routes.post("/file", multer.single("file"), FileUploadController.store);
+routes.get("/file/:id", FileUploadController.show);
+routes.delete("/file/:id", FileUploadController.destroy);
+
 
 module.exports = routes;

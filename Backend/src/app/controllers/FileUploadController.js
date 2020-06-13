@@ -3,35 +3,67 @@ const path = require("path");
 
 const { Files } = require('../models');
 
+class FileUploadController {
 
-const uploadFiles = async (req, res) => {
-  try {
-    console.log(req.file);
+	async list(req, res) {
+		try {
+			const files = await Files.findAll( { where: { user_id: req.params.id } } );
 
-    if (req.file == undefined) {
-      return res.send(`You must select a file.`);
-    }
+			return res.json(files);
+		} catch (err) {
+			return res.status(400).json({ error: err.message });
+		}
+	}
 
-    Files.create({
-      type: req.file.mimetype,
-      name: req.file.originalname,
-      data: fs.readFileSync(
-        __basedir + "/resources/uploads/" + req.file.filename
-      ),
-    }).then((file) => {
-      fs.writeFileSync(
-        __basedir + "/resources/tmp/" + file.name,
-        file.data
-      );
+	async show(req, res) {
+		try {
+			const file = await Files.findByPk(req.params.id);
 
-      return res.send(`File has been uploaded.`);
-    });
-  } catch (error) {
-    console.log(error);
-    return res.send(`Error when trying upload images: ${error}`);
-  }
-};
+			return res.json(file);
+		} catch (err) {
+			return res.status(400).json({ error: err.message });
+		}
+	}
 
-module.exports = {
-  uploadFiles,
-};
+	async store(req, res) {
+		try {
+			console.log(req.file);
+
+			if (req.file == undefined) {
+				return res.send("Selecione um arquivo");
+			}
+
+			Files.create({
+				type: req.file.mimetype,
+				name: req.file.originalname,
+				data: fs.readFileSync(
+					__basedir + "/resources/uploads/" + req.file.filename
+					),
+			}).then((file) => {
+				fs.writeFileSync(
+					__basedir + "/resources/tmp/" + file.name,
+					file.data
+					);
+
+				return res.send("Arquivo enviado com sucesso!");
+			});
+		} catch (err) {
+			console.log(error);
+			return res.status(400).json({ error: err.message });
+		}
+	}
+
+	async destroy(req, res) {
+		try {
+			const file = await Files.findByPk(req.params.id);
+
+			await file.destroy();
+
+			return res.json();
+		} catch (err) {
+			return res.status(400).json({ error: err.message });
+		}
+	}
+}
+
+module.exports = new FileUploadController();
