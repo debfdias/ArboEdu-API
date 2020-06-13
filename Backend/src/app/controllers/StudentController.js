@@ -22,14 +22,25 @@ class StudentController {
 
   async update(req, res) {
     try {
-      const student = await Student.findByPk(req.params.id);
-
-      await student.update(req.body);
-
-      return res.json({ student });
+        Student.findByPk(req.params.id).then(result=>{
+          const UserId = result.dataValues.UserId
+          if(!req.session.passport){
+              res.status(401).json("Usuário não logado");
+            }else if(req.session.passport.user.role==="administrador" || (req.session.passport.user.role==="aluno" && req.session.passport.user.id===UserId)){
+              Student.findByPk(req.params.id).then(userToBeUpdated=>{
+                userToBeUpdated.update(req.body).then(result=>{
+                  console.log(result);
+                  res.status(200).json("OK")
+                })
+              });
+            }else{
+              res.status(401).json("Usuário não é administrador OU não é dono dos dados em questão")
+            }
+        })
     } catch (err) {
-      return res.status(400).json({ error: err.message });
+      return res.status(500).json({ error: err.message });
     }
+  }
   }
 
   async destroy(req, res) {
