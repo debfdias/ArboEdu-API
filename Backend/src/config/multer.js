@@ -9,7 +9,7 @@ const imageFilter = (req, file, cb) => {
   }
 };
 
-/*
+
 const storageTypes = {
   local: multer.diskStorage({
     destination: (req, file, cb) => {
@@ -23,23 +23,11 @@ const storageTypes = {
 
 module.exports = {
   dest: path.resolve(__basedir + "/resources/uploads/"),
-  storage: storageTypes['local'],
-  fileFilter: (req, file, cb) => {
-    const allowedMimes = [
-    "image/jpeg",
-    "image/pjpeg",
-    "image/png",
-    "image/gif"
-    ];
-
-    if (allowedMimes.includes(file.mimetype)) {
-      cb(null, true);
-    } else {
-      cb(new Error("Formato de imagem inválido."));
-    }
-  }
+  storage: storageTypes["local"],
+  fileFilter: imageFilter
 };
-*/
+
+/*
 
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -52,4 +40,4 @@ var storage = multer.diskStorage({
 
 var uploadFile = multer({ storage: storage, fileFilter: imageFilter });
 
-module.exports = uploadFile;
+module.exports = uploadFile;*/

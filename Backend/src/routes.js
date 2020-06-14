@@ -13,7 +13,8 @@ const HealthWorker = require('./app/controllers/HealthWorkerController');
 const ProblemController = require('./app/controllers/ProblemController');
 const FileUploadController = require('./app/controllers/FileUploadController');
 
-const multer = require('./config/multer');
+const multer = require("multer");
+const multerConfig = require("./config/multer");
 
 
 
@@ -98,7 +99,7 @@ routes.put('/report_problem/:id', ProblemController.update);
 routes.delete('/report_problem/:id', ProblemController.destroy);
 
 routes.get("/files/:id", FileUploadController.list);
-routes.post("/file", multer.single("file"), FileUploadController.store);
+routes.post("/file", multer(multerConfig).single("file"), FileUploadController.store);
 routes.get("/file/:id", FileUploadController.show);
 routes.delete("/file/:id", FileUploadController.destroy);
 
