@@ -34,8 +34,10 @@ class FileUploadController {
 			}
 
 			Files.create({
+				user_id: "",
 				type: req.file.mimetype,
 				name: req.file.originalname,
+				url: "",
 				data: fs.readFileSync(
 					__basedir + "/resources/uploads/" + req.file.filename
 					),

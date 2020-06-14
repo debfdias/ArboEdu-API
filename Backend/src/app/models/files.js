@@ -7,8 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     data: DataTypes.BLOB,
     url: DataTypes.STRING
   }, {});
+  
   Files.associate = function(models) {
-    // associations can be defined here
+    Files.belongsTo(models.User, {foreignKey: 'user_id', as: 'User'})
   };
   return Files;
 };
