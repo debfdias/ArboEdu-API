@@ -16,7 +16,8 @@ const storageTypes = {
       cb(null, __basedir + "/resources/uploads/");
     },
     filename: (req, file, cb) => {
-      cb(null, `${Date.now()}-ArboEDU-${file.originalname}`);
+      file.name = `${Date.now()}-ArboEDU-${file.originalname}`;
+      cb(null, file.name);
     }
   })
 };

@@ -33,10 +33,22 @@ class FileUploadController {
 				return res.send("Selecione um arquivo");
 			}
 
+			/*
+			const { user_id = "", originalname: name, mimetype: type, location: url = "" } = req.file;
+
+			const file = await Files.create({
+				user_id,
+				type,
+				name,
+				url
+			});
+
+			return res.send("Arquivo enviado com sucesso!");*/
+
 			Files.create({
 				user_id: "",
 				type: req.file.mimetype,
-				name: req.file.originalname,
+				name: req.file.filename,
 				url: "",
 				data: fs.readFileSync(
 					__basedir + "/resources/uploads/" + req.file.filename
@@ -49,6 +61,9 @@ class FileUploadController {
 
 				return res.send("Arquivo enviado com sucesso!");
 			});
+
+
+
 		} catch (err) {
 			console.log(error);
 			return res.status(400).json({ error: err.message });
