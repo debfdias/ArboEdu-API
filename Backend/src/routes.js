@@ -17,7 +17,6 @@ const multer = require("multer");
 const multerConfig = require("./config/multer");
 
 
-
 const routes = Router();
 
 routes.get('/users', UserController.index);
@@ -102,6 +101,8 @@ routes.get("/files/:id", FileUploadController.list);
 routes.post("/file", multer(multerConfig).single("file"), FileUploadController.store);
 routes.get("/file/:id", FileUploadController.show);
 routes.delete("/file/:id", FileUploadController.destroy);
+
+
 
 
 module.exports = routes;
