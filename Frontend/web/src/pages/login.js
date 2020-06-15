@@ -12,7 +12,7 @@ import Button from 'react-bootstrap/Button'
 export default class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = { email: 'gaqp@cin.ufpe.br', password: '82305235723572', login: true };
+        this.state = { email: 'gaqp@cin.ufpe.br', password: 'BATATA100', login: true };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.forgotPassword = this.forgotPassword.bind(this);

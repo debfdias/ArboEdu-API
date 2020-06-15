@@ -11,6 +11,9 @@ import Equipe from "./pages/equipe/equipe.js";
 import Cadastro from "./pages/cadastro/cadastro.js"
 import Login from "./pages/login.js"
 
+import AppBody from './pages/app/appBody';
+
+
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -23,7 +26,9 @@ const Routes = () => {
         <Route path="/contato/" component={Contato} />{" "}
         <Route path="/cadastro" component={Cadastro} />{" "}
         <Route path="/login/" component={Login} />{" "}
+        
 
+        <Route path="/app" component={AppBody}/>
       </Switch>{" "}
     </BrowserRouter>
   );
