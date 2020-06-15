@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button'
 
 import Logo from "./logo.svg"
-
 import "./header.css";
 
 const Header = () => {
@@ -20,4 +19,5 @@ const Header = () => {
     );
 }
 
+ 
 export default Header;

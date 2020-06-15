@@ -4,12 +4,13 @@
     justify-content: space-between;
     height: 10vh;
     background-color: rgb(239, 239, 239); 
-    margin-bottom: 1rem;
     padding: 1em 1em 1em 1em;
     -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
     font-size: large;
+    position: relative;
+    z-index:10;
 }
 
 
@@ -24,7 +25,7 @@
   }
 #icon{
     margin-left: 1rem;
-    width: 25%;
+    width: 14em;
 }
 .circular--square {
     border: solid rgb(55, 117, 105);
