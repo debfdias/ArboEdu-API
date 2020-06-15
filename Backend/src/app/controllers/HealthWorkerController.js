@@ -22,18 +22,21 @@ class Health_WorkerController {
 
   async update(req, res) {
     try {
-        if(!req.session.passport){
-            res.status(401).json("Usuário não logado");
-          }else if(req.session.passport.user.role==="administrador" || (req.session.passport.user.role==="profissional_saude" && req.session.passport.user.id===req.params.id)){
-            Health_Worker.findByPk(req.params.id).then(userToBeUpdated=>{
-              userToBeUpdated.update(req.body).then(result=>{
-                console.log(result);
-                res.status(200).json("OK")
-              })
-            });
-          }else{
-            res.status(401).json("Usuário não é administrador")
-          }
+        Health_Worker.findByPk(req.params.id).then(result=>{
+          const UserId = result.dataValues.UserId
+          if(!req.session.passport){
+              res.status(401).json("Usuário não logado");
+            }else if(req.session.passport.user.role==="administrador" || (req.session.passport.user.role==="profissional_saude" && req.session.passport.user.id===UserId)){
+              Health_Worker.findByPk(req.params.id).then(userToBeUpdated=>{
+                userToBeUpdated.update(req.body).then(result=>{
+                  console.log(result);
+                  res.status(200).json("OK")
+                })
+              });
+            }else{
+              res.status(401).json("Usuário não é administrador OU não é dono dos dados em questão")
+            }
+        })
     } catch (err) {
       return res.status(500).json({ error: err.message });
     }

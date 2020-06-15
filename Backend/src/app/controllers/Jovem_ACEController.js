@@ -58,22 +58,21 @@ class Jovem_ACEController {
   } */
   async update(req, res) {
     try {
-      var role = "";
-      var id="";
-      if(req.session.passport===undefined){
-        return res.status(401).json("Usuário não logado")
-      }else{
-        role = req.session.passport.user.role;
-        id= req.session.passport.user.id
-      } 
-      
-      if((role==="jovem_ace" && req.params.id===id)|| role==="administrador"){
-        const ACE = await Jovem_ACE.findByPk(req.params.id);
-        await ACE.update(req.body);
-        return res.status(200).json("OK");
-      }else{
-        return res.status(401).json("Usuário não autorizado para essa transação.")
-      }
+        Jovem_ACE.findByPk(req.params.id).then(result=>{
+          const UserId = result.dataValues.UserId
+          if(!req.session.passport){
+              res.status(401).json("Usuário não logado");
+            }else if(req.session.passport.user.role==="administrador" || (req.session.passport.user.role==="jovem_ace" && req.session.passport.user.id===UserId)){
+              Jovem_ACE.findByPk(req.params.id).then(userToBeUpdated=>{
+                userToBeUpdated.update(req.body).then(result=>{
+                  console.log(result);
+                  res.status(200).json("OK")
+                })
+              });
+            }else{
+              res.status(401).json("Usuário não é administrador OU não é dono dos dados em questão")
+            }
+        })
     } catch (err) {
       return res.status(500).json({ error: err.message });
     }

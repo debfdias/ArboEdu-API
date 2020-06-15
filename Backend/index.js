@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 const app = express();
 
+global.__basedir = __dirname;
+
 ///////////////////////////////////////////////
 /* const session = require('express-session');
 const redis = require('redis');
@@ -45,6 +47,10 @@ app.use(cors());
 const routes = require('./src/routes');
 
 app.use(morgan('dev'));
+app.use(
+  "/files",
+    express.static(path.resolve(__dirname, "resources", "uploads"))
+);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(routes);
