@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from './assets/icon.svg';
+import UserIcon from './assets/user.svg'
 import './header.css';
 export default class AppHeader extends Component {
     constructor(props) {
         super(props);
-        this.state = { name: "gabriel", email: "", role: "", profilepic: "https://st.depositphotos.com/1779253/5140/v/450/depositphotos_51405259-stock-illustration-male-avatar-profile-picture-use.jpg" }
+        this.state = { name: "", email: "", role: "", profilepic: "" }
     }
     render() {
         return (
             <div id="appHeader">
-                <div id="icon">
-                    <img src={Icon} alt="ícone" />
+                <div>
+                    <img src={Icon} alt="ícone" id="icon"/>
                 </div>
                 <Link to="#">
                     Home
@@ -28,7 +29,7 @@ export default class AppHeader extends Component {
                 <Link to="#">
                     Sair
                 </Link>
-                <img src={this.state.profilepic} className="circular--square" alt="Ícone de usuário" />
+                <img src={!this.state.profilepic ? UserIcon : this.state.profilepic } className="circular--square" alt="Ícone de usuário" />
             </div>
         )
     }

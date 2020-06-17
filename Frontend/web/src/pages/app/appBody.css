@@ -1,38 +1,42 @@
 #fullBody{
     background-color: rgb(239, 239, 239);
-    height: 100vh;
+    height: 100%;
     background-size: 20%;
+    box-sizing: border-box;
+}
+#appHeader{
+    height: 10%;
 }
 
 #body{
     position: relative;
     display: flex;
-
 }
 #sidebar{
-    z-index: 5;    
+    z-index: 5;  
+    height: 90vh;
+    width: 300px;
+    flex-shrink: 0;
     background-color: rgb(246,245,245);
-    -webkit-box-shadow: inset 50px 0px 0px 0px rgba(11,109,89,1),-5px 0px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: inset 50px 0px 0px 0px rgba(11,109,89,1),-5px 0px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: inset 50px 0px 0px 0px rgba(11,109,89,1),-5px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 50px 0px 0px 0px rgba(11,109,89,1);
 }
 
 ul{
-    margin-top: 1rem;
+    margin-top: 25px;
     padding:0;
     list-style-type: none;
 }
 li{
-    margin-bottom: 2rem;
+    margin-bottom: 25px;
     
 }
 
 li strong{
-    margin-left: 1rem;
+    margin-left: 16px;
 }
 
 li img{
-    padding: 0.7rem;
+    padding: 10px;
 }
 li.enabled img{
     height: 50px;
@@ -60,22 +64,14 @@ li.disabled img{
 #box-admin h1{
     font-size: 3rem;
     color: rgb(54,45,124);
-    margin-top: 10rem;
-    margin-left: 5rem;
-    width: auto;
-    height: 0px;
+    margin-top: 100px;
+    margin-left: 60px;
 }
 
 
 #box-admin p{
-    margin-top: 10rem;
-    margin-left: 5rem;
-    width: 25rem;
-    height: 25rem;
-}
-
-#logo img{
-    width: 2rem;
-    position: absolute;
-    right: 1;
+    font-size: 1.2rem;
+    margin-top: 50px;
+    margin-left: 60px;
+    width: 400px;
 }

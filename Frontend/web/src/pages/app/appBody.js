@@ -12,7 +12,7 @@ export default class AppBody extends Component {
     render() {
         return (
             <div id="fullBody">
-                <AppHeader />
+                <AppHeader/>
                 <div id="body">
                     <div id="sidebar">
                         <ul>
@@ -41,7 +41,7 @@ export default class AppBody extends Component {
                                 <strong>Consultar Ranking</strong>
                             </li>
                             <li className="enabled">
-                                <img src={'./'} alt="IndicatorsIcon"></img>
+                                <img src={Barchart} alt="IndicatorsIcon"></img>
                                 <strong>Consultar Indicadores</strong>
                             </li>
                         </ul>
@@ -58,7 +58,6 @@ export default class AppBody extends Component {
                             </p>
                         </div>
                     </div>
-                    <img src={AdminLogo} id="logo" alt="adminLogo"/>
                 </div>
             </div>
         );

@@ -4,7 +4,7 @@
     justify-content: space-between;
     height: 10vh;
     background-color: rgb(239, 239, 239); 
-    padding: 1em 1em 1em 1em;
+    padding: 16px;
     -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
@@ -24,12 +24,13 @@
     color: black;
   }
 #icon{
-    margin-left: 1rem;
-    width: 14em;
+    margin-left: 16px;
+    margin-right: 32px;
+    width: 250px;
 }
 .circular--square {
     border: solid rgb(55, 117, 105);
     border-radius: 50%;
     height: 50px;
-    margin-right: 1rem;
+    margin-right: 20px;
 }
