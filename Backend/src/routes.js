@@ -12,6 +12,8 @@ const EducationWorker = require('./app/controllers/EducationWorkerController');
 const HealthWorker = require('./app/controllers/HealthWorkerController');
 const ProblemController = require('./app/controllers/ProblemController');
 const FileUploadController = require('./app/controllers/FileUploadController');
+const Question = require('./app/controllers/Question');
+const Quiz = require('./app/controllers/Quizzes');
 
 const multer = require("multer");
 const multerConfig = require("./config/multer");
@@ -101,6 +103,16 @@ routes.get("/files/:id", FileUploadController.list);
 routes.post("/file", multer(multerConfig).single("file"), FileUploadController.store);
 routes.get("/file/:id", FileUploadController.show);
 routes.delete("/file/:id", FileUploadController.destroy);
+
+routes.get("/question/", Question.list);
+routes.post("/question", Question.store);
+routes.put("/question/:id", Question.update);
+routes.delete("/question/:id", Question.destroy);
+
+routes.get("/quiz/", Quiz.list);
+routes.post("/quiz", Quiz.store);
+routes.put("/quiz/:id", Quiz.update);
+routes.delete("/quiz/:id", Quiz.destroy);
 
 
 
