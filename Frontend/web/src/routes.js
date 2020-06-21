@@ -7,6 +7,7 @@ import Cadastro from "./pages/cadastro/cadastro.js"
 import Login from "./pages/login.js"
 
 import AppBody from './pages/app/appBody';
+import Sidebar from "./pages/app/sidebar.js";
 
 
 const Routes = () => {
@@ -39,6 +40,9 @@ const Routes = () => {
         <Route path="/cadastro" component={Cadastro}/>
         <Route path="/login" component={Login}/>
         <Route path="/app" component={AppBody}/>
+        <Route  path="/sidebar" 
+          render={(props) => <Sidebar {...props} type="admin"/>}
+         />
       </Switch>{" "}
     </BrowserRouter>
   );

@@ -1,0 +1,76 @@
+{
+    "admin": {
+        "name": "Administrador",
+        "logo": "./assets/adminIcon.svg",
+        "items": [
+            {
+                "name": "Adicionar Componentes",
+                "logo": "./assets/adicionar.svg"
+            },
+            {
+                "name": "Editar Componentes",
+                "logo": "./assets/editar.svg"
+            },
+            {
+                "name": "Aprovar Atividades",
+                "logo": "./assets/visto.svg"
+            },
+            {
+                "name": "Notificações",
+                "logo": "./assets/notification.svg"
+            },
+            {
+                "name": "Consultar Ranking",
+                "logo": "./assets/bar-chart.svg"
+            },
+            {
+                "name": "Consultar Indicadores",
+                "logo": "./assets/indicators.svg"
+            }
+        ]
+    },
+    "teacher": {
+        "name": "Professor",
+        "logo": "",
+        "items": [
+            {
+                "name": "Acompanhamento",
+                "logo": ""
+            },
+            {
+                "name": "Aprovar Atividades",
+                "logo": ""
+            },
+            {
+                "name": "Notificações",
+                "logo": "./assets/notification.svg"
+            },
+            {
+                "name": "Consultar Ranking",
+                "logo": "./assets/bar-chart.svg"
+            },
+            {
+                "name": "Consultar Indicadores",
+                "logo": "./assets/indicators.svg"
+            }
+        ]
+    },
+    "ace":{
+        "name": "Jovem ACE",
+        "logo": "",
+        "items":[
+            {
+                "name":"Notificações",
+                "logo": "./assets/notification.svg"
+            },
+            {
+                "name": "Consultar Ranking",
+                "logo": "./assets/bar-chart.svg"
+            },
+            {
+                "name": "Consultar Indicadores",
+                "logo": "./assets/indicators.svg"
+            }
+        ]
+    }
+}
