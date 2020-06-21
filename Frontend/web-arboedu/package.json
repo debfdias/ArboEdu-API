@@ -17,7 +17,7 @@
     "bootstrap": "^4.4.1",
     "connect-flash": "^0.1.1",
     "ejs": "^1.0.0",
-    "express": "3.5.1",
+    "express": "3.11.0",
     "express-myconnection": "1.0.4",
     "express-session": "^1.15.6",
     "font-awesome": "4.7.0",
