@@ -27,7 +27,7 @@ function validaCPF(CPF) {
 
 }
 
-const Profissional_educacao = () => (
+const ProfissionalEducacao = () => (
   <div>
     <h1>Cadastro Profissional de Educação</h1>
     <Formik
@@ -126,4 +126,4 @@ const Profissional_educacao = () => (
   </div>
 );
 
-export default Profissional_educacao;
+export default ProfissionalEducacao;

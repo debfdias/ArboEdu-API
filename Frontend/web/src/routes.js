@@ -9,7 +9,7 @@ import Pesquisa from "./pages/pesquisa/pesquisa.js";
 import Atividades from "./pages/atividades/atividades.js";
 import Equipe from "./pages/equipe/equipe.js";
 import Cadastro from "./pages/cadastro/cadastro.js"
-import Login from "./pages/login.js"
+import Login from "./pages/login/login.js"
 
 const Routes = () => {
   return (

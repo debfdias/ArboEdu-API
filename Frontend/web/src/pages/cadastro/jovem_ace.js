@@ -27,7 +27,7 @@ function validaCPF(CPF) {
 
 }
 
-const Jovem_ace = () => (
+const JovemAce = () => (
     <div>
         <h1>Cadastro Jovem ACE</h1>
         <Formik
@@ -126,4 +126,4 @@ const Jovem_ace = () => (
     </div>
 );
 
-export default Jovem_ace;
+export default JovemAce;
