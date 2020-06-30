@@ -1,4 +1,4 @@
-const { Quiz } = require('../models');
+const { Quiz, Questions, Quiz_Questions } = require('../models');
 class QuestionsController {
   async list(req, res) {
     try {
@@ -13,8 +13,18 @@ class QuestionsController {
   async store(req, res) {
     try {
       console.log(req.body);
-      Quiz.create(req.body).then(result=>{
-          return res.json(result);
+      Quiz.create(req.body).then(quizzes=>{
+          quizzes.list_questions.forEach(questionId => {
+            Questions.findByPk(questionId).then(questionToBeAdded=>{
+              if(questionToBeAdded!==null){
+                Quiz_Questions.create({
+                  QuizId: quizzes.dataValues.id,
+                  QuestionId: questionId
+                })
+              }
+            })
+          });
+          return res.status(200).json("OK")
       });
     } catch (err) {
       return res.status(400).json({ error: err.message });

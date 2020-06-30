@@ -1,8 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Quiz = sequelize.define('Quiz', {
-      nome: DataTypes.STRING,
-      deadline: DataTypes.DATE,
-      list_questions: DataTypes.JSON,
+    const Quiz_Questions = sequelize.define('Quiz_Questions', {
       createdAt: {
            field: 'created_at',
            type: DataTypes.DATE,
@@ -10,8 +7,9 @@ module.exports = (sequelize, DataTypes) => {
        updatedAt: {
            field: 'updated_at',
            type: DataTypes.DATE,
-       }  
-    },
-    );
-    return Quiz;
+       },
+       QuizId: DataTypes.INTEGER,
+       QuestionId: DataTypes.INTEGER  
+    });
+    return Quiz_Questions;
   };

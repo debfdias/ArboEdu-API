@@ -83,6 +83,7 @@ module.exports = (sequelize, DataTypes) => {
             address_neighborhood: user.extra.address_neighborhood,
             address_zip: user.extra.address_zip,
             address_number: user.extra.address_number,
+            address_complement: user.extra.address_complement,
             authorized: user.extra.authorized,
             UserId: user.id
           })

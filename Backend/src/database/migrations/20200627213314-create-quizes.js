@@ -12,13 +12,13 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING,
     },
-    data_finalizacao: {
+    deadline: {
       allowNull: false,
       type: Sequelize.DATE
     },
-    list_questions:{
-      allowNull: true,
-      type: Sequelize.STRING
+    list_questions: {
+      allowNull: false,
+      type: Sequelize.JSON
     },
     created_at: {
       allowNull: false,
