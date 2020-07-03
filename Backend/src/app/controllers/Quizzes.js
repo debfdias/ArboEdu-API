@@ -35,7 +35,7 @@ class QuestionsController {
     try {
       Quiz.findByPk(req.params.id).then(questionToBeUpdated=>{
           questionToBeUpdated.update(req.body).then(quizzes=>{
-            Quiz_Questions.findAll({where:{
+            /* Quiz_Questions.findAll({where:{
               QuizId: req.params.id
             }}).then(found=>{
               //====================================================================
@@ -63,7 +63,7 @@ class QuestionsController {
                   element.destroy().then().catch(err=>{res.status(500).json("Erro ao remover uma ou mais questões.", err)})
                 }
               })
-            })
+            }) */
             
             res.status(200).json("OK");
           });
@@ -84,6 +84,8 @@ class QuestionsController {
       return res.status(400).json({ error: err.message });
     }
   }
+
+  
 }
 
 module.exports = new QuestionsController();

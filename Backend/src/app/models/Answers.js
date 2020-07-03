@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Quiz_Questions_Answers = sequelize.define('Quiz_Questions_Answers', {
+    const Answers = sequelize.define('Answers', {
       createdAt: {
            field: 'created_at',
            type: DataTypes.DATE,
@@ -9,16 +9,17 @@ module.exports = (sequelize, DataTypes) => {
            type: DataTypes.DATE,
        },
        StudentID: DataTypes.INTEGER,
-       Quiz_QuestionID: DataTypes.INTEGER,
+       QuizID: DataTypes.INTEGER,
+       QuestionID: DataTypes.INTEGER,
        Answer: {
         type: DataTypes.STRING,
         validate: {
             isIn: {
               args: [['A', 'B', 'C', 'D', 'E']],
-              msg: "Alternativa não é válida. Tabela Quiz_Questions_Answers"
+              msg: "Alternativa não é válida. Tabela Answers"
             }
         }
       },
     });
-    return Quiz_Questions_Answers;
+    return Answers;
   };

@@ -14,6 +14,7 @@ const ProblemController = require('./app/controllers/ProblemController');
 const FileUploadController = require('./app/controllers/FileUploadController');
 const Question = require('./app/controllers/Question');
 const Quiz = require('./app/controllers/Quizzes');
+const Answers = require('./app/controllers/Answers');
 
 const multer = require("multer");
 const multerConfig = require("./config/multer");
@@ -113,6 +114,11 @@ routes.get("/quiz/", Quiz.list);
 routes.post("/quiz", Quiz.store);
 routes.put("/quiz/:id", Quiz.update);
 routes.delete("/quiz/:id", Quiz.destroy);
+
+routes.get("/answers/", Answers.list);
+routes.post("/answers", Answers.store);
+routes.put("/answers/:id", Answers.update);
+routes.delete("/answers/:id", Answers.destroy);
 
 
 

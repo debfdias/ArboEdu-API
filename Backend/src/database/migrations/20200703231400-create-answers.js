@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('Quiz_Questions', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('Answers', {
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -16,14 +16,22 @@ module.exports = {
       allowNull: false,
       type: Sequelize.DATE,
     },
-    QuizId: {
+    StudentID: {
       type: Sequelize.INTEGER,
       allowNull: false
     },
-    QuestionId: {
+    QuizID: {
       type: Sequelize.INTEGER,
+      allowNull: false
+    },
+    QuestionID: {
+      type: Sequelize.INTEGER,
+      allowNull: false
+    },
+    Answer: {
+      type: Sequelize.STRING,
       allowNull: false
     }
   }),
-  down: queryInterface => queryInterface.dropTable('Quiz_Questions'),
+  down: queryInterface => queryInterface.dropTable('Answers'),
 };
