@@ -46,7 +46,6 @@ class QuestionsController {
               })
               req.body.list_questions.forEach(element=>{
                 if(!questionsOnDatabase.includes(element)){
-                  console.log(element);
                   Quiz_Questions.create({
                     QuizId: req.params.id,
                     QuestionId: element
@@ -61,7 +60,6 @@ class QuestionsController {
               })
               found.forEach(element=>{
                 if(!questionsOnRequisition.includes(element.dataValues.QuestionId)){
-                  console.log(element.dataValues.QuestionId);
                   element.destroy().then().catch(err=>{res.status(500).json("Erro ao remover uma ou mais questões.", err)})
                 }
               })
