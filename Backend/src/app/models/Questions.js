@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
             isIn: {
               args: [['A', 'B', 'C', 'D', 'E']],
-              msg: "Alternativa não é válida"
+              msg: "Alternativa não é válida. Tabela Questions"
             }
         }
       },
