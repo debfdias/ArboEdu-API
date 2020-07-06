@@ -218,5 +218,9 @@ module.exports = (sequelize, DataTypes) => {
   User.associate = function(models) {
     User.hasMany(models.Researcher, {onDelete: 'CASCADE', hooks: true, as: 'Researchers'})
   };
+  User.associate = function(models) {
+    User.belongsTo(models.File, { foreignKey: 'avatar_id' });
+  }
+  
   return User;
 };
