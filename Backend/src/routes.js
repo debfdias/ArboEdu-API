@@ -12,6 +12,7 @@ const EducationWorker = require('./app/controllers/EducationWorkerController');
 const HealthWorker = require('./app/controllers/HealthWorkerController');
 const ProblemController = require('./app/controllers/ProblemController');
 const FileUploadController = require('./app/controllers/FileUploadController');
+const TaskController = require('./app/controllers/TaskController');
 const Question = require('./app/controllers/Question');
 const Quiz = require('./app/controllers/Quizzes');
 const Answers = require('./app/controllers/Answers');
@@ -47,6 +48,12 @@ routes.post('/institution', InstitutionController.store);
 routes.get('/institution/:id', InstitutionController.show);
 routes.put('/institution/:id', InstitutionController.update);
 routes.delete('/institution/:id', InstitutionController.destroy);
+
+routes.get('/task', TaskController.index);
+routes.post('/task', TaskController.store);
+routes.get('/task/:id', TaskController.show);
+routes.put('/task/:id', TaskController.update);
+routes.delete('/task/:id', TaskController.destroy);
 
 routes.get('/:idInst/classesInstitution', ClassesInstitutionController.index);
 routes.get('/:idInst/classInstitution', ClassesInstitutionController.get);
