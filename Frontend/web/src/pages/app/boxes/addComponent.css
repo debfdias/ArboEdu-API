@@ -1,0 +1,52 @@
+div#addBlockBody{
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+h1#addBlockTitle{
+    color: rgb(68,151,134);
+    width: 90%;
+    margin-left: 35px;
+}
+div#addBlock{
+    display: inline-flex;
+    flex-direction: column;
+    border-radius: 0;
+    align-content: center;
+    height: 200px;
+    
+}
+div#addBlock{
+    display: inline-flex;
+    border-radius: 0;
+    align-content: center;
+    height: 200px;
+    width: 175px;
+    margin-left: 35px;
+}
+div#addBlock button{
+    background-color:#F7F7F7;
+    padding: 0;
+    border: none;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 10px;
+
+}
+div#addBlock button:hover{
+    background-color:#C7C7C7;
+    transition-duration: 1s;
+
+}
+div #addBlock img{
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+}
+div#addBlock p{
+    color: rgb(68,151,134);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

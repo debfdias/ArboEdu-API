@@ -10,15 +10,14 @@
 
 #body{
     position: relative;
-    display: flex;
+    display: inline-flex;
+    flex-direction: row;
 }
 #sidebar{
-    z-index: 5;  
-    height: 90vh;
+    height: 92vh;
     width: 300px;
     flex-shrink: 0;
     background-color: rgb(246,245,245);
-    box-shadow: inset 50px 0px 0px 0px rgba(11,109,89,1);
 }
 
 ul{
@@ -61,17 +60,23 @@ li.disabled img{
     color: rgb(168,168,168);
 }
 
-#box-admin h1{
+#welcomeBox{
+    margin-top: 60px;
+    margin-left: 60px;
+    width:  700px;
+
+}
+
+
+#welcomeBox h1{
     font-size: 3rem;
     color: rgb(54,45,124);
-    margin-top: 100px;
-    margin-left: 60px;
+    margin-bottom: 25;
 }
 
 
-#box-admin p{
+#welcomeBox p{
     font-size: 1.2rem;
-    margin-top: 50px;
-    margin-left: 60px;
     width: 400px;
 }
+

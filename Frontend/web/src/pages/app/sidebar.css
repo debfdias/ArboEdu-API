@@ -16,7 +16,9 @@
 }
 #sidebar-type img{
     width: 50px;
+    height: 50px;
     margin-right: 10px;
+    padding: 10px;
 }
 #sidebar-menu{
     display: flex;
@@ -49,4 +51,3 @@
     color:rgb(212, 212, 212);
     transition-duration: 0.5s;
 }
-

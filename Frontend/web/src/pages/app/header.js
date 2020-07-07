@@ -26,7 +26,7 @@ export default class AppHeader extends Component {
                 <Link to="#">
                     Preferências
                         </Link>
-                <Link to="#">
+                <Link onClick={() => console.log("Desconectado")} to="/">
                     Sair
                 </Link>
                 <img src={!this.state.profilepic ? UserIcon : this.state.profilepic } className="circular--square" alt="Ícone de usuário" />

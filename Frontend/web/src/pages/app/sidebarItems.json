@@ -31,15 +31,15 @@
     },
     "teacher": {
         "name": "Professor",
-        "logo": "",
+        "logo": "./assets/professor.svg",
         "items": [
             {
                 "name": "Acompanhamento",
-                "logo": ""
+                "logo": "./assets/adicionar.svg"
             },
             {
                 "name": "Aprovar Atividades",
-                "logo": ""
+                "logo": "./assets/editar.svg"
             },
             {
                 "name": "Notificações",
@@ -57,7 +57,7 @@
     },
     "ace":{
         "name": "Jovem ACE",
-        "logo": "",
+        "logo": "./assets/jovemAce.svg",
         "items":[
             {
                 "name":"Notificações",
