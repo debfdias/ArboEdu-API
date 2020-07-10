@@ -139,7 +139,7 @@ Do contrário, um email é enviado para o usuário. Caso o envio do email falhe,
 
 Uma vez que o usuário clique no link recebido (que funciona por 1 hora) a rota usada é '/user/:id/reset/:token' com método GET. 
 
-A API procura o email do usuário no DB e retorna 400 com mensagem "Email não encontrado", em seguida, a API verifica a vaidade do token, caso tenha expirado, código 404 com mensagem "Token expirado" é retornada. Se o token for válido e o email existir, a API tenta atualizar a senha. Em caso de sucesso, código 200 é retornado. Em caso de falha, código 500 é retornado.
+A API procura o email do usuário no DB e retorna 400 com mensagem "Email não encontrado" caso o email não exista, em seguida, a API verifica a vaidade do token, caso tenha expirado, código 404 com mensagem "Token expirado" é retornada. Se o token for válido e o email existir, a API tenta atualizar a senha. Em caso de sucesso, código 200 é retornado. Em caso de falha, código 500 é retornado.
 
 ATENÇÃO: Atualmente, a nova senha é 'hard coded' para fins de teste. Uma vez o front end tiver um form de redefinição de senha, o código será alterado para puxar a nova senha do form.
 
@@ -165,3 +165,52 @@ Existem 3 campos opcionais.
 **user_return** é um campo de texto em que o administrador deixa requisições para o usuário.
 
 **file_location** é a URL de eventual screenshot que o usuário possa enviar.
+
+## Quiz
+
+O JSON para criar ou editar um quiz é:
+```
+{
+    "nome":"EXEMPLO",
+    "deadline":"YYYY-MM-DD",
+    "list_questions":[1, 2, 3, 4]
+}
+```
+A URL é /quiz
+
+Os métodos e códigos de erro são bem padrões. GET, STORE, DELETE. 200, 400, etc.
+
+## Questions
+
+O JSON para registrar uma questão é:
+```
+{
+    "enunciado":"teste",
+    "nivel":"FACIL",
+    "resposta_correta":"B",
+    "justificativa_A":"fouiwn",
+    "justificativa_B":"weio",
+    "justificativa_C":"nwenfiw",
+    "justificativa_D":"fewuifbi",
+    "justificativa_E":"nufeiub"
+}
+```
+
+Existem 3 níveis possíveis "FACIL", "MEDIO" e "DIFICIL". Escritos dessa forma exatamente. Alternativas são A, B, C, D e E. 
+Justificativas são para explicar porque uma resposta está certa ou errada. Nesse exemplo, onde a alternativa correta é B. A opção "justificativa_B" é para explicar porque a alternativa B está correta. Todas as outras são para explicar porque estão erradas.
+
+O método retorna 200 ou 400 em caso de sucesso ou falha, respectivamente. Métodos GET, UPDATE e DELETE também são válidos e dão os mesmos retornos.
+
+## Answers
+
+O JSON para registrar uma resposta a uma pergunta de um quiz é:
+```
+{
+    "StudentID": 4,
+    "QuizID": 32,
+    "QuestionID": 2,
+    "Answer": "C"
+}
+```
+A rota é /answers. Para isso, o usuário precisa estar logado. Caso não esteja, código 401 é retornado. Do contrário, 200 ou 400.
+Métodos GET, UPDATE e DELETE com retornos 200 e 400 são padrão.

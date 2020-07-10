@@ -14,16 +14,6 @@ class QuestionsController {
     try {
       console.log(req.body);
       Quiz.create(req.body).then(quizzes=>{
-          quizzes.list_questions.forEach(questionId => {
-            Questions.findByPk(questionId).then(questionToBeAdded=>{
-              if(questionToBeAdded!==null){
-                Quiz_Questions.create({
-                  QuizId: quizzes.dataValues.id,
-                  QuestionId: questionId
-                })
-              }
-            })
-          });
           return res.status(200).json("OK")
       });
     } catch (err) {
@@ -33,8 +23,8 @@ class QuestionsController {
 
   async update(req, res) {
     try {
-      Quiz.findByPk(req.params.id).then(questionToBeUpdated=>{
-          questionToBeUpdated.update(req.body).then(quizzes=>{
+      Quiz.findByPk(req.params.id).then(quizToBeUpdated=>{
+          quizToBeUpdated.update(req.body).then(quizzes=>{
             /* Quiz_Questions.findAll({where:{
               QuizId: req.params.id
             }}).then(found=>{
