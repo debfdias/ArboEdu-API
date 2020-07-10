@@ -1,6 +1,7 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage } from 'formik';
 import api from '../../services/api.js';
+import Form from 'react-bootstrap/Form';
 
 
 //Esse código foi copiado, substituir ou refazer fonte: http://www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js

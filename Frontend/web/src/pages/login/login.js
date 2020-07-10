@@ -8,7 +8,6 @@ import './login.css';
 import { Row, Col } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import UsarModal from '../../components/modal.js';
-import Cadastro from '../cadastro/cadastro.js';
 import Aluno from '../cadastro/aluno.js';
 import Admin from '../cadastro/admin.js';
 import Diretor from '../cadastro/diretor.js';
@@ -42,6 +41,7 @@ export default class Login extends Component {
       this.UsarModal.current.handleShow()   
     }
 
+    
     handleChange(event) {
         this.setState({ ...this.state, [event.target.type]: event.target.value });
     }
@@ -126,7 +126,6 @@ export default class Login extends Component {
 
                 
                     <UsarModal ref={this.UsarModal}>
-                      { this.state.showCadastro && (<Cadastro /> )}
                       { this.state.showAdmin && (<Admin /> )}
                       { this.state.showAluno && (<Aluno /> )}
                       { this.state.showDiretor && (<Diretor /> )}

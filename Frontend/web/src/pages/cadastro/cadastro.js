@@ -3,11 +3,14 @@ import Admin from './admin';
 import Diretor from './diretor';
 import Professor from './professor';
 import Pesquisador from './pesquisador';
-import ProfissionalSaude from './profissional_saude'
-import ProfissionalEducacao from './profissional_educacao'
+import ProfissionalSaude from './profissional_saude';
+import ProfissionalEducacao from './profissional_educacao';
 import JovemAce from './jovem_ace';
+import Container from 'react-bootstrap/Container';
 import "../home/home.css";
 import Aluno from './aluno';
+import Form from 'react-bootstrap/Form'
+import './style.css'
 
 
 export default class Cadastro extends Component {
@@ -22,9 +25,43 @@ export default class Cadastro extends Component {
     render() {
         return (
           <React.Fragment>
-            <div>
-              <div id="seletor">
-                <select id="Tipo" onChange={this.cadastro}>
+            <Container className="d-flex-column">
+              <row className="justify-content-center">
+                <h6>Estado:</h6>
+                <Form.Control as="select" size="sm" name="estados-brasil">
+                  <option value=""></option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </Form.Control>
+              </row>
+              <row id="seletor">
+                <h6 className="mt-4">Perfil:</h6>
+                <Form.Control as="select" size="sm" id="Tipo" onChange={this.cadastro}>
                   <option value=""></option>
                   <option value="aluno">Aluno</option>
                   <option value="administrador">Administrador</option>
@@ -38,10 +75,10 @@ export default class Cadastro extends Component {
                   <option value="profissional_saude">
                     Profissional de Saude
                   </option>
-                </select>
+                </Form.Control>
                 {this.state.value}
-              </div>
-            </div>
+              </row>
+            </Container>
           </React.Fragment>
         );
     }

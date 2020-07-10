@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Cadastro from '../pages/cadastro/cadastro.js';
 
 
-export default class UsarModel extends Component {
+export default class ModelCadastro extends Component {
     constructor(props) {
         super(props);
         this.state = {show : false};
@@ -21,11 +21,11 @@ export default class UsarModel extends Component {
             <Modal.Header closeButton>
                 <Modal.Title className="titulo_modal">Cadastro</Modal.Title>
             </Modal.Header>
-            <Modal.Body>{this.props.children}
+            <Modal.Body>
             <Cadastro></Cadastro>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="entrar" onClick={this.handleClose}>
+                <Button variant="entrar" onClick={this.state.value}>
                 Avançar
                 </Button>
             </Modal.Footer>
