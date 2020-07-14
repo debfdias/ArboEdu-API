@@ -3,11 +3,19 @@ import { Link } from 'react-router-dom';
 import Icon from './assets/icon.svg';
 import UserIcon from './assets/user.svg'
 import './header.css';
+
+import API from '../../services/api'
 export default class AppHeader extends Component {
     constructor(props) {
         super(props);
         this.state = { name: "", email: "", role: "", profilepic: "" }
+        this.logout = this.logout.bind(this);
     }
+    async logout(){
+
+        await API.get('/logout').then(console.log("desconectado"));
+        
+    } 
     render() {
         return (
             <div id="appHeader">
@@ -26,7 +34,7 @@ export default class AppHeader extends Component {
                 <Link to="#">
                     Preferências
                         </Link>
-                <Link onClick={() => console.log("Desconectado")} to="/">
+                <Link onClick={this.logout} to="/">
                     Sair
                 </Link>
                 <img src={!this.state.profilepic ? UserIcon : this.state.profilepic } className="circular--square" alt="Ícone de usuário" />

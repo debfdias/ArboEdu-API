@@ -22,6 +22,7 @@ export default class Sidebar extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            
         }
     }
 
@@ -35,22 +36,12 @@ export default class Sidebar extends Component {
                         <span id="sidebar-label">{sidebarType.name}</span>
                     </div>
                     <div id="sidebar-menu">
-                        <div id="sidebar-icons">
-                            {sidebarType.items.map(item => (
-                                <a href="#" key={item.name}>
-                                    <img src={item.logo} alt={item.name} key={item.name} />
-                                </a>
-                            ))}
-                        </div>
-                        <div id="sidebar-label">
-                            {sidebarType.items.map(item => (
-                                <a href="#" key={item.name}>
-                                    <div id="sidebar-label-item" key={item.name}>
-                                        <p ><strong>{item.name}</strong></p>
-                                    </div>
-                                </a>
-                            ))}
-                        </div>
+                        {sidebarType.items.map(item => (
+                            <div id="sidebar-option" key={item.name}>
+                                <img src={item.logo} alt={item.name} key={item.name} />
+                                <p ><strong>{item.name}</strong></p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </React.Fragment>
