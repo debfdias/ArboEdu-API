@@ -29,7 +29,6 @@ function validaCPF(CPF) {
 
 const Pesquisador = () => (
   <div>
-    <h1>Cadastro Pesquisador</h1>
     <Formik
       initialValues={{ name: '', email: '', password: '', passwordCheck: '', phone: '', birthday: '', cpf: '', role: 'professor', extra: { institution: '' } }}
       validate={values => {

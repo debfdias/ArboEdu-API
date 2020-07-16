@@ -29,7 +29,6 @@ function validaCPF(CPF) {
 
 const JovemAce = () => (
     <div>
-        <h1>Cadastro Jovem ACE</h1>
         <Formik
             initialValues={{ name: '', email: '', password: '', passwordCheck: '', phone: '', birthday: '', cpf: '', role: 'jovem_ace', extra: { distrito_sanitario: '' } }}
             validate={values => {

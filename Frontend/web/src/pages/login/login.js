@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Header from "../home/header.js";
 import api from "../../services/api";
-import Navbar from 'react-bootstrap/Navbar'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import Navbar from 'react-bootstrap/Navbar';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import './login.css';
 import { Row, Col } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
@@ -16,36 +16,47 @@ import Professor from '../cadastro/professor.js';
 import ProfissionalEducacao from '../cadastro/profissional_educacao.js';
 import Pesquisador from '../cadastro/pesquisador.js';
 import ProfissionalSaude from '../cadastro/profissional_saude.js';
-
+import Cadastro from '../cadastro/cadastro.js';
+import FinalModal from '../../components/finalModal.js';
 
 export default class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = { email: '', password: ''};
+        this.state = { email: '', password: '', buttonName: "Avançar"};
         this.login = true;
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.forgotPassword = this.forgotPassword.bind(this);
         this.UsarModal = React.createRef();
-        /*this.showCadastro = this.showCadastro.bind(this);
-        this.showAdmin = this.showAdmin.bind(this);
-        this.showAluno = this.showAluno.bind(this);
-        this.showDiretor = this.showDiretor.bind(this);
-        this.showJovemace = this.showJovemace.bind(this);
-        this.showPesquisador = this.showPesquisador.bind(this);
-        this.showProfEdu = this.showProfEdu.bind(this);
-        this.showProfSaude = this.showProfSaude.bind(this);*/
+        this.Cadastro = React.createRef();
     }
 
     handleModal = () => {
-      this.UsarModal.current.handleShow()   
+      this.UsarModal.current.handleShow();   
     }
 
-    
     handleChange(event) {
         this.setState({ ...this.state, [event.target.type]: event.target.value });
     }
 
+    botaoModal = () =>{
+        if (this.state.buttonName === 'Finalizar'){
+          this.UsarModal.current.hiddenButton()
+          this.Cadastro.current.setSection(<FinalModal/>)
+        }
+        
+        else {
+        this.Cadastro.current.setSection(this.Cadastro.current.getValue());
+        this.setState({buttonName : "Finalizar"});
+        }
+    }
+
+    modalClose = () =>{
+      this.setState({buttonName : "Avançar"});
+      
+      
+    }
+    
     handleSubmit(event) {
         event.preventDefault();
         if (this.state.email !== '' && (this.state.password !== '' || !this.login )) {
@@ -77,7 +88,7 @@ export default class Login extends Component {
           <React.Fragment>
             <Header />
             <Container>
-              <Row>
+              <Row className="recuo">
                 <Col xs={6} md={4} lg={4}>
                   <Form onSubmit={this.handleSubmit}>
                     <p className="titulo_login">Efetue seu login:</p>
@@ -125,7 +136,9 @@ export default class Login extends Component {
                     </Navbar.Text>
 
                 
-                    <UsarModal ref={this.UsarModal}>
+                    <UsarModal ref={this.UsarModal} title="Cadastro" onClick={this.botaoModal}
+                     buttonName={this.state.buttonName} onClose={this.modalClose}>
+                    <Cadastro ref={this.Cadastro}></Cadastro>
                       { this.state.showAdmin && (<Admin /> )}
                       { this.state.showAluno && (<Aluno /> )}
                       { this.state.showDiretor && (<Diretor /> )}

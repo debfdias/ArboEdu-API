@@ -29,7 +29,6 @@ function validaCPF(CPF) {
 
 const Diretor = () => (
   <div>
-    <h1>Cadastro Diretor</h1>
     <Formik
       initialValues={{ name: '', email: '', password: '', passwordCheck: '', phone: '', birthday: '', cpf: '', role: 'diretor' }}
       validate={values => {

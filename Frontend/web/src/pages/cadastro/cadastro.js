@@ -18,10 +18,19 @@
       super(props);
       this.state = {
         value: '',
-        hidden: false
+        hidden: false,
+        section: ''
       };
       this.cadastro = this.cadastro.bind(this);
     };
+
+    setSection = (section) => {
+      this.setState({section : section, hidden : true})   
+    }
+
+    getValue = () => {
+      return this.state.value   
+    }
 
     render() {
       return (
@@ -79,7 +88,7 @@
               </Form.Control>
             </row>
           </Container>
-          {this.state.value}
+          {this.state.section}
 
         </React.Fragment>
       );
@@ -87,30 +96,30 @@
     cadastro(opção) {
       switch (opção.target.value) {
         case ("administrador"):
-          this.setState({ value: <Admin />, hidden: true });
+          this.setState({ value: <Admin />});
           break;
         case ("diretor"):
-          this.setState({ value: <Diretor />, hidden: true });
+          this.setState({ value: <Diretor /> });
           break;
         case ("professor"):
-          this.setState({ value: <Professor />, hidden: true });
+          this.setState({ value: <Professor /> });
           break;
         case ("pesquisador"):
-          this.setState({ value: <Pesquisador />, hidden: true });
+          this.setState({ value: <Pesquisador /> });
           break;
         case ("profissional_saude"):
-          this.setState({ value: <ProfissionalSaude />, hidden: true });
+          this.setState({ value: <ProfissionalSaude /> });
           break;
         case ("profissional_educacao"):
-          this.setState({ value: <ProfissionalEducacao />, hidden: true });
+          this.setState({ value: <ProfissionalEducacao /> });
           break;
         case ("jovem_ace"):
-          this.setState({ value: <JovemAce />, hidden: true });
+          this.setState({ value: <JovemAce /> });
           break;
         case ("aluno"):
-          this.setState({ value: <Aluno />, hidden: true });
+          this.setState({ value: <Aluno /> });
           break;
-
+        
         default:
 
           this.setState({ value: 'Escolha uma opção antes de continuar o cadastro' });

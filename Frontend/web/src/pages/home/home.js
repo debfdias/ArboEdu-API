@@ -12,7 +12,7 @@ export default class Home extends Component{
             <React.Fragment>
                 <Header/>
                 <Container>
-                    <Row >
+                    <Row className="recuo">
                         <div className='titulo'>
                             <Col xs={12} md={12} lg={12}><p>Bem-Vindo!</p></Col>
                         </div>
