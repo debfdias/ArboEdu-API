@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) => {
     const Focus = sequelize.define('Focus', {
     StudentID: DataTypes.INTEGER,
     total_points: DataTypes.NUMBER,
-    poinst_acquired: DataTypes.NUMBER,
+    points_acquired: DataTypes.NUMBER,
     rules_video_link: DataTypes.STRING,
     focus_local: {
         type: DataTypes.STRING,
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
             isIn: {
               args: [['LATAS', 'PNEUS', 'BEBEDOUROS', 'VASOS', 'CALHAS', 'PISCINAS', 'RESERVATÓRIOS', 'LIXO', 'BANDEIJAS', 'POÇAS', 'OUTROS']],
-              msg: "Tipo não é válido"
+              msg: "Tipo de foco não é válido"
             }
         }
     },

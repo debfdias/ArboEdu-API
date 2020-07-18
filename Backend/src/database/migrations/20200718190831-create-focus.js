@@ -26,12 +26,7 @@ module.exports = {
     },
     focus_local: {
       type: Sequelize.STRING,
-      validate: {
-          isIn: {
-            args: [['CASA', 'BAIRRO', 'ESCOLA', 'OUTRO']],
-            msg: "Local do foco não é válido"
-          }
-      }
+      allowNull: false,
     },
     focus_local_optional: {
       type: Sequelize.STRING,
@@ -39,12 +34,7 @@ module.exports = {
     },
     focus_type: {
       type: Sequelize.STRING,
-      validate: {
-          isIn: {
-            args: [['LATAS', 'PNEUS', 'BEBEDOUROS', 'VASOS', 'CALHAS', 'PISCINAS', 'RESERVATÓRIOS', 'LIXO', 'BANDEIJAS', 'POÇAS', 'OUTROS']],
-            msg: "Tipo não é válido"
-          }
-      }
+      allowNull: false,
     },
     focus_type_optional: {
       type: Sequelize.STRING,
@@ -68,12 +58,6 @@ module.exports = {
     },
     status: {
       type: Sequelize.STRING,
-      validate: {
-          isIn: {
-            args: [['APROVADO']],
-            msg: "Tipo não é válido"
-          }
-      },
       allowNull: true
     },
     created_at: {
