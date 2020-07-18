@@ -214,3 +214,29 @@ O JSON para registrar uma resposta a uma pergunta de um quiz é:
 ```
 A rota é /answers. Para isso, o usuário precisa estar logado. Caso não esteja, código 401 é retornado. Do contrário, 200 ou 400.
 Métodos GET, UPDATE e DELETE com retornos 200 e 400 são padrão.
+
+## Patrulha Zika
+
+O JSON para registrar um foco é:
+```
+{
+    "StudentID":1,
+    "total_points": 3.0,
+    "points_acquired": 1.0,
+    "rules_video_link":"eindoewnedwo.com",
+    "focus_local":"yuyuf",
+    "focus_local_optional":"fwwfw",
+    "focus_type":"LATAS",
+    "focus_type_optional":"einw",
+    "solution":"Secar as latas, ué",
+    "commentary":"enfiwei",
+    "GPS_coordinates":"37ºW,23ºS",
+    "feedback":"nqiwo",
+    "status":"niofenfe"
+}
+```
+Os parâmetros focus_local_optional, focus_type_optional, commentary, feedback e status são opcionais. Você pode mandar o JSON sem esses parâmetros.
+
+Os valores possíveis para "focus_local" são 'CASA', 'BAIRRO', 'ESCOLA', 'OUTRO'. Os valores possíveis para "focus_type" são 'LATAS', 'PNEUS', 'BEBEDOUROS', 'VASOS', 'CALHAS', 'PISCINAS', 'RESERVATÓRIOS', 'LIXO', 'BANDEIJAS', 'POÇAS', 'OUTROS'. "Status" é 'APROVADO' ou vazio.
+
+A rota é /patrulhazika/. GET, POST, PUT, DELETE disponíveis. 
