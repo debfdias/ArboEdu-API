@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './sidebar.css';
-import sidebar from "./sidebarItems.json"
+import sidebar from "./sidebarItems.js"
+import welcomeBox from './boxes/welcomeBox'
 
 function setType(type) {
     switch (type) {
@@ -22,7 +23,7 @@ export default class Sidebar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            
+            box: welcomeBox(this.props.type)
         }
     }
 
@@ -37,12 +38,15 @@ export default class Sidebar extends Component {
                     </div>
                     <div id="sidebar-menu">
                         {sidebarType.items.map(item => (
-                            <div id="sidebar-option" key={item.name}>
+                            <div id="sidebar-option" key={item.name} onClick={() => this.setState(item.component? {box: item.component()}:{box: welcomeBox(this.props.type)})}>
                                 <img src={item.logo} alt={item.name} key={item.name} />
                                 <p ><strong>{item.name}</strong></p>
                             </div>
                         ))}
                     </div>
+                </div>
+                <div id="boxes">
+                    {this.state.box}
                 </div>
             </React.Fragment>
         );

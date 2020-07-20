@@ -9,15 +9,10 @@
 }
 
 #body{
-    position: relative;
     display: inline-flex;
+    width: 100%;
+    height: 100%;
     flex-direction: row;
-}
-#sidebar{
-    height: 92vh;
-    width: 300px;
-    flex-shrink: 0;
-    background-color: rgb(246,245,245);
 }
 
 ul{

@@ -43,7 +43,7 @@ const opcoes = [
 export default () => {
     return (
         <div id="addBlockBody">
-            <h1 id="addBlockTitle"><strong>Indique o que deseja Editar :</strong></h1>
+            <h1 id="addBlockTitle"><strong>Indique o que deseja editar :</strong></h1>
             <div id="options">
                 {opcoes.map(opcao => {
                     return (
