@@ -17,6 +17,7 @@ const Question = require('./app/controllers/Question');
 const Quiz = require('./app/controllers/Quizzes');
 const Answers = require('./app/controllers/Answers');
 const PatrulhaZika = require('./app/controllers/PatrulhaZika');
+const School = require('./app/controllers/SchoolController');
 
 const multer = require("multer");
 const multerConfig = require("./config/multer");
@@ -133,7 +134,10 @@ routes.post("/patrulhazika", PatrulhaZika.store);
 routes.put("/patrulhazika/:id", PatrulhaZika.update);
 routes.delete("/patrulhazika/:id", PatrulhaZika.destroy);
 
-
+routes.get("/school/", School.list);
+routes.post("/school", School.store);
+routes.put("/school/:id", School.update);
+routes.delete("/school/:id", School.destroy);
 
 
 module.exports = routes;

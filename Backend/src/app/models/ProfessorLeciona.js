@@ -1,8 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const TablePertence = sequelize.define('TablePertence', {
-      grade: DataTypes.STRING,
-      shift: DataTypes.STRING,
-      class: DataTypes.STRING,
+    const ProfessorLeciona = sequelize.define('ProfessorLeciona', {
       createdAt: {
            field: 'created_at',
            type: DataTypes.DATE,
@@ -12,5 +9,5 @@ module.exports = (sequelize, DataTypes) => {
            type: DataTypes.DATE,
        }  
     });
-    return TablePertence;
+    return ProfessorLeciona;
   };

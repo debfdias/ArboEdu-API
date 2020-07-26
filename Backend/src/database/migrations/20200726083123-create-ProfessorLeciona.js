@@ -1,30 +1,18 @@
 'use strict';
 
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('TablePertence', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('ProfessorLeciona', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER,
     },
-    grade: {
-      allowNull: false,
-      type: Sequelize.STRING,
-    },
-    shift: {
-      allowNull: false,
-      type: Sequelize.STRING
-    },
-    class: {
-      allowNull: false,
-      type: Sequelize.STRING
-    },
-    StudentId: {
+    ProfessorId: {
       type: Sequelize.INTEGER,
       allowNull: false,
       references: {         // User hasMany WorkingDays n:n
-        model: 'Student',
+        model: 'Professor',
         key: 'id'
       }
     },
@@ -45,5 +33,5 @@ module.exports = {
       type: Sequelize.DATE,
     },
   }),
-  down: queryInterface => queryInterface.dropTable('TablePertence'),
+  down: queryInterface => queryInterface.dropTable('ProfessorLeciona'),
 };
