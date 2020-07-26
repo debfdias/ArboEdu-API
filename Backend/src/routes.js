@@ -17,6 +17,7 @@ const Question = require('./app/controllers/Question');
 const Quiz = require('./app/controllers/Quizzes');
 const Answers = require('./app/controllers/Answers');
 const PatrulhaZika = require('./app/controllers/PatrulhaZika');
+const TanquesJanelas = require('./app/controllers/TanquesJanelasController');
 const School = require('./app/controllers/SchoolController');
 
 const multer = require("multer");
@@ -138,6 +139,12 @@ routes.get("/school/", School.list);
 routes.post("/school", School.store);
 routes.put("/school/:id", School.update);
 routes.delete("/school/:id", School.destroy);
+
+routes.get("/tanquesjanelas/", TanquesJanelas.list);
+routes.get("/tanquesjanelas/:id", TanquesJanelas.show);
+routes.post("/tanquesjanelas", TanquesJanelas.store);
+routes.put("/tanquesjanelas/:id", TanquesJanelas.update);
+routes.delete("/tanquesjanelas/:id", TanquesJanelas.destroy);
 
 
 module.exports = routes;
