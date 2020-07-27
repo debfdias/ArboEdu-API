@@ -17,6 +17,10 @@ const Question = require('./app/controllers/Question');
 const Quiz = require('./app/controllers/Quizzes');
 const Answers = require('./app/controllers/Answers');
 const PatrulhaZika = require('./app/controllers/PatrulhaZika');
+const TanquesJanelas = require('./app/controllers/TanquesJanelasController');
+const ColetaReciclagem = require('./app/controllers/ColetaReciclagemController');
+
+
 
 const multer = require("multer");
 const multerConfig = require("./config/multer");
@@ -131,6 +135,19 @@ routes.get("/patrulhazika/", PatrulhaZika.list);
 routes.post("/patrulhazika", PatrulhaZika.store);
 routes.put("/patrulhazika/:id", PatrulhaZika.update);
 routes.delete("/patrulhazika/:id", PatrulhaZika.destroy);
+
+routes.get("/tanquesjanelas/", TanquesJanelas.list);
+routes.get("/tanquesjanelas/:id", TanquesJanelas.show);
+routes.post("/tanquesjanelas", TanquesJanelas.store);
+routes.put("/tanquesjanelas/:id", TanquesJanelas.update);
+routes.delete("/tanquesjanelas/:id", TanquesJanelas.destroy);
+
+routes.get("/coletareciclagem/", ColetaReciclagem.list);
+routes.get("/coletareciclagem/:id", ColetaReciclagem.show);
+routes.post("/coletareciclagem", ColetaReciclagem.store);
+routes.put("/coletareciclagem/:id", ColetaReciclagem.update);
+routes.delete("/coletareciclagem/:id", ColetaReciclagem.destroy);
+
 
 
 module.exports = routes;
