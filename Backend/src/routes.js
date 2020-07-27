@@ -43,7 +43,6 @@ routes.post('/signin', passport.authenticate('local-signin', {
 }));
 routes.get('/logout', logout.logout)
 
-routes.get('/institution', InstitutionController.index);
 routes.get('/institution', InstitutionController.get);
 routes.post('/institution', InstitutionController.store);
 routes.get('/institution/:id', InstitutionController.show);
@@ -58,7 +57,7 @@ routes.delete('/task/:id', TaskController.destroy);
 
 routes.get('/:idInst/classesInstitution', ClassesInstitutionController.index);
 routes.get('/:idInst/classInstitution', ClassesInstitutionController.get);
-routes.post('/:idInst/classInstitution', ClassesInstitutionController.store);
+routes.post('/classInstitution', ClassesInstitutionController.store);
 routes.get('/classInstitution/:id', ClassesInstitutionController.show);
 routes.put('/classInstitution/:id', ClassesInstitutionController.update);
 routes.delete('/classInstitution/:id', ClassesInstitutionController.destroy);

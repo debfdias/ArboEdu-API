@@ -41,18 +41,19 @@ class ClassesInstitutionController {
   }
 
   async store(req, res) {
-    const instId = 1
-
-    try {
-      console.log(instId);
-
-      const classesInstitution = await Classes_Institution.create({grade:req.body.grade, class: req.body.class, shift: req.body.shift, institutionId: instId });
-
-
-      return res.json(classesInstitution);
-    } catch (err) {
-      return res.status(400).json({ error: err.message });
-    }
+    Classes_Institution.findAll({where: {
+      studentId: req.body.studentId
+    }}).then(result=>{
+      if(result.length===0){
+          Classes_Institution.create(req.body).then(classesInstitution=>{
+            return res.json(classesInstitution);
+          }).catch(err=>{
+            return res.status(400).json({ error: err.message });
+          })
+      }else{
+        return res.json("Estudante já cadastrado na escola de ID: "+result[0].dataValues.institutionId)
+      }
+    })
   }
 
   async update(req, res) {
