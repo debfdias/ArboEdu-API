@@ -17,7 +17,10 @@ const Question = require('./app/controllers/Question');
 const Quiz = require('./app/controllers/Quizzes');
 const Answers = require('./app/controllers/Answers');
 const PatrulhaZika = require('./app/controllers/PatrulhaZika');
-const School = require('./app/controllers/SchoolController');
+const TanquesJanelas = require('./app/controllers/TanquesJanelasController');
+const ColetaReciclagem = require('./app/controllers/ColetaReciclagemController');
+
+
 
 const multer = require("multer");
 const multerConfig = require("./config/multer");
@@ -44,7 +47,6 @@ routes.post('/signin', passport.authenticate('local-signin', {
 }));
 routes.get('/logout', logout.logout)
 
-routes.get('/institution', InstitutionController.index);
 routes.get('/institution', InstitutionController.get);
 routes.post('/institution', InstitutionController.store);
 routes.get('/institution/:id', InstitutionController.show);
@@ -59,7 +61,7 @@ routes.delete('/task/:id', TaskController.destroy);
 
 routes.get('/:idInst/classesInstitution', ClassesInstitutionController.index);
 routes.get('/:idInst/classInstitution', ClassesInstitutionController.get);
-routes.post('/:idInst/classInstitution', ClassesInstitutionController.store);
+routes.post('/classInstitution', ClassesInstitutionController.store);
 routes.get('/classInstitution/:id', ClassesInstitutionController.show);
 routes.put('/classInstitution/:id', ClassesInstitutionController.update);
 routes.delete('/classInstitution/:id', ClassesInstitutionController.destroy);
@@ -134,10 +136,18 @@ routes.post("/patrulhazika", PatrulhaZika.store);
 routes.put("/patrulhazika/:id", PatrulhaZika.update);
 routes.delete("/patrulhazika/:id", PatrulhaZika.destroy);
 
-routes.get("/school/", School.list);
-routes.post("/school", School.store);
-routes.put("/school/:id", School.update);
-routes.delete("/school/:id", School.destroy);
+routes.get("/tanquesjanelas/", TanquesJanelas.list);
+routes.get("/tanquesjanelas/:id", TanquesJanelas.show);
+routes.post("/tanquesjanelas", TanquesJanelas.store);
+routes.put("/tanquesjanelas/:id", TanquesJanelas.update);
+routes.delete("/tanquesjanelas/:id", TanquesJanelas.destroy);
+
+routes.get("/coletareciclagem/", ColetaReciclagem.list);
+routes.get("/coletareciclagem/:id", ColetaReciclagem.show);
+routes.post("/coletareciclagem", ColetaReciclagem.store);
+routes.put("/coletareciclagem/:id", ColetaReciclagem.update);
+routes.delete("/coletareciclagem/:id", ColetaReciclagem.destroy);
+
 
 
 module.exports = routes;

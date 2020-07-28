@@ -1,19 +1,20 @@
 const { Institution } = require('../models');
 
 class InstitutionController {
-  async index(req, res) {
+  async get(req, res) {
     try {
       const institutions = await Institution.findAll();
 
-      return res.render('institutions', { data: institutions })
+      //return res.render('institutions', { data: institutions })
+      return res.json(institutions)
     } catch (err) {
       return res.status(400).json({ error: err.message });
     }
   }
 
-  async get(req, res) {
+  /* async get(req, res) {
     return res.render('add_institution')
-  }
+  } */
 
   async show(req, res) {
     try {
