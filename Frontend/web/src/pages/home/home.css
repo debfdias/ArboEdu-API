@@ -1,23 +1,31 @@
-#home{
-    font-family: Arial, Helvetica, sans-serif;    columns: #000000;;
-    background: url('./fundo_home.png');
+#home {
+    font-family: Arial, Helvetica, sans-serif;
+    columns: #000000;
+    background: url('./assets/fundo_home.png');
     background-size: cover;
     background-repeat: no-repeat;
-    height :100vh;
+    height: 100vh;
 }
 
-#home-content{
-    margin-top: 10rem;
-    margin-left: 5rem;
-    width: 25rem;
-    height: 25rem;
+#home-content {
+    margin-top: 170px;
+    margin-left: 70px;
+    width: 400px;
 }
-#home-content h1{
+
+#home-content h1 {
     font-size: 4rem;
-    color: rgb(54,45,124);
+    color: rgb(54, 45, 124);
 }
 
-#home-content p{
+#home-content h2 {
+    font-size: 3rem;
+    color: rgb(54, 45, 124);
+}
+
+
+#home-content p {
     text-align: start;
-    color: rgb(168,168,168);
+    margin-left: 10px;
+    color: rgb(168, 168, 168);
 }

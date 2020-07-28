@@ -1,0 +1,54 @@
+#buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+#buttons Button {
+    margin-bottom: 10px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+#buttons Button.btn-primary {
+    background-color: #443B8A;
+    font-weight: bold;
+}
+
+#buttons Button.btn-secondary {
+    color: #A03254;
+    background-color: white;
+    border-color: #A03254;
+}
+
+#formBasicPassword {
+    border-radius: 0px;
+    border-width: 0 0 2px;
+}
+
+#formBasicEmail {
+    border-radius: 0px;
+    border-width: 0 0 2px;
+}
+
+.titleCadastro {
+    font-weight: bold;
+    color: rgb(54, 45, 124);
+}
+Button.signupButton{
+    border: 0;
+    padding:0;
+    background-color: transparent;
+    color: #0645AD 
+}
+Button.signupButton:hover{
+    border: 0;
+    padding:0;
+    background-color: transparent;
+    color: #0645AD 
+}
+Button.signupButton:enabled{
+    border: 0;
+    padding:0;
+    background-color: transparent;
+    color: #0645AD 
+}

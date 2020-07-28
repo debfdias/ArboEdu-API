@@ -1,0 +1,27 @@
+.error-message {
+    padding-left: 10px;
+    color: #e63946
+}
+
+.form-label {
+    color: #5e5e5e;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    outline: none;
+    outline-width: 0;
+    border-color: #443B8A;
+    box-shadow: 0 0 1px #443B8A;
+}
+
+.error.form-control {
+    border-color: #e63946;
+    color: #e63946
+}
+
+
+.error.custom-control {
+    border-color: #e63946;
+    color: #e63946
+}

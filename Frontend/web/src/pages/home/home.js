@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-
 import './home.css';
 import Header from './header.js'
-
+import Login from './login'
 export default class Home extends Component {
-    
     render() {
         switch (this.props.name) {
             case ("objetivos"):
@@ -19,7 +17,7 @@ export default class Home extends Component {
                 );
 
 
-                case ("equipe"):
+            case ("equipe"):
                 return (
                     <div id="home">
                         <Header />
@@ -29,7 +27,7 @@ export default class Home extends Component {
                         </div>
                     </div>
                 );
-                case ("pesquisa"):
+            case ("pesquisa"):
                 return (
                     <div id="home">
                         <Header />
@@ -40,7 +38,7 @@ export default class Home extends Component {
                     </div>
                 );
 
-                case ("atividades"):
+            case ("atividades"):
                 return (
                     <div id="home">
                         <Header />
@@ -50,7 +48,7 @@ export default class Home extends Component {
                         </div>
                     </div>
                 );
-                case ("contato"):
+            case ("contato"):
                 return (
                     <div id="home">
                         <Header />
@@ -60,20 +58,31 @@ export default class Home extends Component {
                         </div>
                     </div>
                 );
-                default:
-
-                    return (
-                        <div id="home">
-                            <Header />
-                            <div id="home-content">
-                                <h1>Bem-Vindo!</h1>
-                                <p>Este é um estudo piloto que faz parte de uma pesquisa sobre o uso
-                                de dispositivos móveis para execução de ações educativas visando à mudança
-                                de comportamento da população em relação à prevenção de arboviroses,
-                                como a Dengue, Zika e Chikungunya. </p>
-                            </div>
+            case ("login"):
+                return (
+                    <div id="home">
+                        <Header />
+                        <div id="home-content">
+                            <h2>Efetue seu login:</h2>
+                            <Login />
                         </div>
-                    );
+                    </div>
+                );
+            default:
+
+                return (
+                    <div id="home">
+                        <Header />
+                        <div id="home-content">
+                            <h1>Bem-Vindo!</h1>
+                            <p>Este é um estudo piloto que faz parte de uma pesquisa sobre o uso
+                            de dispositivos móveis para execução de ações educativas visando à mudança
+                            de comportamento da população em relação à prevenção de arboviroses,
+                            como a Dengue, Zika e Chikungunya.</p>
+                        </div>
+
+                    </div>
+                );
         }
     }
 }

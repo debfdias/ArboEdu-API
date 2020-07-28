@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-
-import Header from "./home/header";
-import api from "../services/api";
-
+import api from "../../services/api";
+import Cadastro from '../cadastro/novoCadastro'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-
-
+import Modal from 'react-bootstrap/Modal'
+import './login.css'
 export default class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = { email: 'gaqp@cin.ufpe.br', password: 'BATATA100', login: true };
+        this.state = { email: '', password: '', login: true, showCadastro: false };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.forgotPassword = this.forgotPassword.bind(this);
+        this.handleShow = this.handleShow.bind(this)
+        this.handleClose = this.handleClose.bind(this)
     }
     handleChange(event) {
         this.setState({ ...this.state, [event.target.type]: event.target.value });
@@ -38,29 +37,37 @@ export default class Login extends Component {
     forgotPassword(event) {
         this.setState({ login: !this.state.login });
     }
+    handleClose() {
+        this.setState({ showCadastro: false })
+    }
+    handleShow() {
+        this.setState({ showCadastro: true })
+    }
     render() {
 
 
         return (
             <React.Fragment>
-                <Header />
                 <Form onSubmit={this.handleSubmit} action="http://localhost:3001/signin" method="POST" >
                     <Form.Group controlId="formBasicEmail">
-                        <Form.Label>E-mail</Form.Label>
-                        <Form.Control type="email" placeholder="Digite seu e-mail" value={this.state.email} onChange={this.handleChange} name='email' />
+                        <Form.Control type="email" placeholder="Login" value={this.state.email} onChange={this.handleChange} name='email' />
                     </Form.Group>
 
                     {this.state.login && <div>
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Senha</Form.Label>
-                            <Form.Control type="password" placeholder="Insira a sua senha" value={this.state.password} onChange={this.handleChange} name='password' />
+                            <Form.Control type="password" placeholder="Senha" value={this.state.password} onChange={this.handleChange} name='password' />
                         </Form.Group>
                     </div>}
-                    <Button variant="primary" type="submit"> {this.state.login ? "Entrar" : "Enviar"}</Button>
-                    <Button variant="secondary" onClick={this.forgotPassword} >{this.state.login ? "Esqueceu sua senha?" : "Voltar a tela de Login"} </Button>
-
+                    <div id="buttons">
+                        <Button variant="primary" type="submit"> {this.state.login ? "ENTRAR" : "Enviar"}</Button>
+                        <Button variant="secondary" onClick={this.forgotPassword} >{this.state.login ? "Esqueceu sua senha?" : "Voltar a tela de login"} </Button>
+                    </div>
                 </Form>
-                <Link to='/cadastro'><p>Ainda não é cadastrado? clique aqui e cadastre-se</p></Link>
+
+                <p>Não possui conta? <Button className="signupButton" onClick={this.handleShow}>Cadastre-se</Button></p>
+                <Modal size="lg" show={this.state.showCadastro} onHide={this.handleClose}>
+                    <Modal.Body><Cadastro role="aluno" /></Modal.Body>
+                </Modal>
             </React.Fragment>
         );
     }
