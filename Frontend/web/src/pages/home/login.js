@@ -64,7 +64,7 @@ export default class Login extends Component {
                     </div>
                 </Form>
 
-                <p>Não possui conta? <Button className="signupButton" onClick={this.handleShow}>Cadastre-se</Button></p>
+                <p>Não possui conta? <Button className="signupButton" variant="link" onClick={this.handleShow}>Cadastre-se</Button></p>
                 <Modal size="lg" show={this.state.showCadastro} onHide={this.handleClose}>
                     <Modal.Body><Cadastro role="aluno" /></Modal.Body>
                 </Modal>

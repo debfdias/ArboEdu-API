@@ -14,10 +14,23 @@
     font-weight: bold;
 }
 
+#buttons Button.btn-primary:hover {
+    transition-duration: 0.5s;
+    background-color: #6d5fdb;
+
+}
+
 #buttons Button.btn-secondary {
     color: #A03254;
     background-color: white;
     border-color: #A03254;
+}
+
+#buttons Button.btn-secondary:hover {
+    transition-duration: 0.5s;
+    background-color: #A03254;
+    color:white
+
 }
 
 #formBasicPassword {
@@ -33,22 +46,4 @@
 .titleCadastro {
     font-weight: bold;
     color: rgb(54, 45, 124);
-}
-Button.signupButton{
-    border: 0;
-    padding:0;
-    background-color: transparent;
-    color: #0645AD 
-}
-Button.signupButton:hover{
-    border: 0;
-    padding:0;
-    background-color: transparent;
-    color: #0645AD 
-}
-Button.signupButton:enabled{
-    border: 0;
-    padding:0;
-    background-color: transparent;
-    color: #0645AD 
 }

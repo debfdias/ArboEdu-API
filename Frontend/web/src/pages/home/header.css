@@ -1,11 +1,4 @@
-div#home-header {
-    box-sizing: border-box;
-    width: 100%;
-    height: 80px;
-    font-weight: bolder;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+.navbar {
     background: url('./assets/background_nav.svg') no-repeat;
     background-size: cover;
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
@@ -13,24 +6,48 @@ div#home-header {
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-div#home-header img {
-    height: 80px;
-    margin-right: auto;
-    padding: 10px
+.navbar-brand img {
+    padding: 5px;
 }
-div#home-header a {
+
+.nav-item {
+    align-self: center;
+}
+
+.navbar a {
     margin-left: 16px;
     margin-right: 16px;
-    margin-top: 16px;
-    margin-bottom: 16px;
     color: #fafafa;
     text-decoration: none;
     font-size: 1.5rem;
     text-align: center;
+    font-weight: lighter;
+
 }
-@media only screen and (max-width: 792px) {
-    div#home-header a {
-        visibility: hidden;
-        overflow: hidden;
-    }
+
+.navbar a:hover {
+    color: #bdbdbd;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+
+.navbar Button.siginButton {
+
+    background-color: #443B8A;
+    font-size: large;
+    border-width: 0;
+    border-radius: 50px;
+    width: 140px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.navbar Button.siginButton:hover {
+    transition-duration: 0.5s;
+    background-color: #6d5fdb;
+
+}
+
+.navbar Button {
+    color: white
 }
