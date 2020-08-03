@@ -29,8 +29,7 @@
 #buttons Button.btn-secondary:hover {
     transition-duration: 0.5s;
     background-color: #A03254;
-    color:white
-
+    color: white
 }
 
 #formBasicPassword {
@@ -41,6 +40,18 @@
 #formBasicEmail {
     border-radius: 0px;
     border-width: 0 0 2px;
+}
+
+#formBasicEmail:focus {
+    box-shadow: none;
+    border-color: rgb(54, 45, 124);
+    
+}
+
+#formBasicPassword:focus {
+    box-shadow: none;
+    border-color: rgb(54, 45, 124);
+
 }
 
 .titleCadastro {

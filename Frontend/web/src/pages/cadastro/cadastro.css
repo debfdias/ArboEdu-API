@@ -1,18 +1,13 @@
 .error-message {
     padding-left: 10px;
+    font-size: smaller;
     color: #e63946
 }
 
 .form-label {
     color: #5e5e5e;
+    font-weight: 200;
     font-size: 1rem;
-}
-
-.form-control:focus {
-    outline: none;
-    outline-width: 0;
-    border-color: #443B8A;
-    box-shadow: 0 0 1px #443B8A;
 }
 
 .error.form-control {
@@ -20,8 +15,62 @@
     color: #e63946
 }
 
+div#formRoleNextRow {
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+button.cadButton {
+    background-color: rgb(54, 45, 124);
+}
+button.cadButton:hover {
+    transition-duration: 0.5s;
+    background-color: #6d5fdb;
+}
+
+form.formCadastro div input {
+    border-radius: 10px;
+}
+
+form.formCadastro div input:focus {
+    box-shadow: none;
+    border-color: rgb(54, 45, 124);
+}
+
+form.formCadastro div select:focus {
+    box-shadow: none;
+    border-color: rgb(54, 45, 124);
+}
+
+form.formRole div select:focus {
+    box-shadow: none;
+    border-color: rgb(54, 45, 124);
+}
 
 .error.custom-control {
     border-color: #e63946;
     color: #e63946
+}
+
+span#cadTitle {
+    font-weight: 400;
+    color: rgb(54, 45, 124)
+}
+
+span#cadDivisor {
+    font-size: xx-large;
+    font-weight: lighter;
+    color: rgb(173, 171, 172)
+}
+
+span#cadDescription {
+    font-size: large;
+    font-weight: 400;
+    color: rgb(173, 171, 172)
+}
+
+div#cadButtons {
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
 }

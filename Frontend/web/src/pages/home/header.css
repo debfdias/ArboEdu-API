@@ -1,6 +1,7 @@
 .navbar {
-    background: url('./assets/background_nav.svg') no-repeat;
+    background: url('./assets/background_nav.svg');
     background-size: cover;
+    background-color: #086252;
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
@@ -8,6 +9,7 @@
 
 .navbar-brand img {
     padding: 5px;
+    height: 60px;
 }
 
 .nav-item {
@@ -16,10 +18,10 @@
 
 .navbar a {
     margin-left: 16px;
-    margin-right: 16px;
+    margin-right: 32px;
     color: #fafafa;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-align: center;
     font-weight: lighter;
 
