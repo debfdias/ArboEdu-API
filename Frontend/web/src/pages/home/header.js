@@ -8,7 +8,7 @@ import "./header.css";
 
 const Header = () => {
   return (
-    <Navbar  collapseOnSelect expand="lg" >
+    <Navbar  collapseOnSelect expand="xl" >
       <Navbar.Brand>
         <img src={Logo} alt="logotipo" />
       </Navbar.Brand>
