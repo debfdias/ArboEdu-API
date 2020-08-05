@@ -18,7 +18,7 @@ export default class AppBody extends Component {
                 <AppHeader />
                 <div id="body">
                     <Sidebar type={this.state.perfil}/>
-                    
+
                 </div>
 
             </div>

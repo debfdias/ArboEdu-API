@@ -8,20 +8,20 @@ import "./header.css";
 
 const Header = () => {
   return (
-    <Navbar  collapseOnSelect expand="xl" >
+    <Navbar collapseOnSelect={true} expand="xl" >
       <Navbar.Brand>
         <img src={Logo} alt="logotipo" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse  className="justify-content-end" >
+      <Navbar.Collapse className="justify-content-end" >
         <Nav>
-          <Nav.Item><Link to="/" >  Home </Link></Nav.Item>
-          <Nav.Item><Link to="/objetivos" >Objetivos </Link></Nav.Item>
-          <Nav.Item><Link to="/equipe" >Equipe </Link></Nav.Item>
-          <Nav.Item><Link to="/Pesquisa" > Pesquisas </Link></Nav.Item>
-          <Nav.Item><Link to="/atividades" > Atividades </Link></Nav.Item>
-          <Nav.Item><Link to="/Contato" > Contato </Link></Nav.Item>
-          <Nav.Item><Link to="/login" >  <Button className="siginButton" variant="primary" > Entrar </Button></Link></Nav.Item>
+          <Nav.Link href="#"><Link to="/" >  Home </Link></Nav.Link>
+          <Nav.Link href="#"><Link to="/objetivos" >Objetivos </Link></Nav.Link>
+          <Nav.Link href="#"><Link to="/equipe" >Equipe </Link></Nav.Link>
+          <Nav.Link href="#"><Link to="/Pesquisa" > Pesquisas </Link></Nav.Link>
+          <Nav.Link href="#"><Link to="/atividades" > Atividades </Link></Nav.Link>
+          <Nav.Link href="#"><Link to="/Contato" > Contato </Link></Nav.Link>
+          <Nav.Link href="#"><Link to="/login" >  <Button className="siginButton" variant="primary" > Entrar </Button></Link></Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
