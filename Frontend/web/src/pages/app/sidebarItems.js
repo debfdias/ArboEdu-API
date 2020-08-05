@@ -1,80 +1,89 @@
 import addComponent from './boxes/addComponent'
 import editComponent from './boxes/editComponent'
+import adminIcon from './assets/adminIcon.svg';
+import adicionar from './assets/adicionar.svg';
+import editar from './assets/editar.svg';
+import visto from './assets/visto.svg';
+import notification from './assets/notification.svg';
+import bar_chart from './assets/bar_chart.svg';
+import indicators from './assets/indicators.svg';
+import professor from './assets/professor.svg';
+import jovemAce from './assets/jovemAce.svg';
 
 const sidebarItems = {
     "admin": {
         "name": "Administrador",
-        "logo": "./assets/adminIcon.svg",
+        "logo": adminIcon,
         "items": [
             {
                 "name": "Adicionar Componentes",
-                "logo": "./assets/adicionar.svg",
+                "logo": adicionar,
                 "component": addComponent
             },
             {
                 "name": "Editar Componentes",
-                "logo": "./assets/editar.svg",
+                "logo": editar,
                 "component": editComponent
             },
             {
                 "name": "Aprovar Atividades",
-                "logo": "./assets/visto.svg"
+                "logo": visto
             },
             {
                 "name": "Notificações",
-                "logo": "./assets/notification.svg"
+                "logo": notification
             },
             {
                 "name": "Consultar Ranking",
-                "logo": "./assets/bar-chart.svg"
+                "logo": bar_chart
             },
             {
                 "name": "Consultar Indicadores",
-                "logo": "./assets/indicators.svg"
+                "logo": indicators
             }
         ]
     },
     "teacher": {
         "name": "Professor",
-        "logo": "./assets/professor.svg",
+        "logo": professor,
         "items": [
             {
                 "name": "Acompanhamento",
-                "logo": "./assets/adicionar.svg"
+                "logo": adicionar
             },
             {
                 "name": "Aprovar Atividades",
-                "logo": "./assets/editar.svg"
+                "logo": visto
             },
             {
                 "name": "Notificações",
-                "logo": "./assets/notification.svg"
+                "logo": notification
             },
             {
                 "name": "Consultar Ranking",
-                "logo": "./assets/bar-chart.svg"
+                "logo": bar_chart
             },
             {
                 "name": "Consultar Indicadores",
-                "logo": "./assets/indicators.svg"
+                "logo": indicators
             }
         ]
     },
     "ace":{
         "name": "Jovem ACE",
-        "logo": "./assets/jovemAce.svg",
+        "logo": jovemAce,
         "items":[
             {
                 "name":"Notificações",
-                "logo": "./assets/notification.svg"
+                "logo": notification
             },
             {
                 "name": "Consultar Ranking",
-                "logo": "./assets/bar-chart.svg"
+                "logo": bar_chart
             },
             {
                 "name": "Consultar Indicadores",
-                "logo": "./assets/indicators.svg"
+                "logo": indicators
             }
         ]
     }

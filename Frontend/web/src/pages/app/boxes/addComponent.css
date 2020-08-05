@@ -9,6 +9,7 @@ h1#addBlockTitle{
     color: rgb(68,151,134);
     width: 90%;
     margin-left: 35px;
+    margin-bottom: 35px;
 }
 div#addBlock{
     display: inline-flex;
@@ -22,8 +23,8 @@ div#addBlock{
     display: inline-flex;
     border-radius: 0;
     align-content: center;
-    height: 200px;
-    width: 175px;
+    height: 250px;
+    width: 215px;
     margin-left: 35px;
 }
 div#addBlock button{
@@ -40,8 +41,8 @@ div#addBlock button:hover{
 
 }
 div #addBlock img{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     padding: 20px;
 }
 div#addBlock p{
