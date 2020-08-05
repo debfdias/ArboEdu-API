@@ -210,7 +210,7 @@ export default class Cadastro extends Component {
                             // When button submits form and form is in the process of submitting, submit button is disabled
                             setSubmitting(true);
                             let user;
-                            if (values.role === ("pesquisador" || "profissional_saude" || "profissional_educacao")) {
+                            if (values.role === "pesquisador" ||  values.role === "profissional_saude" || values.role === "profissional_educacao") {
                                 user = {
                                     name: values.nome,
                                     phone: values.phone.replace(/\D/g, ''),
@@ -224,7 +224,7 @@ export default class Cadastro extends Component {
                                     }
                                 }
                             }
-                            else if (values.role === ("diretor" || "administrador" || "professor")) {
+                            else if (values.role === "diretor" || values.role ===  "administrador" || values.role ===  "professor") {
                                 user = {
                                     name: values.nome,
                                     phone: values.phone.replace(/\D/g, ''),
@@ -272,10 +272,14 @@ export default class Cadastro extends Component {
                                 }
                             }
                             console.log(user)
-                            await api.post("/user", user).then((response) => { console.log(response) })
+                            await api.post("/user", user).then((response) => {
+                                 console.log(response) 
+                                 setSubmitting(false);
+                                 this.setState({ step: 2 })
+                                }
+                            ).catch((err) => {console.log(err.data)})
                             // Sets setSubmitting to false after form is reset
-                            setSubmitting(false);
-                            this.setState({ step: 2 })
+
                         }}
 
                     >
@@ -363,6 +367,7 @@ export default class Cadastro extends Component {
                                     {(this.state.role === "pesquisador"
                                         || this.state.role === "profissional_saude"
                                         || this.state.role === "profissional_educacao"
+                                        || this.state.role === "diretor"
                                     ) &&
                                         <Form.Group controlId="formInstitution">
                                             <Form.Label>Instituição</Form.Label>
