@@ -1,7 +1,7 @@
 #sidebar{
     z-index: 5;  
-    height: 100%;
-    width: 400px;
+    width: 440px;
+    height: 100vh;
     box-sizing: border-box;
     background-color: rgb(246,245,245);
     display: flex;

@@ -4,7 +4,7 @@
         "logo": "./assets/adminIcon.svg",
         "items": [
             {
-                "name": "Adicionar Componentes",
+                "name": "Adicionarar Componentes",
                 "logo": "./assets/adicionar.svg"
             },
             {
