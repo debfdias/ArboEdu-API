@@ -1,4 +1,4 @@
-.navbar {
+#homeNavbar.navbar {
     background: url('./assets/background_nav.svg');
     background-size: cover;
     background-color: #086252;
@@ -7,18 +7,17 @@
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.navbar-brand img {
+#homeNavbar .navbar-brand img {
     padding: 5px;
     height: 60px;
 }
 
-.nav-item {
+#homeNavbar .nav-item {
     align-self: center;
 }
 
-.navbar a {
+#homeNavbar.navbar a {
     margin-left: 20px;
-
     color: #fafafa;
     text-decoration: none;
     font-size: 1.8rem;
@@ -27,13 +26,13 @@
 
 }
 
-.navbar a:hover {
+#homeNavbar.navbar a:hover {
     color: #bdbdbd;
     text-decoration: none;
     transition-duration: 0.5s;
 }
 
-.navbar Button.siginButton {
+#homeNavbar.navbar Button.siginButton {
 
     background-color: #443B8A;
     font-size: large;
@@ -44,12 +43,12 @@
     font-weight: bold;
 }
 
-.navbar Button.siginButton:hover {
+#homeNavbar.navbar Button.siginButton:hover {
     transition-duration: 0.5s;
     background-color: #6d5fdb;
 
 }
 
-.navbar Button {
+#homeNavbar.navbar Button {
     color: white
 }

@@ -1,36 +1,38 @@
-#appHeader{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 10vh;
-    background-color: rgb(239, 239, 239); 
-    padding: 16px;
-    -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
-    font-size: large;
-    position: relative;
-    z-index:10;
+#appNavbar.navbar {
+    background-size: cover;
+    background-color: rgb(239, 239, 239);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-
-#appHeader a:link{
-    color:gray;
-}
-#appHeader a:visited{
-    color: gray;
-}
-#appHeader a:hover {
-    color: black;
-  }
-#icon{
-    margin-left: 16px;
-    margin-right: 32px;
+#appNavbar.navbar #icon {
     width: 250px;
 }
-.circular--square {
-    border: solid rgb(55, 117, 105);
-    border-radius: 50%;
+
+#appNavbar.navbar .nav-link {
+    align-self: center;
+    color: gray;
+    font-size: 1.5rem;
+}
+
+#appNavbar.navbar .nav-link.active {
+    color: black;
+}
+
+#appNavbar.navbar .nav-link:hover {
+    color: black;
+}
+
+.profilePicDiv {
+    align-self: center;
+    width: 50px;
     height: 50px;
-    margin-right: 20px;
+    border-radius: 50%;
+    border: solid rgb(55, 117, 105);
+
+}
+
+.profilePicDiv img {
+    width: 100%;
 }

@@ -8,13 +8,13 @@ import "./header.css";
 
 const Header = () => {
   return (
-    <Navbar collapseOnSelect={true} expand="xl" >
+    <Navbar id="homeNavbar" expand="xl" >
       <Navbar.Brand>
         <img src={Logo} alt="logotipo" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse className="justify-content-end" >
-        <Nav>
+      <Navbar.Collapse id="basic-navbar-nav" >
+        <Nav className="ml-auto">
           <Nav.Item><Link to="" > Home </Link></Nav.Item>
           <Nav.Item><Link to="/objetivos">Objetivos </Link></Nav.Item>
           <Nav.Item><Link to="/equipe"> Equipe </Link></Nav.Item>
