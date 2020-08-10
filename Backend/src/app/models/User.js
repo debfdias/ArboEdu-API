@@ -45,6 +45,9 @@ module.exports = (sequelize, DataTypes) => {
     confirmEmailToken: {
       type: DataTypes.STRING
     },
+    lastCookie: {
+      type: DataTypes.STRING
+    },
     createdAt: {
          field: 'created_at',
          type: DataTypes.DATE,

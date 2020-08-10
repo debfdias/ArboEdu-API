@@ -212,6 +212,19 @@ class UserController {
       }
     })
   }
+
+  async testCookies(req, res){
+    console.log("Entered test function");
+    if(!req.session.passport){
+      console.log("Cookies não detectados");
+    }else{
+      console.log(req.session.passport.user.role);
+      console.log('==============================');
+      console.log(req.headers.cookie);
+    }
+    return res.json('OK')
+  }
+  
 }
 
 async function confirmEmail(user, req){
@@ -244,5 +257,6 @@ async function confirmEmail(user, req){
     }
   });
 }
+
 
 module.exports = new UserController();

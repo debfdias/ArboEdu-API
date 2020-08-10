@@ -54,6 +54,17 @@ module.exports = {
       allowNull: true,
       type: Sequelize.TEXT
     },
+    lastCookie:{
+      type:Sequelize.TEXT,
+      allowNull: true
+    },
+    avatar_id: {
+      type: Sequelize.INTEGER,
+      references: { model: 'files', key: 'id' },
+      onUpdate: 'CASCADE',
+      onDelete: 'SET NULL',
+      allowNull: true,
+    },
     created_at: {
       allowNull: false,
       type: Sequelize.DATE,

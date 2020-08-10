@@ -37,13 +37,14 @@ routes.delete('/user/:id', UserController.destroy);
 routes.post('/user/passwordRecovery', UserController.passwordRecover);
 routes.get('/user/:id/reset/:token', UserController.resetPassword);
 routes.get('/user/:id/confirmEmail/:token', UserController.confirmEmail);
+routes.get('/userTest/cookies', UserController.testCookies);
 const passport = require('passport');
 const logout = require('./app/controllers/passport')
 
 routes.post('/signin', passport.authenticate('local-signin', {
     //TODO mudar esses redirects para o front end
-    successRedirect: 'http://localhost:4000/app',
-    failureRedirect: 'http://localhost:4000/login'
+    successRedirect: 'http://localhost:3000/app',
+    failureRedirect: 'http://localhost:3000/login'
 }));
 routes.get('/logout', logout.logout)
 
@@ -90,6 +91,7 @@ routes.get('/administrador', AdministratorController.list);
 routes.post('/administrador', AdministratorController.store);
 routes.put('/administrador/:id', AdministratorController.update);
 routes.delete('/administrador/:id', AdministratorController.destroy);
+
 
 routes.get('/jovem_ace', Jovem_ACE.list);
 routes.post('/jovem_ace', Jovem_ACE.store);
