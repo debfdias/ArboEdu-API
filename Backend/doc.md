@@ -106,6 +106,14 @@ Um login bem sucedido redireciona para /users (temporariamente)
 
 Um login mal sucedido, seja por email não encontrado ou senha errada redireciona para /
 
+É possível fazer login apenas com cookie. Uma requisição para /login com o cookie inexistente ou expirado automaticamente faz com que a API tente fazer login com email e senha. Ou seja, existem 3 opções para login:
+
+* Apenas cookie: Se o cookie estiver válido, login bem sucedido. Se o cookie não existir ou estiver expirado, a API tenta fazer login com email e senha. Se apenas o cookie for enviado e estiver inválido ou inexistente, a API retorna erro.
+
+* Apenas email e senha: Login comum, como já era feito antes.
+
+* Cookie, email e senha: Se ambas as informações forem enviadas pra API, o login é feito com o cookie. Se o cookie estiver inválido/inexistente, a API fallbacks para email e senha.
+
 ### Cadastro
 
 O JSON de cadastro se encontra acima. Essa seção é só para erros.
