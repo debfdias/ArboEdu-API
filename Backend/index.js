@@ -58,13 +58,15 @@ app.use(routes);
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-app.use(express.static(path.join(__dirname, 'public')));
+/* app.use(express.static(path.join(__dirname, 'public')));
   app.get('/', (req, res) => {
     res.send('API ArboEdu!');
-});
+}); */
+app.use(express.static('build'))
 
-app.listen(3001, () => {
-  console.log('API rodando na porta 3001!')
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => {
+  console.log(`API rodando na porta ${PORT}`)
 })
 
 
