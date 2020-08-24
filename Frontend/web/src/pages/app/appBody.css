@@ -5,10 +5,6 @@
     background-size: 20%;
     box-sizing: border-box;
 }
-#appHeader{
-    height: 10%;
-}
-
 #body{
     display: inline-flex;
     width: 100%;
@@ -58,9 +54,8 @@ li.disabled img{
 
 #welcomeBox{
     margin-top: 60px;
-    margin-left: 60px;
-    width:  700px;
-
+    margin-left: 3%;
+    max-width:  700px;
 }
 
 
@@ -73,6 +68,6 @@ li.disabled img{
 
 #welcomeBox p{
     font-size: 1.2rem;
-    width: 400px;
+    max-width: 400px;
 }
 

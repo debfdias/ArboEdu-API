@@ -1,38 +1,43 @@
 #appNavbar.navbar {
-    background-size: cover;
-    background-color: rgb(239, 239, 239);
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  background-size: cover;
+  background-color: rgb(239, 239, 239);
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  z-index: 9999;
+  min-height: 10vh;
 }
 
 #appNavbar.navbar #icon {
-    width: 250px;
+  width: 250px;
 }
-
+@media only screen and (max-width: 320px) {
+  #appNavbar.navbar #icon {
+    width: 216px;
+  }
+}
 #appNavbar.navbar .nav-link {
-    align-self: center;
-    color: gray;
-    font-size: 1.5rem;
+  align-self: center;
+  color: gray;
+  font-size: 1.5rem;
 }
 
 #appNavbar.navbar .nav-link.active {
-    color: black;
+  color: black;
 }
 
 #appNavbar.navbar .nav-link:hover {
-    color: black;
+  color: black;
 }
 
 .profilePicDiv {
-    align-self: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: solid rgb(55, 117, 105);
-
+  align-self: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid rgb(55, 117, 105);
 }
 
 .profilePicDiv img {
-    width: 100%;
+  width: 100%;
 }

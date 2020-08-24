@@ -31,7 +31,7 @@ export default class AppHeader extends Component {
                         <Nav.Link href="#historico">Histórico</Nav.Link>
                         <Nav.Link href="#resultados">Resultados</Nav.Link>
                         <Nav.Link href="#preferencias">Preferências</Nav.Link>
-                        <Nav.Link href="#sair" onClick={this.logout}>Sair</Nav.Link>
+                        <Nav.Link onClick={this.logout}>Sair</Nav.Link>
                         <Nav.Item className="profilePicDiv">
                             <img src={!this.state.profilepic ? UserIcon : this.state.profilepic} alt="Ícone de usuário" />
                         </Nav.Item>
