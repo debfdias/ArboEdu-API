@@ -24,6 +24,10 @@ module.exports = (sequelize, DataTypes) => {
       justificativa_C: DataTypes.STRING,
       justificativa_D: DataTypes.STRING,
       justificativa_E: DataTypes.STRING,
+      themes: DataTypes.STRING,
+      abilities: DataTypes.STRING,
+      BNCC: DataTypes.STRING,
+      expected_behavior: DataTypes.STRING,
       createdAt: {
            field: 'created_at',
            type: DataTypes.DATE,

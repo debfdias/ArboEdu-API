@@ -40,6 +40,22 @@ module.exports = {
       allowNull: false,
       type: Sequelize.STRING
     },
+    themes:{
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    abilities: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    BNCC: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    expected_behavior: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
     created_at: {
       allowNull: false,
       type: Sequelize.DATE,
