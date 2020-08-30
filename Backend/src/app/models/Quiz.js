@@ -3,6 +3,8 @@ module.exports = (sequelize, DataTypes) => {
       nome: DataTypes.STRING,
       deadline: DataTypes.DATE,
       list_questions: DataTypes.JSON,
+      type: DataTypes.STRING,
+      description: DataTypes.STRING,
       createdAt: {
            field: 'created_at',
            type: DataTypes.DATE,

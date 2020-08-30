@@ -20,6 +20,15 @@ module.exports = {
       allowNull: false,
       type: Sequelize.JSON
     },
+    type:{
+      allowNull: false,
+      type: Sequelize.STRING,
+      isIn: [['pré', 'pós']]
+    },
+    description:{
+      allowNull: false,
+      type: Sequelize.STRING
+    },
     created_at: {
       allowNull: false,
       type: Sequelize.DATE,
