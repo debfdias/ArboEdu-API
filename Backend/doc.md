@@ -181,11 +181,13 @@ O JSON para criar ou editar um quiz é:
 {
     "nome":"EXEMPLO",
     "deadline":"YYYY-MM-DD",
-    "list_questions":[1, 2, 3, 4]
+    "list_questions":[1, 2, 3, 4],
+    "type": "pré",
+    "description": "alguma coisa"
 }
 ```
 A URL é /quiz
-
+O parâmetro type tem 2 valores: pré e pós. Pré quiz é para avaliar os conhecimentos de um aluno antes de algum evento, uma aula por exemplo, pós é para avaliar o conhecimento após dado evento.
 Os métodos e códigos de erro são bem padrões. GET, STORE, DELETE. 200, 400, etc.
 
 ## Questions
@@ -200,7 +202,12 @@ O JSON para registrar uma questão é:
     "justificativa_B":"weio",
     "justificativa_C":"nwenfiw",
     "justificativa_D":"fewuifbi",
-    "justificativa_E":"nufeiub"
+    "justificativa_E":"nufeiub",
+    "themes": "ecologia",
+    "abilities": "Diferenciar o Aedes aegypti dos demais mosquitos",
+    "BNCC": "conhecimento, pensamento cientifico",
+    "expected_behavior": "O aluno deve conseguir diferenciar o Aedes aegypti dos demais mosquitos"
+
 }
 ```
 
