@@ -1,10 +1,48 @@
 const { Student } = require('../models');
+const { Op } = require("sequelize");
+
 class StudentController {
   async list(req, res) {
+
+  	const { page, q } = req.query;
     try {
       const students = await Student.findAll();
       return res.json(students);
       //return res.render('students', { data: students })
+
+      if (q || page) {
+	      if (!page) {
+	        const students = await Student.findAll({
+	          where: {
+	            name : {
+	              [Op.iLike]: `%${q}%`
+	            }
+	          },
+	          order: ['id']
+	        });
+
+	        return res.json(students);
+	      }
+
+	      const { count, rows: students } = await Student.findAndCountAll({
+	        where: {
+	          name : {
+	            [Op.iLike]: `%${q}%`
+	          }
+	        },
+	        order: ['id'],
+	        limit: 7,
+	        offset: (page - 1) * 7
+	      });
+
+	      return res.json({ students, count });
+      }
+      
+	    const students = await Student.findAll({
+	      order: ['id'],
+	    });
+
+	    return res.json(students);
     } catch (err) {
       return res.status(400).json({ error: err.message });
     }
